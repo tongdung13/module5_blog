@@ -26,4 +26,10 @@ class BlogController extends Controller
         $blogs -> save ();
         return response() ->json($blogs);
     }
+
+    public function delete ($id) {
+        $blogs = Blog::findOrFail($id);
+        $blogs-> delete();
+        return response() ->json($blogs);
+    }
 }
