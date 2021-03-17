@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
@@ -79,5 +81,43 @@ class UserController extends Controller
             'expires_in' => Auth::factory()->getTTL() * 60,
             'user' => Auth::user()
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        return response()->json($user);
+    }
+
+    public function show($id){
+        $user = User::find($id);
+        return response()->json($user);
+    }
+
+    public function changePass(Request $request, $id)
+    {
+        $user = User::find($id);
+        $password = $user->password;
+        $currentPassword = Hash::check($request->password, $password);
+        $newPassword = $request->newPassword === $request->newPasswordConfirm;
+
+        if ($currentPassword) {
+            if ($newPassword) {
+                $user->password = Hash::make($request->newPassword);
+                $user->save();
+                return response()->json('Đổi mật khẩu thành công');
+            } else {
+                return response()->json('Nhập mật khẩu không đúng', 401);
+            }
+        }
+        return response()->json('Mật khẩu hiện tại không chính xác', 400);
+    }
+
+    public function getUserInfo(Request $request)
+    {
+        $user = JWTAuth::toUser($request->token);
+        return response()->json(['result' => $user]);
     }
 }
