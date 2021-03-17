@@ -19,4 +19,11 @@ class BlogController extends Controller
         $blogs ->save();
         return response()-> json($blogs);
     }
+
+    public function update (Request $request, $id) {
+        $blogs = Blog::findOrFail($id);
+        $blogs -> fill($request->all());
+        $blogs -> save ();
+        return response() ->json($blogs);
+    }
 }
