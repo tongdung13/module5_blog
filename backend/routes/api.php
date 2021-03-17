@@ -31,5 +31,6 @@ Route::group([
 
 Route::prefix('blog')->group(function () {
     Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
-    Route::post('',[\App\Http\Controllers\BlogController::class ,'store']);
+    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
 });
+
