@@ -26,3 +26,7 @@ Route::group([
     Route::post('login', [UserController::class, 'login']);
 });
 
+Route::prefix('blog')->group(function () {
+    Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
+    Route::post('',[\App\Http\Controllers\BlogController::class ,'store']);
+});
