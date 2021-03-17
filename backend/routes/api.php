@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -38,5 +39,5 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::prefix(['middleware' => ['jwt']], function () {
-    
+    Route::post('', [BlogController::class, 'store']);
 });
