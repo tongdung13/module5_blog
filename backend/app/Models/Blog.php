@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
+
+    protected $table = 'blogs';
+    protected $fillable = [
+        'title',
+        'content',
+        'image',
+        'user_id'
+    ];
+
+    public function users () {
+        return $this->belongsTo('App\Models\User');
+    }
 }
