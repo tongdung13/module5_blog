@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::group([
     Route::post('register', [UserController::class, 'register']);
     Route::post('logout', [UserController::class, 'logout']);
     Route::get('user-profile', [UserController::class, 'user']);
+    Route::post('signin', [LoginController::class, 'login']);
 });
 
 Route::prefix('blog')->group(function () {
@@ -34,3 +36,6 @@ Route::prefix('blog')->group(function () {
     Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
 });
 
+Route::prefix(['middleware' => ['jwt']], function () {
+    
+});
