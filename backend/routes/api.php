@@ -39,5 +39,7 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::prefix(['middleware' => ['jwt']], function () {
+    
     Route::post('', [BlogController::class, 'store']);
+
 });
