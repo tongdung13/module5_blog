@@ -13,7 +13,10 @@ class BlogController extends Controller
         return response()->json($blogs);
     }
 
-    public function store (){
-
+    public function store (Request $request){
+        $blogs = new Blog();
+        $blogs -> fill($request->all());
+        $blogs ->save();
+        return response()-> json($blogs);
     }
 }
