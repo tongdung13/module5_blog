@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.jwtService.logIn(this.signinForm.value).subscribe(
+    this.jwtService.signIn(this.signinForm.value).subscribe(
       (data: { token: string; }) => {
         localStorage.setItem('AccessToken', data.token);
         this.router.navigate(['/admin']);

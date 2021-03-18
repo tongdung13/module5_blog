@@ -32,4 +32,10 @@ class BlogController extends Controller
         $blogs-> delete();
         return response() ->json($blogs);
     }
+
+    public function show($id)
+    {
+        $blog = Blog::find($id);
+        return response()->json($blog);
+    }
 }

@@ -31,7 +31,7 @@ export class JwtService {
     return this.http.post('http://127.0.0.1:8000/api/auth/register', user);
   }
   logIn(user: User): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8001/api/auth/login', user);
+    return this.http.post<any>('http://127.0.0.1:8000/api/auth/login', user);
   }
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
@@ -45,5 +45,9 @@ export class JwtService {
   // tslint:disable-next-line:typedef
   updatePassword(data: any) {
     return this.http.post('http://127.0.0.1:8000/api/auth/update-password', data);
+  }
+
+  signIn(user: User): Observable<any> {
+    return this.http.post('http://localhost:8000/api/auth/signin', user);
   }
 }
