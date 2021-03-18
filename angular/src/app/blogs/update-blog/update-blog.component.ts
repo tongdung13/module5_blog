@@ -48,12 +48,7 @@ export class UpdateBlogComponent implements OnInit {
       content: ['', [Validators.required]],
     });
     console.log(this.blogForm);
-    
-  }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã cập nhập thành công");
   }
 
   editBlog()
@@ -63,7 +58,11 @@ export class UpdateBlogComponent implements OnInit {
       data => {
         console.log(data);
         this.router.navigate(['blog']);
-      }, error => console.log(error)
+        this.toastrService.showSuccess("Bạn đã cập nhập thành công");
+      }, error => {
+        console.log(error)
+        this.toastrService.showSuccess("Bạn đã cập nhập thất bại")
+      }
     )
   }
 

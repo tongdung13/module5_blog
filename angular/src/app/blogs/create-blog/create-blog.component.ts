@@ -39,11 +39,6 @@ export class CreateBlogComponent implements OnInit {
     console.log(this.blogForm);
   }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã đăng bài thành công");
-  }
-
   // tslint:disable-next-line:typedef
   createBlog()
   {
@@ -54,7 +49,11 @@ export class CreateBlogComponent implements OnInit {
         console.log(data);
         this.router.navigate(['blog']);
         this.blog = new Blog();
-      }, error => console.log(error)
+        this.toastrService.showSuccess("Bạn đã đăng bài thành công");
+      }, error => {
+        console.log(error)
+        this.toastrService.showSuccess("Bạn đã đăng bài thất bại");
+      }
     );
   }
 
