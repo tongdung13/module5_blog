@@ -18,15 +18,8 @@ export class BlogService {
   }
 
   create(data: any){
-    var auth_token = localStorage.getItem('AccessToken');
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin' :'*',
-      'Access-Control-Allow-Methods' :'GET,POST,OPTIONS,DELETE,PUT',
-      // cu phap co dau cach dang sau Bearer
-      'Authorization': 'Bearer ' + auth_token
-    });
-    return this.http.post(`${this.baseUrl}/store`, data ,{headers:reqHeader});
+    
+    return this.http.post(`${this.baseUrl}/store`, data);
   }
 
   edit(id: number ,data: any)

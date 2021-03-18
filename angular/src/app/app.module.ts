@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './homes/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     DetailsComponent,
     AdminLayoutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

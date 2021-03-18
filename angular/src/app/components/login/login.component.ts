@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
-        if(res.error) {
-            this.errors = res.message
+        if (res.error) {
+            this.errors = res.message;
         } else {
-          console.log(res)
-          
-          this.router.navigate(['admin'])
+          console.log(res);
+
+          this.router.navigate(['/blog']);
         }
     }
     );
