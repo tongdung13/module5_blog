@@ -28,20 +28,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
-  }
-
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
         if (res.error) {
             this.errors = res.message;
+            this.toastrService.showSuccess("Bạn đã đăng nhập thất bại");
         } else {
           console.log(res);
-
+          this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
           this.router.navigate(['/blog']);
         }
     }
