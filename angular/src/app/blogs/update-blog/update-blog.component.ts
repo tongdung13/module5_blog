@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BlogService } from '../blog.service';
 import { Blog } from '../blog';
 import { finalize } from 'rxjs/operators';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-update-blog',
@@ -27,7 +28,8 @@ export class UpdateBlogComponent implements OnInit {
     private service: BlogService,
     private fb: FormBuilder,
     private storage: AngularFireStorage,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastrService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,11 @@ export class UpdateBlogComponent implements OnInit {
     });
     console.log(this.blogForm);
     
+  }
+
+  showToastrSuccess()
+  {
+    this.toastrService.showSuccess("Bạn đã cập nhập thành công");
   }
 
   editBlog()

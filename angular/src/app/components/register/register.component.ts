@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import { NotificationService } from 'src/app/service/notification.service';
 import {JwtService} from '../jwt.service';
 
 
@@ -10,6 +11,7 @@ import {JwtService} from '../jwt.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   signupForm: any = FormGroup;
   err: any = null;
   isSuccessfull = false;
@@ -17,7 +19,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public router: Router,
-    public jwtService: JwtService
+    public jwtService: JwtService,
+    private toastrService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,12 @@ export class RegisterComponent implements OnInit {
     });
     console.log(this.signupForm);
   }
+
+  showToastrSuccess()
+  {
+    this.toastrService.showSuccess("Bạn đã đăng ký thành công");
+  }
+
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.jwtService.signUp(this.signupForm.value).subscribe(

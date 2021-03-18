@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import { NotificationService } from 'src/app/service/notification.service';
 import {JwtService} from '../jwt.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder,
     public jwtService: JwtService,
+    private toastrService: NotificationService
   ) {
     this.loginForm = this.fb.group({
       email: [''],
@@ -24,6 +26,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  showToastrSuccess()
+  {
+    this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
   }
 
   // tslint:disable-next-line:typedef
