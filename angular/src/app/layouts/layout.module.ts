@@ -13,6 +13,10 @@ const routes: Routes = [
   },
   { path: 'blog',
     component: BlogListComponent
+  },
+  {
+    path: 'edit/:id',
+    component: UpdateBlogComponent
   }
 ]
 

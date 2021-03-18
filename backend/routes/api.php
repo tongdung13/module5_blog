@@ -36,8 +36,9 @@ Route::group([
 
 Route::prefix('blog')->group(function () {
     Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
-
+    Route::get('/show/{id}', [BlogController::class, 'show']);
     Route::put('/update/{id}', [\App\Http\Controllers\BlogController::class, 'update']);
+    Route::delete('destroy/{id}', [BlogController::class, 'delete']);
 });
 
 Route::group(['middleware' => ['jwt']], function () {
