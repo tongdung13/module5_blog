@@ -10,14 +10,20 @@ import { DetailsComponent } from './components/details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './homes/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
     LoginComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    AdminLayoutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +32,9 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireStorageModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

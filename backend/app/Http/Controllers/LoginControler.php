@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LoginControler extends Controller
@@ -19,12 +21,50 @@ class LoginControler extends Controller
 
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+                return response()->json([
+                    'error' => 'invalid_credentials',
+                    'message' => 'Tai khoan khong dung'
+                    ]);
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        return response()->json(
+            [
+                'token' => $token,
+                'userInfo' => $this->me()]
+            
+        );
+    }
+
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
+
+    public function getAuthenticatedUser()
+    {
+        try {
+
+            if (! $user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+
+        } catch (TokenExpiredException $e) {
+
+            return response()->json(['token_expired'], $e->getCode());
+
+        } catch (TokenInvalidException $e) {
+
+            return response()->json(['token_invalid'], $e->getCode());
+
+        } catch (JWTException $e) {
+
+            return response()->json(['token_absent'], $e->getCode());
+        }
+
+        return response()->json(compact('user'));
     }
 }
