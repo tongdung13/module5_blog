@@ -15,7 +15,7 @@ export class User {
   providedIn: 'root'
 })
 export class JwtService {
-  private baseUrl = 'http://127.0.0.1:8001/api/auth/login';
+  private baseUrl = 'http://127.0.0.1:8000/api/auth/login';
   constructor(private http: HttpClient) { }
   login(email: string, password: string): Observable<any> {
     const reqHeader = new HttpHeaders({
@@ -31,7 +31,7 @@ export class JwtService {
     return this.http.post('http://127.0.0.1:8000/api/auth/register', user);
   }
   logIn(user: User): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8001/api/auth/login', user);
+    return this.http.post<any>('http://127.0.0.1:8000/api/auth/login', user);
   }
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
