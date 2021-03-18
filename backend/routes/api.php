@@ -31,11 +31,12 @@ Route::group([
     Route::post('logout', [UserController::class, 'logout']);
     Route::get('user-profile', [UserController::class, 'user']);
     Route::post('signin', [LoginControler::class, 'login']);
+    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
 });
 
 Route::prefix('blog')->group(function () {
     Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
-    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
+
     Route::put('/update/{id}', [\App\Http\Controllers\BlogController::class, 'update']);
 });
 
