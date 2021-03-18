@@ -15,6 +15,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
+import {ToastrModule} from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,14 @@ import { HomeComponent } from './homes/home/home.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     AngularFireStorageModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+      {
+        timeOut: 3000,
+        preventDuplicates: true,
+      }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

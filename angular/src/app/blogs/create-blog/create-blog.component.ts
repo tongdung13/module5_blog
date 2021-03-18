@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Blog } from '../blog';
 import { BlogService } from '../blog.service';
 import { finalize } from 'rxjs/operators';
+import { ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-blog',
@@ -25,7 +26,8 @@ export class CreateBlogComponent implements OnInit {
     private router: Router,
     private service: BlogService,
     private fb: FormBuilder,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private toasrt: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -44,12 +46,15 @@ export class CreateBlogComponent implements OnInit {
     this.service.create(this.blog).subscribe(
       data => {
         console.log(data);
+        this.showToasterSuccess();
         this.router.navigate(['blog']);
         this.blog = new Blog();
       }, error => console.log(error)
-    )
+    );
   }
-
+  showToasterSuccess() {
+    this.toasrt.success('Đã thêm mới một nhà vào trong danh sách của bạn .', 'Thông báo !');
+  }
   onSubmit()
   {
     console.log(this.blogForm.value);
@@ -57,7 +62,7 @@ export class CreateBlogComponent implements OnInit {
 
   onFireSelected(event: any)
   {
-    var n = Date.now();
+    let n = Date.now();
     const file = event.target.files[0];
     const filePath = `RoomsImages/${n}`;
     const fileRef = this.storage.ref(filePath);
@@ -80,7 +85,7 @@ export class CreateBlogComponent implements OnInit {
         if (url) {
           console.log(url);
         }
-      })
+      });
   }
 }
 
