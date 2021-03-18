@@ -11,6 +11,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
