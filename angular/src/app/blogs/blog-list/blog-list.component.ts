@@ -27,4 +27,15 @@ export class BlogListComponent implements OnInit {
     )
   }
 
+  deleteBlog(id: number)
+  {
+    if (confirm("Bạn có muốn xóa không ?" + id)) {
+        this.service.delete(id).subscribe(
+        data => {
+          this.loadData();
+          console.log(data);
+        }, error => console.log(error)
+      )
+    }
+  }
 }

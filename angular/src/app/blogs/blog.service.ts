@@ -9,7 +9,7 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class BlogService {
 
-  private baseUrl = 'http://localhost:8000/api/auth'
+  private baseUrl = 'http://localhost:8000/api'
   constructor(private http: HttpClient) { }
 
   getAll()
@@ -19,45 +19,22 @@ export class BlogService {
 
   create(data: any){
 
-    return this.http.post(`${this.baseUrl}/store`, data);
+    return this.http.post(`${this.baseUrl}/auth/store`, data);
   }
 
   edit(id: number ,data: any)
   {
-    var auth_token = localStorage.getItem('AccessToken');
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin' :'*',
-      'Access-Control-Allow-Methods' :'GET,POST,OPTIONS,DELETE,PUT',
-      // cu phap co dau cach dang sau Bearer
-      'Authorization': 'Bearer ' + auth_token
-    });
-    return this.http.put(`${this.baseUrl}/update/${id}`, data ,{headers:reqHeader});
+
+    return this.http.put(`${this.baseUrl}/blog/update/${id}`, data);
   }
 
   show(id:number)
   {
-    var auth_token = localStorage.getItem('AccessToken');
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin' :'*',
-      'Access-Control-Allow-Methods' :'GET,POST,OPTIONS,DELETE,PUT',
-      // cu phap co dau cach dang sau Bearer
-      'Authorization': 'Bearer ' + auth_token
-    });
-    return this.http.get(API_URL + `/blogs/show/${id}` ,{headers:reqHeader})
+    return this.http.get(API_URL + `/blog/show/${id}`)
   }
 
   delete(id: number)
   {
-    var auth_token = localStorage.getItem('AccessToken');
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin' :'*',
-      'Access-Control-Allow-Methods' :'GET,POST,OPTIONS,DELETE,PUT',
-      // cu phap co dau cach dang sau Bearer
-      'Authorization': 'Bearer ' + auth_token
-    });
-    return this.http.delete(API_URL + `/blogs/destroy/${id}`, {headers:reqHeader})
+    return this.http.delete(`${this.baseUrl}/blog/destroy/${id}`)
   }
 }

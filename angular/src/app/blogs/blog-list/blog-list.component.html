@@ -20,8 +20,8 @@
           <img [src]="blog.image" style="width: 100px; height: 100px">
         </td>
         <td>
-          <a href="">Update</a>
-          <a href="">Delete</a>
+          <a routerLink="/edit/{{ blog.id }}" class="btn btn-sm btn-outline-primary">Update</a>
+          <button (click)="deleteBlog(blog.id)" class="btn btn-sm btn-outline-danger" style="margin-left: 9px;">Delete</button>
         </td>
       </tr>
     </tbody>
