@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Blog } from '../blog';
 import { BlogService } from '../blog.service';
 import { finalize } from 'rxjs/operators';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-create-blog',
@@ -25,7 +26,8 @@ export class CreateBlogComponent implements OnInit {
     private router: Router,
     private service: BlogService,
     private fb: FormBuilder,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private toastrService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,11 @@ export class CreateBlogComponent implements OnInit {
       content: ['', [Validators.required]],
     });
     console.log(this.blogForm);
+  }
+
+  showToastrSuccess()
+  {
+    this.toastrService.showSuccess("Bạn đã đăng bài thành công");
   }
 
   // tslint:disable-next-line:typedef

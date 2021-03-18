@@ -19,6 +19,6 @@
         <input type="file" class="form-control-file" #userPhoto (change)="onFireSelected($event)" name="image" [(ngModel)]="blog.image" autocomplete="off">
       </div>
     <hr>
-      <button (click)="createBlog()" class="btn btn-sm btn-outline-primary">Thêm Mới</button>
+      <button (click)="createBlog()" (click)="showToastrSuccess()" class="btn btn-sm btn-outline-primary">Thêm Mới</button>
   </form>
 </div>
