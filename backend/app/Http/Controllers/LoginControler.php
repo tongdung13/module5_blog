@@ -21,14 +21,28 @@ class LoginControler extends Controller
 
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+                return response()->json([
+                    'error' => 'invalid_credentials',
+                    'message' => 'Tai khoan khong dung'
+                    ]);
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        return response()->json(
+            [
+                'token' => $token,
+                'userInfo' => $this->me()]
+            
+        );
     }
+
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
 
     public function getAuthenticatedUser()
     {

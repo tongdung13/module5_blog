@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogListComponent } from './blogs/blog-list/blog-list.component';
 import { CreateBlogComponent } from './blogs/create-blog/create-blog.component';
@@ -6,14 +8,24 @@ import {LoginComponent} from './components/login/login.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent , pathMatch: 'full' },
-  {path: 'admin', component: AdminLayoutComponent},
-  { path: 'createBlog', component: CreateBlogComponent},
-  { path: 'blog', component: BlogListComponent}
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    loadChildren: () => import('./layouts/layout.module').then(module => module.LayoutModule)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })],
   exports: [RouterModule]
 })
 
