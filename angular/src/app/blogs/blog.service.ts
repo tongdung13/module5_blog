@@ -9,7 +9,7 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class BlogService {
 
-  private baseUrl = 'http://localhost:8000/api/blog';
+  private baseUrl = 'http://localhost:8000/api/auth'
   constructor(private http: HttpClient) { }
 
   getAll()
@@ -18,7 +18,7 @@ export class BlogService {
   }
 
   create(data: any){
-    
+
     return this.http.post(`${this.baseUrl}/store`, data);
   }
 
