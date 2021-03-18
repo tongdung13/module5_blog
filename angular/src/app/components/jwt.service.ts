@@ -15,10 +15,10 @@ export class JwtService {
     return this.http.post(environment.apiUrl + 'auth/login', data)
   }
 
-  signUp(user: User): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/register', user);
+  signUp(data: any): Observable<any> {
+    return this.http.post('http://127.0.0.1:8000/api/auth/register', data);
   }
- 
+
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
   }
