@@ -37,6 +37,7 @@ export class CreateBlogComponent implements OnInit {
     console.log(this.blogForm);
   }
 
+  // tslint:disable-next-line:typedef
   createBlog()
   {
     this.blog.image = this.srcImg;
@@ -47,14 +48,16 @@ export class CreateBlogComponent implements OnInit {
         this.router.navigate(['blog']);
         this.blog = new Blog();
       }, error => console.log(error)
-    )
+    );
   }
 
+  // tslint:disable-next-line:typedef
   onSubmit()
   {
     console.log(this.blogForm.value);
   }
 
+  // tslint:disable-next-line:typedef
   onFireSelected(event: any)
   {
     var n = Date.now();
@@ -80,7 +83,7 @@ export class CreateBlogComponent implements OnInit {
         if (url) {
           console.log(url);
         }
-      })
+      });
   }
 }
 
