@@ -20,10 +20,6 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
-
-
-
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
          aria-expanded="true" aria-controls="collapseTwo">
@@ -32,12 +28,11 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" routerLink="books" routerLinkActive="active" >Danh Sách Sách</a>
-          <a class="collapse-item"  routerLink="add" routerLinkActive="active">Thêm Mới Sách</a>
+          <a class="collapse-item" routerLink="/blog" routerLinkActive="active" >Danh Sách Sách</a>
+          <a class="collapse-item"  routerLink="/createBlog" routerLinkActive="active">Thêm Mới Sách</a>
         </div>
       </div>
     </li>
-
 
 
   </ul>
@@ -150,7 +145,7 @@
       <!-- End of Topbar -->
 
       <!-- Begin Page Content -->
-      <router-outlet> </router-outlet>
+      <router-outlet></router-outlet>
       <!-- /.container-fluid -->
 
     </div>

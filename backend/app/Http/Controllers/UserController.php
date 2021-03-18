@@ -28,7 +28,7 @@ class UserController extends Controller
             return response()->json($req->errors(), 422);
         }
 
-        if (! $token = Auth::attempt($req->validated())) {
+        if (!$token = Auth::attempt($req->validated())) {
             return response()->json(['Auth error' => 'Unauthorized'], 401);
         }
 

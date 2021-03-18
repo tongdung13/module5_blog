@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs; let i = index"[attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ blog.title }}</td>
+        <td>
+          <textarea cols="15" rows="5" [(ngModel)]="blog.content"></textarea>
+        </td>
+        <td>
+          <img [src]="blog.image" style="width: 100px; height: 100px">
+        </td>
+        <td>
+          <a href="">Update</a>
+          <a href="">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -9,35 +9,35 @@ import {JwtService} from '../jwt.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  signinForm: any = FormGroup;
-  errors: any = null;
-  email = '';
-  password = '';
-
+  loginForm: FormGroup;
+  errors: string = '';
   constructor(
     public router: Router,
     public fb: FormBuilder,
     public jwtService: JwtService,
   ) {
-    this.signinForm = this.fb.group({
+    this.loginForm = this.fb.group({
       email: [''],
       password: ['']
     });
   }
 
   ngOnInit(): void {
-    this.onSubmit();
+
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.jwtService.logIn(this.signinForm.value).subscribe(
-      (data: { token: string; }) => {
-        localStorage.setItem('AccessToken', data.token);
-        this.router.navigate(['/admin']);
-      }, (error: any) => {
-        console.log(error);
-      }
+    let data = this.loginForm.value;
+    this.jwtService.signIn(data).subscribe(res => {
+        if (res.error) {
+            this.errors = res.message;
+        } else {
+          console.log(res);
+
+          this.router.navigate(['/blog']);
+        }
+    }
     );
   }
 
