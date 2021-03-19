@@ -32,6 +32,7 @@ Route::group([
     Route::get('user-profile', [UserController::class, 'user']);
     Route::post('signin', [LoginControler::class, 'login']);
     Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
+    Route::delete('destroy/{id}', [UserController::class, 'delete']);
 });
 
 Route::prefix('blog')->group(function () {

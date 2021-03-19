@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlogdayComponent } from './homes/blogday/blogday.component';
+import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+    BlogdayComponent,
+    BlogtopComponent,
   ],
   imports: [
     BrowserModule,
