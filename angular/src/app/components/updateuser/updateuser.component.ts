@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
@@ -26,7 +26,6 @@ export class UpdateuserComponent implements OnInit {
   constructor(
     private service: JwtService,
     private router: Router,
-    private route: ActivatedRoute,
     private toastrService: NotificationService,
     private fb: FormBuilder,
     private storage: AngularFireStorage,
@@ -70,11 +69,11 @@ export class UpdateuserComponent implements OnInit {
       data => {
         console.log(data);
         this.loadData();
-        this.toastrService.showSuccess("cap nhap thong tin thanh cong");
+        this.toastrService.showSuccess("Update the successful information ^^");
         this.router.navigate(['user'])
       }, error => {
         console.log(error);
-        this.toastrService.showError('cap nhap thong tin that bai');
+        this.toastrService.showError('failed to update information !');
       }
     )
   }
