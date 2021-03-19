@@ -49,10 +49,10 @@ export class CreateBlogComponent implements OnInit {
         console.log(data);
         this.router.navigate(['blog']);
         this.blog = new Blog();
-        this.toastrService.showSuccess("You have posted successfully ^^");
+        this.toastrService.showSuccess("Bạn đã đăng bài thành công");
       }, error => {
         console.log(error)
-        this.toastrService.showError("You have failed to post !");
+        this.toastrService.showError("Bạn đã đăng bài thất bại");
       }
     );
   }
@@ -90,9 +90,6 @@ export class CreateBlogComponent implements OnInit {
           console.log(url);
         }
       });
-  }
-  gotoList() {
-    this.router.navigate(['blog']);
   }
 }
 

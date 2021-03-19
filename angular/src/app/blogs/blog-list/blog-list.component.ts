@@ -7,7 +7,7 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-  filter: any;
+
   blogs: any;
   constructor(
     private service: BlogService

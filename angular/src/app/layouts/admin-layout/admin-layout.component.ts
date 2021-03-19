@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { JwtService } from 'src/app/components/jwt.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -9,8 +7,9 @@ import { JwtService } from 'src/app/components/jwt.service';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
+
 }

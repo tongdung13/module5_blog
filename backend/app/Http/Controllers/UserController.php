@@ -83,6 +83,19 @@ class UserController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        return response()->json($user);
+    }
+
+    public function show($id){
+        $user = User::find($id);
+        return response()->json($user);
+    }
+
     public function changePass(Request $request, $id)
     {
         $user = User::find($id);
@@ -106,5 +119,11 @@ class UserController extends Controller
     {
         $user = JWTAuth::toUser($request->token);
         return response()->json(['result' => $user]);
+    }
+
+    public function delete($id){
+        $users = User::findOrFail($id);
+        $users ->delete();
+        return response()->json($users);
     }
 }

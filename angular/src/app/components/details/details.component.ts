@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtService } from '../jwt.service';
 
 @Component({
   selector: 'app-details',
@@ -8,21 +7,9 @@ import { JwtService } from '../jwt.service';
 })
 export class DetailsComponent implements OnInit {
 
-  users: any;
-  constructor(private service: JwtService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.loadData();
-  }
-
-  loadData()
-  {
-    this.service.getAll().subscribe(
-      data => {
-        console.log(data);
-        this.users = data;
-      }, error => console.log(error)
-    )
   }
 
 }
