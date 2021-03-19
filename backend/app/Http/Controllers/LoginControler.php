@@ -23,7 +23,7 @@ class LoginControler extends Controller
             if (! $token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'error' => 'invalid_credentials',
-                    'message' => 'Tài Khoản của bạn không đúng'
+                    'message' => 'Your account is incorrect !'
                     ]);
             }
         } catch (JWTException $e) {

@@ -6,6 +6,7 @@ import { UpdateBlogComponent } from '../blogs/update-blog/update-blog.component'
 import { BlogDetailsComponent } from '../blogs/blog-details/blog-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 const routes: Routes = [
   { path: 'createBlog',
@@ -31,7 +32,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    Ng2SearchPipeModule
   ]
 })
 export class LayoutModule { }

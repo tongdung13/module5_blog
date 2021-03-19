@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
     this.jwtService.signIn(data).subscribe(res => {
         if (res.error) {
             this.errors = res.message;
-            this.toastrService.showError("Bạn đã đăng nhập thất bại");
+            this.toastrService.showError("You have failed login !");
         } else {
           console.log(res);
-          this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
+          this.toastrService.showSuccess("Successful login ^^");
           this.router.navigate(['/blog']);
         }
     }
