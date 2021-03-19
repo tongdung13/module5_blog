@@ -83,19 +83,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
-        return response()->json($user);
-    }
-
-    public function show($id){
-        $user = User::find($id);
-        return response()->json($user);
-    }
-
     public function changePass(Request $request, $id)
     {
         $user = User::find($id);

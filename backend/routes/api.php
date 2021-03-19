@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginControler;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +50,11 @@ Route::group(['middleware' => ['jwt']], function () {
         Route::get('show/{id}', [BlogController::class, 'show']);
         Route::delete('destroy/{id}', [BlogController::class, 'delete']);
     });
+});
 
-
-
+Route::prefix('user')->group(function () {
+    Route::get('', [UserProfileController::class, 'index']);
+    Route::get('show/{id}', [UserProfileController::class, 'show']);
+    Route::put('edit/{id}', [UserProfileController::class, 'update']);
+    Route::post('', [UserProfileController::class, 'create']);
 });

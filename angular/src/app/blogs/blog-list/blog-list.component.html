@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let blog of blogs; let i = index"[attr.data-index]="i">
+      <tr *ngFor="let blog of blogs | filter:filter; let i = index"[attr.data-index]="i">
         <td>{{ i }}</td>
         <td>{{ blog.title }}</td>
         <td>

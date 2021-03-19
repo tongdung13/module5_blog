@@ -9,7 +9,7 @@
 
       <div class="form-group" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <label for="content">Content</label>
-        <textarea name="content" class="form-control" [(ngModel)]="blog.content" formControlName="content"></textarea>
+        <ckeditor data="<p>Editor' content</p>" name="content" [(ngModel)]="blog.content" formControlName="content"></ckeditor>
       </div>
       <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched">Nội Dung Không Hợp Lệ !</div>
 

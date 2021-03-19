@@ -19,6 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { BlogtopComponent } from './homes/blogtop/blogtop.component';
     AngularFireStorageModule,
     RouterModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { BlogService } from '../blog.service';
 })
 export class BlogListComponent implements OnInit {
 
+  filter: any;
   blogs: any;
   constructor(
     private service: BlogService
