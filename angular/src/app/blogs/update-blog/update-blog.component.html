@@ -4,12 +4,12 @@
         <label for="title">Title</label>
         <input type="text" name="title" class="form-control" [(ngModel)]="blog.title" formControlName="title">
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched">Tiêu Đề Không Hợp Lệ !</div>
+      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched">Invalid Name !</div>
       <div class="form-group" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <label for="content">Content</label>
         <textarea name="content" class="form-control" [(ngModel)]="blog.content" formControlName="content"></textarea>
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched">Nội Dung Không Hợp Lệ !</div>
+      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched">Invalid Content !</div>
       <div class="form-group">
         <label for="image">Image</label>
         <input type="file" class="form-control-file" #userPhoto (change)="onFireSelected($event)" name="image" [(ngModel)]="blog.image" autocomplete="off">
