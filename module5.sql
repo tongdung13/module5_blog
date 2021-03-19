@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th3 17, 2021 lúc 08:34 AM
+-- Thời gian đã tạo: Th3 17, 2021 lúc 05:02 PM
 -- Phiên bản máy phục vụ: 8.0.23-0ubuntu0.20.04.1
 -- Phiên bản PHP: 7.4.3
 
@@ -132,27 +132,22 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fullName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` int DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Cấu trúc bảng cho bảng `user_profiles`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
-CREATE TABLE `user_profiles` (
-  `id` int UNSIGNED NOT NULL,
-  `fullName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` int NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` bigint UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `fullName`, `image`, `address`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'tong dung', 'haivl@gmail.com', NULL, '$2y$10$sbtXZjdensmMDrgUk81QQuvgcm3ohk8NNUw7q.XBDaJEFyu0brRga', '', '', '', 0, NULL, '2021-03-16 22:40:41', '2021-03-16 22:40:41'),
+(2, 'thien ma', 'hmama@gmail.com', NULL, '$2y$10$0xBJ0GJTEO/s8EmDZnGrn.k0Vv/1kkr6jgYdQw/OgYiFlSBnWATpi', NULL, NULL, NULL, NULL, NULL, '2021-03-17 01:36:29', '2021-03-17 01:36:29');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -208,13 +203,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Chỉ mục cho bảng `user_profiles`
---
-ALTER TABLE `user_profiles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_profiles_user_id_foreign` (`user_id`);
-
---
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -252,13 +240,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `user_profiles`
---
-ALTER TABLE `user_profiles`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -283,12 +265,6 @@ ALTER TABLE `comments`
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_blog_id_foreign` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`),
   ADD CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Các ràng buộc cho bảng `user_profiles`
---
-ALTER TABLE `user_profiles`
-  ADD CONSTRAINT `user_profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

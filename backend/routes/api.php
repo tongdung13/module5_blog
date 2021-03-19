@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LoginControler;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +28,38 @@ Route::group([
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', [UserController::class, 'login']);
+    Route::post('register', [UserController::class, 'register']);
+    Route::post('logout', [UserController::class, 'logout']);
+    Route::get('user-profile', [UserController::class, 'user']);
+    Route::post('signin', [LoginControler::class, 'login']);
+    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
+    Route::get('show/{id}', [UserController::class, 'show']);
+    Route::put('update/{id}', [UserController::class, 'update']);
 });
 
 Route::prefix('blog')->group(function () {
     Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
-    Route::post('',[\App\Http\Controllers\BlogController::class ,'store']);
+    Route::get('/show/{id}', [BlogController::class, 'show']);
+    Route::put('/update/{id}', [\App\Http\Controllers\BlogController::class, 'update']);
+    Route::delete('destroy/{id}', [BlogController::class, 'delete']);
 });
+
+Route::group(['middleware' => ['jwt']], function () {
+    Route::get('user', [LoginControler::class, 'getAuthenticatedUser']);
+    Route::prefix('blogs')->group(function () {
+        Route::post('', [BlogController::class, 'store']);
+        Route::put('update/{id}', [BlogController::class, 'update']);
+        Route::get('show/{id}', [BlogController::class, 'show']);
+        Route::delete('destroy/{id}', [BlogController::class, 'delete']);
+    });
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('', [UserProfileController::class, 'index']);
+    Route::get('show/{id}', [UserProfileController::class, 'show']);
+    Route::put('edit/{id}', [UserProfileController::class, 'update']);
+    Route::post('', [UserProfileController::class, 'create']);
+});
+
+
+

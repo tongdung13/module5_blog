@@ -13,7 +13,29 @@ class BlogController extends Controller
         return response()->json($blogs);
     }
 
-    public function store (){
+    public function store (Request $request){
+        $blogs = new Blog();
+        $blogs -> fill($request->all());
+        $blogs ->save();
+        return response()-> json($blogs);
+    }
 
+    public function update (Request $request, $id) {
+        $blogs = Blog::findOrFail($id);
+        $blogs -> fill($request->all());
+        $blogs -> save ();
+        return response() ->json($blogs);
+    }
+
+    public function delete ($id) {
+        $blogs = Blog::findOrFail($id);
+        $blogs-> delete();
+        return response() ->json($blogs);
+    }
+
+    public function show($id)
+    {
+        $blog = Blog::find($id);
+        return response()->json($blog);
     }
 }

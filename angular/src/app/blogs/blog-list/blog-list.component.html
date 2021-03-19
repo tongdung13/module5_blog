@@ -1,0 +1,39 @@
+<div>
+  <form>
+    <div class="input-group">
+      <input placeholder="Search" style="margin-left: 1200px"  type="text" name="search" [(ngModel)]="filter">
+    </div>
+  </form>
+
+</div>
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs | filter:filter ;  let i = index"[attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ blog.title }}</td>
+        <td>
+          <textarea cols="15" rows="5" [(ngModel)]="blog.content"></textarea>
+        </td>
+        <td>
+          <img [src]="blog.image" style="width: 100px; height: 100px">
+        </td>
+        <td>
+          <a routerLink="/edit/{{ blog.id }}" class="btn btn-sm btn-outline-primary">Update</a>
+          <button (click)="deleteBlog(blog.id)" class="btn btn-sm btn-outline-danger" style="margin-left: 9px;">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
