@@ -58,7 +58,7 @@ export class UpdateuserComponent implements OnInit {
     this.service.show(this.id).subscribe(
       data => {
         this.user = data;
-        console.log(this.user);
+        console.log(data);
       }, error => console.log(error)
     )
   }
