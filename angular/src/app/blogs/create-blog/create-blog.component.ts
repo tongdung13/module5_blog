@@ -52,7 +52,7 @@ export class CreateBlogComponent implements OnInit {
         this.toastrService.showSuccess("Bạn đã đăng bài thành công");
       }, error => {
         console.log(error)
-        this.toastrService.showSuccess("Bạn đã đăng bài thất bại");
+        this.toastrService.showError("Bạn đã đăng bài thất bại");
       }
     );
   }

@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       error => {
         this.err = error.error.message;
         this.isSignuUpFailed = true;
-        this.toastrService.showSuccess("Bạn đã đăng ký thất bại");
+        this.toastrService.showError("Bạn đã đăng ký thất bại");
       },
       () => {
         this.signupForm.reset();

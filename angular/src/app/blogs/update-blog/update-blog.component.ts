@@ -61,7 +61,7 @@ export class UpdateBlogComponent implements OnInit {
         this.toastrService.showSuccess("Bạn đã cập nhập thành công");
       }, error => {
         console.log(error)
-        this.toastrService.showSuccess("Bạn đã cập nhập thất bại")
+        this.toastrService.showError("Bạn đã cập nhập thất bại")
       }
     )
   }
