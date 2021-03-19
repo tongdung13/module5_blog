@@ -32,12 +32,18 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
+
         if (res.error) {
             this.errors = res.message;
             this.toastrService.showError("Bạn đã đăng nhập thất bại");
         } else {
           console.log(res);
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('id', res.user.id)
           this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
+          setTimeout( () => {
+            window.location.reload();
+          }, 1000);
           this.router.navigate(['/blog']);
         }
     }

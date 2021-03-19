@@ -11,10 +11,6 @@ export class JwtService {
 
   constructor(private http: HttpClient) { }
 
-  login(data: any): Observable<any> {
-    return this.http.post(environment.apiUrl + 'auth/login', data)
-  }
-
   signUp(data: any): Observable<any> {
     return this.http.post('http://127.0.0.1:8000/api/auth/register', data);
   }
@@ -22,18 +18,25 @@ export class JwtService {
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
   }
-  // req-password-reset
-  // tslint:disable-next-line:typedef
-  reqPasswordReset(data: any) {
-    return this.http.post('http://127.0.0.1:8000/api/auth/req-password-reset', data);
+
+  show(id: any)
+  {
+    return this.http.get(`http://localhost:8000/api/user/show/${id}`);
   }
-  // update password
-  // tslint:disable-next-line:typedef
-  updatePassword(data: any) {
-    return this.http.post('http://127.0.0.1:8000/api/auth/update-password', data);
+
+  updateUser(id: any, data: any)
+  {
+    return this.http.put(environment.apiUrl + `/user/edit/${id}`, data);
   }
 
   signIn(user: User): Observable<any> {
     return this.http.post('http://localhost:8000/api/auth/signin', user);
   }
+
+  getAll()
+  {
+    return this.http.get(environment.apiUrl + '/user');
+  }
+
+
 }

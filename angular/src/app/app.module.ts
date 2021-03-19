@@ -17,6 +17,10 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { UpdateuserComponent } from './components/updateuser/updateuser.component';
+
+
 
 
 @NgModule({
@@ -27,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireStorageModule,
     RouterModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
