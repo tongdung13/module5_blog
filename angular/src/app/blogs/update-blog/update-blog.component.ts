@@ -98,4 +98,8 @@ export class UpdateBlogComponent implements OnInit {
         }
       })
   }
+
+  gotoList() {
+    this.router.navigate(['blog']);
+  }
 }

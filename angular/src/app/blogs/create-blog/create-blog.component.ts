@@ -91,6 +91,9 @@ export class CreateBlogComponent implements OnInit {
         }
       });
   }
+  gotoList() {
+    this.router.navigate(['blog']);
+  }
 }
 
 
