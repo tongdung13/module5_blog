@@ -32,11 +32,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
+
         if (res.error) {
             this.errors = res.message;
             this.toastrService.showError("You have failed login !");
         } else {
-          console.log(res);
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('id', res.user.id)
+          setTimeout( () => {
+            window.location.reload();
+          }, 1000);
           this.toastrService.showSuccess("Successful login ^^");
           this.router.navigate(['/blog']);
         }

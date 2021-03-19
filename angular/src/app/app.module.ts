@@ -17,7 +17,9 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { CKEditorModule } from 'ckeditor4-angular';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,12 +39,14 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
     AngularFireStorageModule,
     RouterModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    CKEditorModule,
     Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
