@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -23,8 +24,13 @@ class LoginControler extends Controller
             if (! $token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'error' => 'invalid_credentials',
+<<<<<<< HEAD
+                    'message' => 'Tài Khoản của bạn không đúng'
+                ], 400);
+=======
                     'message' => 'Your account is incorrect !'
                     ]);
+>>>>>>> 5fb4067fcdd736f3611c4c4395b537472e697609
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
@@ -32,9 +38,9 @@ class LoginControler extends Controller
 
         return response()->json(
             [
+                'user' => Auth::user(),
                 'token' => $token,
-                'userInfo' => $this->me()]
-
+            ], 200
         );
     }
 
