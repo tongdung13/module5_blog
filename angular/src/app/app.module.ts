@@ -18,8 +18,7 @@ import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CKEditorModule } from 'ckeditor4-angular';
-import { UpdateuserComponent } from './components/updateuser/updateuser.component';
-
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 
@@ -45,7 +44,9 @@ import { UpdateuserComponent } from './components/updateuser/updateuser.componen
     RouterModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CKEditorModule
+    CKEditorModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

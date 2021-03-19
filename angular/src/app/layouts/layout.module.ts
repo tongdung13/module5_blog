@@ -9,6 +9,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+
 
 const routes: Routes = [
   { path: 'createBlog',
@@ -44,7 +46,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    CKEditorModule
+    CKEditorModule,
+    Ng2SearchPipeModule
+
   ]
 })
 export class LayoutModule { }

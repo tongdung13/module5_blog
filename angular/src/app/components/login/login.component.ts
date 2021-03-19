@@ -35,15 +35,19 @@ export class LoginComponent implements OnInit {
 
         if (res.error) {
             this.errors = res.message;
-            this.toastrService.showError("Bạn đã đăng nhập thất bại");
+            this.toastrService.showError("You have failed login !");
         } else {
           console.log(res);
+<<<<<<< HEAD
           localStorage.setItem('token', res.token);
           localStorage.setItem('id', res.user.id)
           this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
           setTimeout( () => {
             window.location.reload();
           }, 1000);
+=======
+          this.toastrService.showSuccess("Successful login ^^");
+>>>>>>> 5fb4067fcdd736f3611c4c4395b537472e697609
           this.router.navigate(['/blog']);
         }
     }

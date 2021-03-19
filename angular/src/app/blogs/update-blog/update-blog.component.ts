@@ -58,10 +58,10 @@ export class UpdateBlogComponent implements OnInit {
       data => {
         console.log(data);
         this.router.navigate(['blog']);
-        this.toastrService.showSuccess("Bạn đã cập nhập thành công");
+        this.toastrService.showSuccess("You have successfully updated ^^");
       }, error => {
         console.log(error)
-        this.toastrService.showError("Bạn đã cập nhập thất bại")
+        this.toastrService.showError("You have failed update!")
       }
     )
   }
@@ -97,5 +97,9 @@ export class UpdateBlogComponent implements OnInit {
           console.log(url);
         }
       })
+  }
+
+  gotoList() {
+    this.router.navigate(['blog']);
   }
 }
