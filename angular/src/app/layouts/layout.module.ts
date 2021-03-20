@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'update-profile',
     component: UpdateuserComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
