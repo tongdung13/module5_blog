@@ -12,6 +12,7 @@ import {JwtService} from '../jwt.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errors: string = '';
+  data!: any
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -28,20 +29,17 @@ export class LoginComponent implements OnInit {
 
   }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
-  }
-
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
+      
         if (res.error) {
             this.errors = res.message;
+            this.toastrService.showSuccess("Bạn đã đăng nhập that bai");
         } else {
           console.log(res);
-
+          this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
           this.router.navigate(['/blog']);
         }
     }

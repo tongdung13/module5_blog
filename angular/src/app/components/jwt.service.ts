@@ -11,9 +11,6 @@ export class JwtService {
 
   constructor(private http: HttpClient) { }
 
-  login(data: any): Observable<any> {
-    return this.http.post(environment.apiUrl + 'auth/login', data)
-  }
 
   signUp(data: any): Observable<any> {
     return this.http.post('http://127.0.0.1:8000/api/auth/register', data);
