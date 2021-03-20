@@ -21,7 +21,9 @@
     <tbody>
       <tr *ngFor="let blog of blogs | filter:filter; let i = index"[attr.data-index]="i">
         <td>{{ i }}</td>
-        <td>{{ blog.title }}</td>
+        <td>
+          <a routerLink="/blog-details">{{ blog.title }}</a>
+        </td>
         <td>
           <textarea cols="15" rows="5" [(ngModel)]="blog.content"></textarea>
         </td>
