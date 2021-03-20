@@ -19,6 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CKEditorModule } from 'ckeditor4-angular';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { BlogtopComponent } from './homes/blogtop/blogtop.component';
+import { BlogdayComponent } from './homes/blogday/blogday.component';
 
 
 
@@ -30,6 +32,8 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+    BlogtopComponent,
+    BlogdayComponent,
 
   ],
   imports: [
