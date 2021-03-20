@@ -1,1 +1,23 @@
-<p>blog-details works!</p>
+<div class="card mt-5">
+
+  <div class="card-body mt-2">
+    <div *ngIf="blogs">
+      <div>
+        <label><b>Tên : </b></label> {{blogs.title}}
+      </div>
+      <div>
+        <label><b>Tác giả: </b></label> {{blogs.content}}
+      </div>
+      <div>
+        <label><b>anh: </b></label> <img [src]="blogs.image" style="width: 100px; height: 100px">
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div style="text-align: center">
+    <button style="width: 200px" (click)="list()" class="btn btn-primary">Quay lại</button>
+  </div>
+  <br>
+  <br>
+</div>

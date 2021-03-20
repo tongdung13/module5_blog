@@ -26,7 +26,9 @@
           <div class="container">
             <div style="padding: 5px 0px;" *ngFor="let blog of blogs">
               <div class="card">
-                <div class="card-header" class="btn btn-success">{{blog.title}}</div>
+                <div class="card-header" class="btn btn-success">
+                  <a  >  {{blog.title}} </a>
+                </div>
                 <div class="card-body">
                   <p class="card-text">{{blog.content | slice:0:200}} [...]</p>
                   <br>
