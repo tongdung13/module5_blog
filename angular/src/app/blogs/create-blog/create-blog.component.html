@@ -4,14 +4,14 @@
         <label for="title">Title</label>
         <input type="text" name="title" class="form-control" [(ngModel)]="blog.title" formControlName="title">
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched">Invalid Name !</div>
+      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched">Tiêu Đề Không Hợp Lệ !</div>
 
 
       <div class="form-group" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <label for="content">Content</label>
-        <textarea name="content" [(ngModel)]="blog.content" class="form-control" formControlName="content"></textarea>
+        <ckeditor data="<p>Editor' content</p>" name="content" [(ngModel)]="blog.content" formControlName="content"></ckeditor>
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched">Invalid Content !</div>
+      <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched">Nội Dung Không Hợp Lệ !</div>
 
 
     <div class="form-group">
@@ -20,7 +20,5 @@
       </div>
     <hr>
       <button (click)="createBlog()" class="btn btn-sm btn-outline-primary">Thêm Mới</button>
-      <button (click)="gotoList()" class="btn btn-sm btn-outline-primary" style="margin-left: 9px;">Quay Lại </button>
-
   </form>
 </div>

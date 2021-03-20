@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
 {
-
     public function index()
     {
         $user = User::all();
@@ -22,7 +21,8 @@ class UserProfileController extends Controller
         return response()->json($user);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $user = User::find($id);
         return response()->json($user);
     }

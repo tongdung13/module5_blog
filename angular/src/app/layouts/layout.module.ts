@@ -6,10 +6,11 @@ import { UpdateBlogComponent } from '../blogs/update-blog/update-blog.component'
 import { BlogDetailsComponent } from '../blogs/blog-details/blog-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { CKEditorModule } from 'ckeditor4-angular';
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 const routes: Routes = [
@@ -39,7 +40,7 @@ const routes: Routes = [
     CreateBlogComponent,
     UpdateBlogComponent,
     BlogDetailsComponent,
-    UpdateuserComponent,
+    UpdateuserComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +49,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CKEditorModule,
     Ng2SearchPipeModule
-
   ]
 })
 export class LayoutModule { }
