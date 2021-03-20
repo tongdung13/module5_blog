@@ -13,6 +13,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ckeditor4-angular';
 
 
+
 const routes: Routes = [
   { path: 'createBlog',
     component: CreateBlogComponent
@@ -49,6 +50,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CKEditorModule,
     Ng2SearchPipeModule
+
   ]
 })
 export class LayoutModule { }

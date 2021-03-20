@@ -32,7 +32,11 @@ Route::group([
     Route::get('user-profile', [UserController::class, 'user']);
     Route::post('signin', [LoginControler::class, 'login']);
     Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
+
+    Route::get('show/{id}', [UserController::class, 'show']);
+    Route::put('update/{id}', [UserController::class, 'update']);
     Route::delete('destroy/{id}', [UserController::class, 'delete']);
+
 });
 
 Route::prefix('blog')->group(function () {
@@ -52,9 +56,17 @@ Route::group(['middleware' => ['jwt']], function () {
     });
 });
 
+
 Route::prefix('user')->group(function () {
     Route::get('', [UserProfileController::class, 'index']);
     Route::get('show/{id}', [UserProfileController::class, 'show']);
     Route::put('edit/{id}', [UserProfileController::class, 'update']);
     Route::post('', [UserProfileController::class, 'create']);
 });
+
+
+
+
+
+
+
