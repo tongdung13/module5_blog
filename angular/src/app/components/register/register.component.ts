@@ -40,12 +40,12 @@ export class RegisterComponent implements OnInit {
         console.log(res);
         this.isSuccessfull = true;
         this.isSignuUpFailed = false;
-        this.toastrService.showSuccess("Bạn đã đăng ký thành công");
+        this.toastrService.showSuccess("You have successfully registered ^^");
       },
       error => {
         this.err = error.error.message;
         this.isSignuUpFailed = true;
-        this.toastrService.showError("Bạn đã đăng ký thất bại");
+        this.toastrService.showError("You have failed to register !");
       },
       () => {
         this.signupForm.reset();

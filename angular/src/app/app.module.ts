@@ -17,9 +17,12 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BlogdayComponent } from './homes/blogday/blogday.component';
-import { BlogtopComponent } from './homes/blogtop/blogtop.component';
+
 import { CKEditorModule } from 'ckeditor4-angular';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { BlogtopComponent } from './homes/blogtop/blogtop.component';
+import { BlogdayComponent } from './homes/blogday/blogday.component';
+
 
 
 
@@ -31,8 +34,10 @@ import { CKEditorModule } from 'ckeditor4-angular';
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+
     BlogdayComponent,
     BlogtopComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,12 +46,15 @@ import { CKEditorModule } from 'ckeditor4-angular';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
     AngularFireStorageModule,
     RouterModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CKEditorModule
+    CKEditorModule,
+    Ng2SearchPipeModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

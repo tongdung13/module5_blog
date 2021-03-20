@@ -16,7 +16,7 @@
             <div class="col-lg-6">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Đăng Nhập </h1>
+                  <h1 class="h4 text-gray-900 mb-4">Login</h1>
                 </div>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                   <div *ngIf="errors" class="alert alert-danger">
@@ -27,10 +27,12 @@
                            id="exampleInputEmail" aria-describedby="emailHelp"
                            placeholder="Enter Email Address..." formControlName="email">
                   </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">Invalid email !</div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleInputPassword" placeholder="Password" formControlName="password">
                   </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Invalid password !</div>
                     <button type="submit" class="btn btn-outline-primary btn-user btn-block">Login</button>
 
                   <hr>
