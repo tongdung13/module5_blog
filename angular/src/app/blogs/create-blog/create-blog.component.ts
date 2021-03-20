@@ -8,6 +8,8 @@ import { BlogService } from '../blog.service';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
 
+
+
 @Component({
   selector: 'app-create-blog',
   templateUrl: './create-blog.component.html',
@@ -91,6 +93,7 @@ export class CreateBlogComponent implements OnInit {
         }
       });
   }
+
   gotoList() {
     this.router.navigate(['blog']);
   }

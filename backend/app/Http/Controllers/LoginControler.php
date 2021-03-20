@@ -25,7 +25,7 @@ class LoginControler extends Controller
                 return response()->json([
                     'error' => 'invalid_credentials',
                     'message' => 'Your account is incorrect !'
-                    ], 400);
+                ], 400);
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
@@ -34,9 +34,8 @@ class LoginControler extends Controller
         return response()->json(
             [
                 'user' => Auth::user(),
-                'token' => $token,
-            ], 200
-        );
+                'token' => $token
+            ], 200 );
     }
 
     public function me()

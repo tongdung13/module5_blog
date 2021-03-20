@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { NotificationService } from 'src/app/service/notification.service';
 import {JwtService} from '../jwt.service';
@@ -10,7 +10,7 @@ import {JwtService} from '../jwt.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm: any = FormGroup;
   errors: string = '';
   constructor(
     public router: Router,
@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+    });
+    console.log(this.loginForm);
 
   }
 
@@ -37,12 +42,13 @@ export class LoginComponent implements OnInit {
             this.errors = res.message;
             this.toastrService.showError("You have failed login !");
         } else {
+          console.log(res);
           localStorage.setItem('token', res.token);
           localStorage.setItem('id', res.user.id)
+          this.toastrService.showSuccess("Successful login ^^");
           setTimeout( () => {
             window.location.reload();
           }, 1000);
-          this.toastrService.showSuccess("Successful login ^^");
           this.router.navigate(['/blog']);
         }
     }

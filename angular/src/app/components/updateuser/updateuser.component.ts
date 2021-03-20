@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
@@ -26,7 +27,6 @@ export class UpdateuserComponent implements OnInit {
   constructor(
     private service: JwtService,
     private router: Router,
-    private route: ActivatedRoute,
     private toastrService: NotificationService,
     private fb: FormBuilder,
     private storage: AngularFireStorage,
@@ -59,7 +59,7 @@ export class UpdateuserComponent implements OnInit {
     this.service.show(this.id).subscribe(
       data => {
         this.user = data;
-        console.log(this.user);
+        console.log(data);
       }, error => console.log(error)
     )
   }
@@ -105,5 +105,9 @@ export class UpdateuserComponent implements OnInit {
           console.log(url);
         }
       });
+  }
+
+  gotoList() {
+    this.router.navigate(['user']);
   }
 }

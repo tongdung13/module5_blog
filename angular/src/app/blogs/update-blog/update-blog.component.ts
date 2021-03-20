@@ -61,7 +61,7 @@ export class UpdateBlogComponent implements OnInit {
         this.toastrService.showSuccess("You have successfully updated ^^");
       }, error => {
         console.log(error)
-        this.toastrService.showError("You have failed update!")
+        this.toastrService.showError("You have failed update !")
       }
     )
   }

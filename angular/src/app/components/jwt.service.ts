@@ -38,5 +38,4 @@ export class JwtService {
     return this.http.get(environment.apiUrl + '/user');
   }
 
-
 }

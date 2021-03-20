@@ -89,9 +89,9 @@ Responsive media queries
 }
 
 @media (max-width: 768px) {
-	.navbar-collapse {
-		background: rgba(50, 60, 70, 0.9);
-	}
+  .navbar-collapse {
+    background: rgba(50, 60, 70, 0.9);
+  }
 }
 
 .top-nav-collapse {
@@ -145,7 +145,7 @@ Responsive media queries
 }
 
 #about {
-  /*background: url('../img/about-banner.jpg') no-repeat;*/
+  /*background: url('../img/port01.jpg') no-repeat;*/
   background-size: cover;
   margin-bottom: -3px;
 }
