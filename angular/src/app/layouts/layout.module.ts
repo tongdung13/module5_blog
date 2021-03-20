@@ -10,7 +10,8 @@ import { UpdateuserComponent } from '../components/updateuser/updateuser.compone
 import { DetailsComponent } from '../components/details/details.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { DetailsUserComponent } from '../components/details-user/details-user.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,14 @@ const routes: Routes = [
   {
     path: 'update-profile',
     component: UpdateuserComponent
+  },
+  {
+    path: 'user-details',
+    component: DetailsUserComponent
+  },
+  {
+    path: 'blog-details',
+    component: BlogDetailsComponent
   }
 ]
 
@@ -40,7 +49,8 @@ const routes: Routes = [
     CreateBlogComponent,
     UpdateBlogComponent,
     BlogDetailsComponent,
-    UpdateuserComponent
+    UpdateuserComponent,
+    DetailsUserComponent,
   ],
   imports: [
     CommonModule,

@@ -65,6 +65,7 @@ export class UpdateuserComponent implements OnInit {
 
   updateUser()
   {
+    this.user.image = this.srcImg;
     this.service.updateUser(this.id, this.user).subscribe(
       data => {
         console.log(data);

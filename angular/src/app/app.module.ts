@@ -19,7 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 
@@ -33,6 +34,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
     HomeComponent,
     BlogdayComponent,
     BlogtopComponent,
+
   ],
   imports: [
     BrowserModule,

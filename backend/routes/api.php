@@ -57,4 +57,5 @@ Route::prefix('user')->group(function () {
     Route::get('show/{id}', [UserProfileController::class, 'show']);
     Route::put('edit/{id}', [UserProfileController::class, 'update']);
     Route::post('', [UserProfileController::class, 'create']);
+    Route::delete('destroy/{id}', [UserProfileController::class, 'destroy']);
 });

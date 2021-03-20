@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 
@@ -18,7 +18,7 @@ export class JwtService {
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
   }
- 
+
   show(id: any)
   {
     return this.http.get(`http://localhost:8000/api/user/show/${id}`);
@@ -37,4 +37,10 @@ export class JwtService {
   {
     return this.http.get(environment.apiUrl + '/user');
   }
+
+  delete(id: number)
+  {
+    return this.http.delete(environment.apiUrl + `/user/destroy/${id}`);
+  }
+
 }
