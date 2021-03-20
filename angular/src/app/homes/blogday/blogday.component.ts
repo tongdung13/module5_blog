@@ -8,16 +8,16 @@ import { BlogService } from 'src/app/blogs/blog.service';
   styleUrls: ['./blogday.component.css']
 })
 export class BlogdayComponent implements OnInit {
-  blogs: any;
-  blog: any;
   constructor(
     private service: BlogService
   ) { }
+  blogs: any;
+  blog: any;
 
   ngOnInit(): void {
     this.loadData();
   }
-  // tslint:disable-next-line:typedef
+
   loadData()
   {
     this.service.getAll().subscribe(
