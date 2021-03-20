@@ -41,14 +41,10 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('AccessToken', res.token);
       localStorage.setItem('id', res.user.id)
       this.toastrService.showSuccess("Successful login ^^");
-      setTimeout( () => {
-        window.location.reload();
-      }, 1000);
       this.router.navigate(['/blog']);
     }, error => {
       console.log(error);
       this.toastrService.showError("You have failed login !");
-
     }
     );
   }
