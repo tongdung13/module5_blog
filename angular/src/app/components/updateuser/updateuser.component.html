@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+        <h3><i class="fa fa-map-marker"></i> Tên người dùng</h3>
+        <p>
+            <strong>{{user.name}}</strong>
+        </p>
+    </div>
+    <!-- /.col-sm-4 -->
+    <!-- /.col-sm-4 -->
+    <div class="col-sm-4">
+        <h3><i class="fa fa-envelope"></i> Email </h3>
+        <ul>
+            <li><strong><a href="">{{user.email}}</a></strong> </li>
+        </ul>
+    </div>
+    <!-- /.col-sm-4 -->
+</div>
+  <form [formGroup]="profileForm">
+    <div class="form-group"> Full Name :
+      <input type="text" class="form-control" name="fullName" [(ngModel)]="user.fullName" formControlName="fullName" required>
+      <div *ngIf="profileForm.get('fullName').invalid && (profileForm.get('fullName').dirty || profileForm.get('fullName').touched)" class="alert alert-danger">
+          <div class="text-danger" *ngIf="profileForm.get('fullName').errors.required" >
+            Full name cannot be left blank
+          </div>
+      </div>
+    </div>
+    <div class="form-group"> Address :
+      <input type="text" class="form-control" name="address" [(ngModel)]="user.address" formControlName="address" required />
+      <div *ngIf="profileForm.get('address').invalid && (profileForm.get('address').dirty || profileForm.get('address').touched)" class="alert alert-danger">
+          <div class="text-danger" *ngIf="profileForm.get('address').errors.required" >
+            The address cannot be left blank
+          </div>
+      </div>
+    </div>
+    <div class="form-group"> Phone :
+      <input type="number" class="form-control" name="phone" [(ngModel)]="user.phone" formControlName="phone" required >
+      <div *ngIf="profileForm.get('phone').invalid && (profileForm.get('phone').dirty || profileForm.get('phone').touched)" class="alert alert-danger">
+          <div class="text-danger" *ngIf="profileForm.get('phone').errors.required" >
+            Phone number can not be left blank
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" #userPhoto (change)="onFireSelected($event)" name="image" [(ngModel)]="user.image" autocomplete="off">
+    </div>
+
+    <button (click)="updateUser()" type="submit">Cập nhật</button>
+    <button (click)="gotoList()" type="submit" style="margin-left: 9px;">Quay Lại</button>
+
+  </form>
+</div>

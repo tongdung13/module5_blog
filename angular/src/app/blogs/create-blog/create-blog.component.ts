@@ -8,6 +8,8 @@ import { BlogService } from '../blog.service';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
 
+
+
 @Component({
   selector: 'app-create-blog',
   templateUrl: './create-blog.component.html',
@@ -39,11 +41,6 @@ export class CreateBlogComponent implements OnInit {
     console.log(this.blogForm);
   }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã đăng bài thành công");
-  }
-
   // tslint:disable-next-line:typedef
   createBlog()
   {
@@ -54,7 +51,11 @@ export class CreateBlogComponent implements OnInit {
         console.log(data);
         this.router.navigate(['blog']);
         this.blog = new Blog();
-      }, error => console.log(error)
+        this.toastrService.showSuccess("You have posted successfully ^^");
+      }, error => {
+        console.log(error)
+        this.toastrService.showError("You have failed to post !");
+      }
     );
   }
 
@@ -91,6 +92,10 @@ export class CreateBlogComponent implements OnInit {
           console.log(url);
         }
       });
+  }
+
+  gotoList() {
+    this.router.navigate(['blog']);
   }
 }
 

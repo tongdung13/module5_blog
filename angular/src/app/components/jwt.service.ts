@@ -11,7 +11,6 @@ export class JwtService {
 
   constructor(private http: HttpClient) { }
 
-
   signUp(data: any): Observable<any> {
     return this.http.post('http://127.0.0.1:8000/api/auth/register', data);
   }
@@ -19,18 +18,65 @@ export class JwtService {
   profile(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
   }
-  // req-password-reset
-  // tslint:disable-next-line:typedef
-  reqPasswordReset(data: any) {
-    return this.http.post('http://127.0.0.1:8000/api/auth/req-password-reset', data);
+
+  show(id: any)
+  {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(`http://localhost:8000/api/user/show/${id}`, { headers: reqHeader });
   }
-  // update password
-  // tslint:disable-next-line:typedef
-  updatePassword(data: any) {
-    return this.http.post('http://127.0.0.1:8000/api/auth/update-password', data);
+
+  updateUser(id: any, data: any)
+  {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.put(environment.apiUrl + `/user/edit/${id}`, data, { headers: reqHeader });
   }
 
   signIn(user: User): Observable<any> {
     return this.http.post('http://localhost:8000/api/auth/signin', user);
   }
+
+  getAll()
+  {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(environment.apiUrl + '/user', { headers: reqHeader });
+  }
+
+  delete(id: number)
+  {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.delete(environment.apiUrl + `/user/destroy/${id}`, { headers: reqHeader });
+  }
+
+  destroyToken(){
+    localStorage.removeItem('auth_token');
+  }
+
 }

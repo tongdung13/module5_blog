@@ -33,11 +33,6 @@ export class RegisterComponent implements OnInit {
     console.log(this.signupForm);
   }
 
-  showToastrSuccess()
-  {
-    this.toastrService.showSuccess("Bạn đã đăng ký thành công");
-  }
-
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.jwtService.signUp(this.signupForm.value).subscribe(
@@ -45,11 +40,12 @@ export class RegisterComponent implements OnInit {
         console.log(res);
         this.isSuccessfull = true;
         this.isSignuUpFailed = false;
-        alert('dang ky thanh cong');
+        this.toastrService.showSuccess("You have successfully registered ^^");
       },
       error => {
         this.err = error.error.message;
         this.isSignuUpFailed = true;
+        this.toastrService.showError("You have failed to register !");
       },
       () => {
         this.signupForm.reset();

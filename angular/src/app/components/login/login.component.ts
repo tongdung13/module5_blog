@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { NotificationService } from 'src/app/service/notification.service';
 import {JwtService} from '../jwt.service';
@@ -10,7 +10,7 @@ import {JwtService} from '../jwt.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm: any = FormGroup;
   errors: string = '';
   data!: any
   constructor(
@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.min(5)]],
+    });
+    console.log(this.loginForm);
 
   }
 
@@ -33,15 +38,17 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
-      
-        if (res.error) {
-            this.errors = res.message;
-            this.toastrService.showSuccess("Bạn đã đăng nhập that bai");
-        } else {
-          console.log(res);
-          this.toastrService.showSuccess("Bạn đã đăng nhập thành công");
-          this.router.navigate(['/blog']);
-        }
+      console.log(res);
+      localStorage.setItem('AccessToken', res.token);
+      localStorage.setItem('id', res.user.id)
+      this.toastrService.showSuccess("Successful login ^^");
+      setTimeout( () => {
+        window.location.reload();
+      }, 1000);
+      this.router.navigate(['/blog']);
+    }, error => {
+      console.log(error);
+      this.toastrService.showError("You have failed login !");
     }
     );
   }

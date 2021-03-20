@@ -1,1 +1,38 @@
-<p>details works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+
+        <th>Name</th>
+
+        <th>User Name</th>
+
+        <th>Email</th>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Image</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index"[attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ user.name }}</td>
+        <td>
+          {{ user.email }}
+        </td>
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+          <img [src]="user.image" style="width: 100px; height: 100px">
+        </td>
+        <td>
+          <button (click)="delete(user.id)" class="btn btn-outline-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
