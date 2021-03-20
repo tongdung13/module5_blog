@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -20,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+
+
 
 
 
@@ -32,6 +34,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
+
     BlogdayComponent,
     BlogtopComponent,
 
@@ -43,12 +46,15 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
     AngularFireStorageModule,
     RouterModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CKEditorModule
+    CKEditorModule,
+    Ng2SearchPipeModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

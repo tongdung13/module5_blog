@@ -14,7 +14,7 @@ export class AdminLayoutComponent implements OnInit {
     private afAuth: JwtService
   ) { }
 
+
   ngOnInit(): void {
   }
-
 }

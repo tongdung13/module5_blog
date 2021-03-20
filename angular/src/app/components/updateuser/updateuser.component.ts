@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
@@ -107,4 +108,7 @@ export class UpdateuserComponent implements OnInit {
       });
   }
 
+  gotoList() {
+    this.router.navigate(['user']);
+  }
 }

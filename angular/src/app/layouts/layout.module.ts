@@ -14,6 +14,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
 
 
+
 const routes: Routes = [
   { path: 'createBlog',
     component: CreateBlogComponent
@@ -59,6 +60,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CKEditorModule,
     Ng2SearchPipeModule
+
   ]
 })
 export class LayoutModule { }
