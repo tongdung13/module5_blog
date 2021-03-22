@@ -90,6 +90,6 @@ export class JwtService {
 
   showPublic(id: number)
   {
-    return this.http.get(environment.apiUrl + `/auth/showPublic/${id}`);
+    return this.http.get(environment.apiUrl + `/showPublic/${id}`);
   }
 }
