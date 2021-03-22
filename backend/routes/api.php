@@ -31,8 +31,8 @@ Route::group([
     Route::post('logout', [UserController::class, 'logout']);
     Route::get('user-profile', [UserController::class, 'user']);
     Route::post('signin', [LoginControler::class, 'login']);
-    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
-
+    Route::post('/store',[BlogController::class , 'store']);
+    Route::get('showPublic/{id}', [UserProfileController::class, 'show']);
     Route::get('show/{id}', [UserController::class, 'show']);
     Route::put('update/{id}', [UserController::class, 'update']);
     Route::delete('destroy/{id}', [UserController::class, 'delete']);

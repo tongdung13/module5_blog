@@ -22,7 +22,7 @@ export class BlogDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.blogs = new Blog();
     this.id = this.route.snapshot.params.id;
-    this.service.show(this.id).subscribe(
+    this.service.showPublic(this.id).subscribe(
       data => {
         console.log(data);
         this.blogs = data;
@@ -35,7 +35,7 @@ export class BlogDetailsComponent implements OnInit {
   loadUser()
   {
     this.id = localStorage.getItem('id');
-    this.userService.show(this.id).subscribe(
+    this.userService.showPublic(this.id).subscribe(
       data => {
         console.log(data);
         this.users = data;

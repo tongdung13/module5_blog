@@ -14,6 +14,7 @@ import { DetailsUserComponent } from '../components/details-user/details-user.co
 
 
 
+
 const routes: Routes = [
   { path: 'createBlog',
     component: CreateBlogComponent
@@ -37,7 +38,7 @@ const routes: Routes = [
     path: 'user-details',
     component: DetailsUserComponent
   },
-  
+
 ];
 
 @NgModule({
@@ -47,6 +48,7 @@ const routes: Routes = [
     UpdateBlogComponent,
     UpdateuserComponent,
     DetailsUserComponent,
+
   ],
   imports: [
     CommonModule,
