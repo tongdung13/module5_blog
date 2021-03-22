@@ -33,7 +33,7 @@ export class DetailsComponent implements OnInit {
           console.log(data);
           this.loadData();
         }, error => console.log(error)
-      )
+      );
     }
   }
 
