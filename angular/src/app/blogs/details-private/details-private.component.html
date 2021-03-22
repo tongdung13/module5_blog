@@ -3,15 +3,24 @@
   <!-- Navbar content -->
   <div class="row">
     <div class="col-3">
-      <a routerLink="" style="margin-left: 165px;">Home</a>
+      <a routerLink="" style="margin-left: 190px;">Home</a>
     </div>
     <div class="col-1">
-      <a routerLink="/login" style="margin-left: 105px;" >Dashboard</a>
+      <a routerLink="/createBlog" style="margin-left: 140px;" >New</a>
     </div>
   </div> 
-  <!-- <div>
-    <a *ngIf="users" routerLink="" class="btn-outline-success" style="font-size: 15px; color:aliceblue;">howdy,{{ users.fullName }}</a>
-  </div> -->
+  <div id="menu">
+    <ul>
+      <li><a *ngIf="users" routerLink="/update-profile">howdy,{{ users.fullName }}</a>
+      <ul class="sub-menu">
+        <li><a *ngIf="users" routerLink="/update-profile"><p>{{ users.fullName }}</p></a></li>
+        <li><p *ngIf="users">{{ users.name }}</p></li>
+        <li><a (click)="logOut()">Logout</a></li>
+      </ul>
+      </li>
+    </ul>
+    
+  </div>
 </nav>
 
 <div>
@@ -20,16 +29,16 @@
 
   <div *ngIf="blogs">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
+      <div class="col-2"></div>
+      <div class="col-9">
         <div>
       <h1 style="margin-top: 25px;">{{ blogs.title }}</h1>
       <div class="row">
-          <p style="margin-left: 17px;">{{ blogs.created_at | slice:0:10 }}</p>
+          <p>{{ blogs.created_at | slice:0:10 }}</p>
           <p *ngIf="users" style="margin-left: 20px;">{{ users.fullName }}</p>
-          <div class="image">
-            <img *ngIf="users" [src]="users.image">
-          </div>
+         
+            <img *ngIf="users" [src]="users.image" class="image">
+          <a *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 15px;">Edit</a>
           
       </div>
       </div>
@@ -37,7 +46,7 @@
         <!-- {{ blogs.content }} -->
       </div><br>
       <div>
-        <img [src]="blogs.image" style="width: 400px; height: 300px">
+        <img [src]="blogs.image" >
       </div><br>
       <div >
       <a (click)="list()" ><i class="bi bi-arrow-left-circle btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
@@ -53,5 +62,6 @@
   <div>Thank you for creating with WordPress.Version 5.3.6
   </div>
 </footer>
+
 
 

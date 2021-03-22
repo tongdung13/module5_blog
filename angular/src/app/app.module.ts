@@ -27,6 +27,7 @@ import { DetailsBlogComponent } from './layout-details/details-blog/details-blog
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { DetailsBlogComponent } from './layout-details/details-blog/details-blog
     DetailsBlogComponent,
     BlogdayComponent,
     BlogtopComponent,
+
 
   ],
   imports: [

@@ -2,14 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  private baseUrl = 'http://localhost:8000/api'
+
   constructor(private http: HttpClient) { }
 
   publicAll()
@@ -26,7 +25,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(API_URL + '/blogs', { headers: reqHeader });
+    return this.http.get(environment.apiUrl + '/blogs', { headers: reqHeader });
   }
 
   create(data: any) {
@@ -38,7 +37,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.post(`${this.baseUrl}/blogs`, data, { headers: reqHeader });
+    return this.http.post(environment.apiUrl + '/blogs', data, { headers: reqHeader });
   }
 
   edit(id: number, data: any) {
@@ -50,7 +49,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.put(`${this.baseUrl}/blogs/update/${id}`, data, { headers: reqHeader });
+    return this.http.put(environment.apiUrl + `/blogs/update/${id}`, data, { headers: reqHeader });
   }
 
   show(id: number) {
@@ -62,7 +61,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(API_URL + `/blog/show/${id}`, { headers: reqHeader });
+    return this.http.get(environment.apiUrl + `/blogs/show/${id}`, { headers: reqHeader });
   }
 
   delete(id: number) {
@@ -74,6 +73,11 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.delete(`${this.baseUrl}/blogs/destroy/${id}`, { headers: reqHeader })
+    return this.http.delete(environment.apiUrl + `/blogs/destroy/${id}`, { headers: reqHeader })
+  }
+
+  showPublic(id: number)
+  {
+    return this.http.get(environment.apiUrl + `/blog/show/${id}`);
   }
 }
