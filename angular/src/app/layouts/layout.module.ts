@@ -9,7 +9,7 @@ import { UpdateuserComponent } from '../components/updateuser/updateuser.compone
 import { DetailsComponent } from '../components/details/details.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
 
 
