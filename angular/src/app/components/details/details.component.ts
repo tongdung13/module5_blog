@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
         console.log(data);
         this.users = data;
       }, error => console.log(error)
-    )
+    );
   }
 
   delete(id: number)
