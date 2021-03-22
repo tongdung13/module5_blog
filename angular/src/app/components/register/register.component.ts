@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       name: ['', [Validators.required, Validators.min(5)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.min(5)]],
-      password_confirmation: ['', [Validators.required, Validators.minLength(5)]]
+      password_confirmation: ['', [Validators.required, Validators.min(5)]]
     });
     console.log(this.signupForm);
   }

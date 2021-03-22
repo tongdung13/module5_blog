@@ -21,12 +21,28 @@ export class JwtService {
 
   show(id: any)
   {
-    return this.http.get(`http://localhost:8000/api/user/show/${id}`);
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(`http://localhost:8000/api/user/show/${id}`, { headers: reqHeader });
   }
 
   updateUser(id: any, data: any)
   {
-    return this.http.put(environment.apiUrl + `/user/edit/${id}`, data);
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.put(environment.apiUrl + `/user/edit/${id}`, data, { headers: reqHeader });
   }
 
   signIn(user: User): Observable<any> {
@@ -35,7 +51,32 @@ export class JwtService {
 
   getAll()
   {
-    return this.http.get(environment.apiUrl + '/user');
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(environment.apiUrl + '/user', { headers: reqHeader });
+  }
+
+  delete(id: number)
+  {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.delete(environment.apiUrl + `/user/destroy/${id}`, { headers: reqHeader });
+  }
+
+  destroyToken(){
+    localStorage.removeItem('auth_token');
   }
 
 }
