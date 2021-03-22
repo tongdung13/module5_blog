@@ -23,27 +23,38 @@
                 </div>
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">Invalid Registered Name !</div>
-
+              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').errors.min">
+                Name not less than 5 characters
+              </div>
 
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                        placeholder="Email Address" formControlName="email" >
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">Invalid email !</div>
-
+              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').errors.email">
+                Invalid emal format
+              </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                   <input type="password" class="form-control form-control-user"
                          id="exampleInputPassword" placeholder="Password"  formControlName="password">
+                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">Invalid password !</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').errors.min">
+                    Password not less than 5 characters
+                  </div>
                 </div>
-                <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">Invalid password !</div>
-
                 <div class="col-sm-6">
                   <input type="password" class="form-control form-control-user"
                          id="exampleRepeatPassword" placeholder="Repeat Password" formControlName="password_confirmation">
+                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password_confirmation').invalid && signupForm.get('password_confirmation').touched">Re-Enter Invalid Password!</div>
+                  <div class="text-danger" role="alert" *ngIf="signupForm.get('password_confirmation').errors.min">
+                    Password Confirmation not less than 5 characters
+                  </div>
                 </div>
-                <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password_confirmation').invalid && signupForm.get('password_confirmation').touched">Re-Enter Invalid Password!</div>
-              </div>
+
+                </div>
+
               <hr>
 
               <button type="submit" class="btn btn-primary btn-user btn-block" >Register Account</button>
