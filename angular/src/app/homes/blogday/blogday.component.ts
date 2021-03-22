@@ -23,7 +23,7 @@ export class BlogdayComponent implements OnInit {
   }
   loadData()
   {
-    this.service.getAll().subscribe(
+    this.service.publicAll().subscribe(
       data => {
         this.blogs = data;
         console.log(data);
