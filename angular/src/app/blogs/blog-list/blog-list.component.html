@@ -13,8 +13,8 @@
       <tr>
         <th>#</th>
         <th>Title</th>
-        <th>Content</th>
-        <th>Image</th>
+        <th>Author</th>
+        <th>Date Submitted</th>
         <th></th>
       </tr>
     </thead>
@@ -24,12 +24,8 @@
         <td>
           <a routerLink="/blog-details/{{ blog.id }}">{{ blog.title }}</a>
         </td>
-        <td>
-          <p class="card-text">{{blog.content | slice:0:50}} [...]</p>
-        </td>
-        <td>
-          <img [src]="blog.image" style="width: 100px; height: 100px">
-        </td>
+        <td *ngIf="users">{{ users.fullName }}</td>
+        <td><p>Published</p> {{ blog.created_at | slice:0:10 }}</td>
         <td>
           <a routerLink="/edit/{{ blog.id }}" class="btn btn-sm btn-outline-primary">Update</a>
           <button (click)="deleteBlog(blog.id)" class="btn btn-sm btn-outline-danger" style="margin-left: 9px;">Delete</button>
