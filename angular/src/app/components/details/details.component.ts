@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
         this.users = data;
       }, error => console.log(error)
     );
+
   }
 
   delete(id: number)
@@ -36,5 +37,4 @@ export class DetailsComponent implements OnInit {
       );
     }
   }
-
 }

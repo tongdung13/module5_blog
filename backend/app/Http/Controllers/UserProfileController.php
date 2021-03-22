@@ -34,11 +34,4 @@ class UserProfileController extends Controller
         $user->save();
         return response()->json($user);
     }
-
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        $user->delete();
-        return response()->json($user);
-    }
 }
