@@ -12,6 +12,11 @@ export class BlogService {
   private baseUrl = 'http://localhost:8000/api'
   constructor(private http: HttpClient) { }
 
+  publicAll()
+  {
+    return this.http.get(environment.apiUrl + '/blog');
+  }
+
   getAll() {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
@@ -57,7 +62,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(API_URL + `/blogs/show/${id}`)
+    return this.http.get(API_URL + `/blogs/show/${id}`, { headers: reqHeader });
   }
 
   delete(id: number) {

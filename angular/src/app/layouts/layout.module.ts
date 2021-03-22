@@ -39,10 +39,10 @@ const routes: Routes = [
     component: DetailsUserComponent
   },
   {
-    path: 'blog-details',
+    path: 'blog-details/:id',
     component: BlogDetailsComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
