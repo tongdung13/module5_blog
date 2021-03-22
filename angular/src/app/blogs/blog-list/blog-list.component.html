@@ -21,9 +21,11 @@
     <tbody>
       <tr *ngFor="let blog of blogs | filter:filter; let i = index"[attr.data-index]="i">
         <td>{{ i }}</td>
-        <td>{{ blog.title }}</td>
         <td>
-          <textarea cols="15" rows="5" [(ngModel)]="blog.content"></textarea>
+          <a routerLink="/blog-details/{{ blog.id }}">{{ blog.title }}</a>
+        </td>
+        <td>
+          <p class="card-text">{{blog.content | slice:0:50}} [...]</p>
         </td>
         <td>
           <img [src]="blog.image" style="width: 100px; height: 100px">
