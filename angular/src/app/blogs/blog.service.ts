@@ -62,7 +62,7 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(API_URL + `/blogs/show/${id}`, { headers: reqHeader });
+    return this.http.get(API_URL + `/blog/show/${id}`, { headers: reqHeader });
   }
 
   delete(id: number) {
