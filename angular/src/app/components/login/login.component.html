@@ -27,26 +27,12 @@
                            id="exampleInputEmail" aria-describedby="emailHelp"
                            placeholder="Enter Email Address..." formControlName="email">
                   </div>
-                  <div *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)" class="alert alert-danger">
-                    <div class="text-danger" *ngIf="loginForm.get('email').errors.required" >
-                      Invalid Email !
-                    </div>
-                    <div *ngIf="loginForm.get('email').errors.email">
-                      Invalid emal format
-                    </div>
-                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">Invalid email !</div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleInputPassword" placeholder="Password" formControlName="password">
                   </div>
-                  <div *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)" class="alert alert-danger">
-                    <div class="text-danger" *ngIf="loginForm.get('password').errors.required" >
-                      Invalid Password !
-                    </div>
-                    <div *ngIf="loginForm.get('password').errors.min">
-                      password not less than 5 characters
-                    </div>
-                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Invalid password !</div>
                     <button type="submit" class="btn btn-outline-primary btn-user btn-block">Login</button>
 
                   <hr>
