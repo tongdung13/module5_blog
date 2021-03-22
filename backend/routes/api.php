@@ -55,15 +55,16 @@ Route::group(['middleware' => ['jwt']], function () {
         Route::get('show/{id}', [BlogController::class, 'show']);
         Route::delete('destroy/{id}', [BlogController::class, 'delete']);
     });
-});
-
-
 Route::prefix('user')->group(function () {
     Route::get('', [UserProfileController::class, 'index']);
     Route::get('show/{id}', [UserProfileController::class, 'show']);
     Route::put('edit/{id}', [UserProfileController::class, 'update']);
     Route::post('', [UserProfileController::class, 'create']);
+    });
 });
+
+
+
 
 
 

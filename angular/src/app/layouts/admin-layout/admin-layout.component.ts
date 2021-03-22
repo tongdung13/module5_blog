@@ -10,6 +10,8 @@ import { NotificationService } from 'src/app/service/notification.service';
 })
 export class AdminLayoutComponent implements OnInit {
 
+  id: any;
+  user: any;
   constructor(
     private router: Router,
     private afAuth: JwtService,
@@ -21,7 +23,9 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   logOut() {
-    this.afAuth.destroyToken();
+    this.id = localStorage.getItem('id');
+    localStorage.removeItem('AccessToken');
+    this.afAuth.destroyToken(this.user);
     this.router.navigate(['']);
     this.toastrService.showSuccess("You have successfully logged out !");
   }
