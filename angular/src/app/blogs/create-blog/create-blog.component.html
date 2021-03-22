@@ -10,7 +10,7 @@
       <div class="form-group" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <label for="content">Content</label>
 
-<!--        <textarea name="content" [(ngModel)]="blog.content" class="form-control" formControlName="content"></textarea>-->
+       <!-- <textarea name="content" [(ngModel)]="blog.content" class="form-control" formControlName="content"></textarea> -->
 
         <ckeditor data="<p>Editor' content</p>" name="content" [(ngModel)]="blog.content" formControlName="content"></ckeditor>
 
