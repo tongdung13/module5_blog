@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.jwtService.signIn(data).subscribe(res => {
       console.log(res);
       localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('id', res.user.id)
+      localStorage.setItem('id', res.user.id);
       this.toastrService.showSuccess("Successful login ^^");
       this.router.navigate(['/blog']);
     }, error => {
