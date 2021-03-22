@@ -31,7 +31,7 @@
                 </div>
                 <div class="card-body">
                   <p class="card-text">{{blog.content | slice:0:200}} [...]</p>
-
+                  <p>{{ blog.created_at | slice:0:10 }}</p>
                   <br>
                   <!--        <p class="card-text">-->
                   <!--          <img [src]="blog.image" style="width: 100px; height: 100px">-->

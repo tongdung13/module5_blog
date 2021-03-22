@@ -26,16 +26,17 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     loadChildren: () => import('./layouts/layout.module').then(module => module.LayoutModule)
   },
-
+  {
+    path: '',
+    loadChildren: () => import('./layout-details/details-blog/details-blog.module').then(module => module.DetailsBlogModule)
+  }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })],
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

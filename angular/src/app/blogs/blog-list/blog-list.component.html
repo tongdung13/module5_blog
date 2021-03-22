@@ -26,10 +26,6 @@
         </td>
         <td *ngIf="users">{{ users.fullName }}</td>
         <td><p>Published</p> {{ blog.created_at | slice:0:10 }}</td>
-        <td>
-          <a routerLink="/edit/{{ blog.id }}" class="btn btn-sm btn-outline-primary">Update</a>
-          <button (click)="deleteBlog(blog.id)" class="btn btn-sm btn-outline-danger" style="margin-left: 9px;">Delete</button>
-        </td>
       </tr>
     </tbody>
   </table>
