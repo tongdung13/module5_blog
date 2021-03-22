@@ -22,7 +22,19 @@ export class DetailsComponent implements OnInit {
         console.log(data);
         this.users = data;
       }, error => console.log(error)
-    )
+    );
   }
+  //
+  // delete(id: number)
+  // {
+  //   if (confirm("You have want delete is not ?")) {
+  //     this.service.delete(id).subscribe(
+  //       data => {
+  //         console.log(data);
+  //         this.loadData();
+  //       }, error => console.log(error)
+  //     );
+  //   }
+  // }
 
 }

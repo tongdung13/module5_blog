@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -17,11 +16,12 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './homes/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { CKEditorModule } from 'ckeditor4-angular';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
+import { BlogtopComponent } from './homes/blogtop/blogtop.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+
+
 
 
 
