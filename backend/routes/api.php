@@ -49,6 +49,7 @@ Route::prefix('blog')->group(function () {
 Route::group(['middleware' => ['jwt']], function () {
     Route::get('user', [LoginControler::class, 'getAuthenticatedUser']);
     Route::prefix('blogs')->group(function () {
+        Route::get('', [BlogController::class , 'index']);
         Route::post('', [BlogController::class, 'store']);
         Route::put('update/{id}', [BlogController::class, 'update']);
         Route::get('show/{id}', [BlogController::class, 'show']);

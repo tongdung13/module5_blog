@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtService } from 'src/app/components/jwt.service';
 import { BlogService } from '../blog.service';
 
 @Component({
@@ -10,12 +11,17 @@ export class BlogListComponent implements OnInit {
 
   filter: any;
   blogs: any;
+  users: any;
+  id: any;
+
   constructor(
-    private service: BlogService
+    private service: BlogService,
+    private userService: JwtService
   ) { }
 
   ngOnInit(): void {
     this.loadData();
+    this.loadUser();
   }
 
   loadData()
@@ -39,4 +45,17 @@ export class BlogListComponent implements OnInit {
       )
     }
   }
+
+  loadUser()
+  {
+    this.id = localStorage.getItem('id');
+    this.userService.show(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.users = data;
+      }, error => console.log(error)
+    )
+  }
+
+
 }

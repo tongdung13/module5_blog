@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/blogs/blog.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,24 +9,25 @@ import { BlogService } from 'src/app/blogs/blog.service';
   styleUrls: ['./blogday.component.css']
 })
 export class BlogdayComponent implements OnInit {
+  constructor(
+    private service: BlogService,
+    private router: Router
+  ) { }
   blogs: any;
   blog: any;
-  constructor(
-    private service: BlogService
-  ) { }
+  // tslint:disable-next-line:typedef
+  value: any;
 
   ngOnInit(): void {
     this.loadData();
   }
-  // tslint:disable-next-line:typedef
   loadData()
   {
-    this.service.getAll().subscribe(
+    this.service.publicAll().subscribe(
       data => {
         this.blogs = data;
         console.log(data);
       }, error => console.log(error)
     );
   }
-
 }
