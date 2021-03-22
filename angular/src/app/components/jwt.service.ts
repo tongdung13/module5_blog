@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 
@@ -36,6 +36,11 @@ export class JwtService {
   getAll()
   {
     return this.http.get(environment.apiUrl + '/user');
+  }
+
+  delete(id: number)
+  {
+    return this.http.delete(environment.apiUrl + `/user/destroy/${id}`);
   }
 
 }

@@ -9,7 +9,11 @@ import { JwtService } from 'src/app/components/jwt.service';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor( ) { }
+  constructor(
+    private router: Router,
+    private afAuth: JwtService
+  ) { }
+
 
   ngOnInit(): void {
   }

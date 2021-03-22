@@ -30,7 +30,4 @@ export class BlogdayComponent implements OnInit {
       }, error => console.log(error)
     );
   }
-  blogdetail(id: any){
-    this.router.navigate(['/blogdetails', id]);
-  }
 }

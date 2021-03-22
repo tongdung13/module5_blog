@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngIf="users">
+    <div>
+      <label><b>User Name :</b></label> {{ users.name }}
+    </div>
+    <div>
+      <label><b>Email :</b></label> {{ users.email }}
+    </div>
+    <div>
+      <label><b>Full Name :</b></label> {{ users.fullName }}
+    </div>
+    <div>
+      <label><b>Address :</b></label> {{ users.address }}
+    </div>
+    <div>
+      <label><b>Phone :</b></label> {{ users.phone }}
+    </div>
+    <div>
+      <label><b>Image :</b></label> <img [src]="users.image" style="width: 300px; height: 300px">
+    </div>
+  </div>
+</div>
