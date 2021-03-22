@@ -8,7 +8,7 @@
     <div class="col-1">
       <a routerLink="/login" style="margin-left: 105px;" >Dashboard</a>
     </div>
-  </div> 
+  </div>
   <!-- <div>
     <a *ngIf="users" routerLink="" class="btn-outline-success" style="font-size: 15px; color:aliceblue;">howdy,{{ users.fullName }}</a>
   </div> -->
@@ -27,10 +27,9 @@
       <div class="row">
           <p style="margin-left: 17px;">{{ blogs.created_at | slice:0:10 }}</p>
           <p *ngIf="users" style="margin-left: 20px;">{{ users.fullName }}</p>
-          <div class="image">
-            <img *ngIf="users" [src]="users.image">
-          </div>
-          
+            <img *ngIf="users" [src]="users.image" class="image">
+
+
       </div>
       </div>
       <div style="font-size: 20px;" [innerHTML]="blogs.content">
