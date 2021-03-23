@@ -11,6 +11,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
 import { DetailsPrivateComponent } from '../blogs/details-private/details-private.component';
+import { AdminGuard } from '../admin/admin.guard';
+import { AdminServiceService } from '../admin/admin-service.service';
+import { BlogGuard } from '../blogs/blog.guard';
 
 
 
@@ -26,11 +29,6 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: UpdateBlogComponent
-  },
-  {
-    path: 'user',
-    component: DetailsComponent,
-
   },
   {
     path: 'update-profile',
@@ -67,7 +65,7 @@ const routes: Routes = [
     Ng2SearchPipeModule
 
   ],
-  providers: []
+  providers: [AdminGuard, AdminServiceService, BlogGuard]
 
 })
 export class LayoutModule { }

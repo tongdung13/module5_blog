@@ -77,6 +77,6 @@ export class JwtService {
 
   showPublic(id: number)
   {
-    return this.http.get(environment.apiUrl + `/showPublic/${id}`);
+    return this.http.get(environment.apiUrl + `/users/show/${id}`);
   }
 }
