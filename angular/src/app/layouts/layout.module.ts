@@ -4,23 +4,26 @@ import { BlogListComponent } from '../blogs/blog-list/blog-list.component';
 import { CreateBlogComponent } from '../blogs/create-blog/create-blog.component';
 import { UpdateBlogComponent } from '../blogs/update-blog/update-blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
-
+import { AuthGuardService as AuthGuard
+} from '../service/auth-guard.service';
+import { RoleGuardService as RoleGuard } from '../service/role-guard.service';
+import { LoginComponent } from '../components/login/login.component';
 
 
 
 const routes: Routes = [
   { path: 'createBlog',
-    component: CreateBlogComponent
+    component: CreateBlogComponent,
   },
   { path: 'blog',
-    component: BlogListComponent
+    component: BlogListComponent,
   },
   {
     path: 'edit/:id',
@@ -28,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: DetailsComponent
+    component: DetailsComponent,
+
   },
   {
     path: 'update-profile',
@@ -36,9 +40,13 @@ const routes: Routes = [
   },
   {
     path: 'user-details',
-    component: DetailsUserComponent
-  },
+    component: DetailsUserComponent,
 
+  },
+  {
+    path: '**' ,
+    component: LoginComponent
+  }
 ];
 
 @NgModule({

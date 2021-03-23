@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
-    if (this.email && this.password) {
+
       this.jwtService.signIn(data).subscribe(res => {
 
         console.log(res);
@@ -49,23 +49,7 @@ export class LoginComponent implements OnInit {
       }, error => {
         console.log(error);
         this.toastrService.showError("You have failed login !");
-      }
-      );
-    } else {
-    this.jwtService.signIn(data).subscribe(res => {
-
-      console.log(res);
-      localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('id', res.user.id);
-      this.toastrService.showSuccess("Successful login ^^");
-      this.router.navigate(['/blog']);
-    }, error => {
-      console.log(error);
-      this.toastrService.showError("You have failed login !");
-
-    }
-    );
-  }
+      });
   }
 
 }
