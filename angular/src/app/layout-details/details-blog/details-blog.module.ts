@@ -27,6 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
 
-  ]
+  ],
+  providers: []
 })
 export class DetailsBlogModule { }

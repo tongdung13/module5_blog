@@ -21,9 +21,7 @@ import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { DetailsBlogComponent } from './layout-details/details-blog/details-blog.component';
-import { AuthGuardService } from './service/auth-guard.service';
-import { AuthService } from './service/auth.service';
-import { RoleGuardService } from './service/role-guard.service';
+
 
 
 
@@ -62,7 +60,7 @@ import { RoleGuardService } from './service/role-guard.service';
 
 
   ],
-  providers: [AuthGuardService, AuthService, RoleGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

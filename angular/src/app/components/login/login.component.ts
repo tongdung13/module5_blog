@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.minLength(5)]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.min(5)]],
     });
     console.log(this.loginForm);
 
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('AccessToken', res.token);
         localStorage.setItem('id', res.user.id);
         this.toastrService.showSuccess("Successful login ^^");
-        this.router.navigate(['/user']);
+        this.router.navigate(['/blog']);
       }, error => {
         console.log(error);
         this.toastrService.showError("You have failed login !");
