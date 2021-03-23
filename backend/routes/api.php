@@ -31,8 +31,7 @@ Route::group([
     Route::post('logout', [UserController::class, 'logout']);
     Route::get('user-profile', [UserController::class, 'user']);
     Route::post('signin', [LoginControler::class, 'login']);
-    Route::post('/store',[\App\Http\Controllers\BlogController::class , 'store']);
-
+    Route::post('/store',[BlogController::class , 'store']);
     Route::get('show/{id}', [UserController::class, 'show']);
     Route::put('update/{id}', [UserController::class, 'update']);
     Route::delete('destroy/{id}', [UserController::class, 'delete']);
@@ -44,6 +43,8 @@ Route::prefix('blog')->group(function () {
     Route::get('/show/{id}', [BlogController::class, 'show']);
     Route::put('/update/{id}', [\App\Http\Controllers\BlogController::class, 'update']);
     Route::delete('destroy/{id}', [BlogController::class, 'delete']);
+    Route::get('show/{id}', [BlogController::class, 'show']);
+
 });
 
 Route::group(['middleware' => ['jwt']], function () {
@@ -62,6 +63,9 @@ Route::prefix('user')->group(function () {
     Route::post('', [UserProfileController::class, 'create']);
     });
 });
+
+Route::get('showPublic/{id}', [UserProfileController::class, 'show']);
+
 
 
 

@@ -44,7 +44,8 @@
 
     <div class="form-group">
       <label for="image">Image</label>
-      <input type="file" class="form-control-file" #userPhoto (change)="onFireSelected($event)" name="image" [(ngModel)]="user.image" autocomplete="off">
+      <input type="file" class="form-control-file" #userPhoto (change)="onFireSelected($event)" name="image" [(ngModel)]="user.image" autocomplete="off"><br>
+      <img [src]="user.image" style="width: 100px; height: 100px;">
     </div>
 
     <button (click)="updateUser()" type="submit">Cập nhật</button>

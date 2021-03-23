@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +13,11 @@ export class JwtService {
   constructor(private http: HttpClient) { }
 
   signUp(data: any): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/register', data);
+    return this.http.post(environment.apiUrl + '/auth/register', data);
   }
 
   profile(): Observable<any> {
-    return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
+    return this.http.get(environment.apiUrl + '/auth/user-profile');
   }
 
   show(id: any)
@@ -29,7 +30,7 @@ export class JwtService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(`http://localhost:8000/api/user/show/${id}`, { headers: reqHeader });
+    return this.http.get(environment.apiUrl + `/user/show/${id}`, { headers: reqHeader });
   }
 
   updateUser(id: any, data: any)
@@ -46,7 +47,7 @@ export class JwtService {
   }
 
   signIn(user: User): Observable<any> {
-    return this.http.post('http://localhost:8000/api/auth/signin', user);
+    return this.http.post(environment.apiUrl + '/auth/signin', user);
   }
 
   getAll()
@@ -87,4 +88,8 @@ export class JwtService {
     return this.http.post(environment.apiUrl + '/auth/logout', data, { headers: reqHeader });
   }
 
+  showPublic(id: number)
+  {
+    return this.http.get(environment.apiUrl + `/showPublic/${id}`);
+  }
 }

@@ -12,6 +12,8 @@ import {JwtService} from '../jwt.service';
 export class LoginComponent implements OnInit {
   loginForm: any = FormGroup;
   errors: string = '';
+  email = 'haivl@gmail.com';
+  password = '123456';
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -36,6 +38,20 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
+    if (this.email === 'haivl@gmail.com' && this.password === '123456') {
+      this.jwtService.signIn(data).subscribe(res => {
+
+        console.log(res);
+        localStorage.setItem('AccessToken', res.token);
+        localStorage.setItem('id', res.user.id);
+        this.toastrService.showSuccess("Successful login ^^");
+        this.router.navigate(['/user']);
+      }, error => {
+        console.log(error);
+        this.toastrService.showError("You have failed login !");
+      }
+      );
+    } else {
     this.jwtService.signIn(data).subscribe(res => {
 
       console.log(res);
@@ -49,6 +65,7 @@ export class LoginComponent implements OnInit {
 
     }
     );
+  }
   }
 
 }

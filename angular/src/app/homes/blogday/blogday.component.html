@@ -1,47 +1,3 @@
-<!--<div class="container">-->
-<!--  <div style="padding: 5px 0px;" *ngFor="let blog of blogs">-->
-<!--    <div class="card">-->
-<!--      <div class="card-header">{{blog.title}}</div>-->
-<!--      <div class="card-body">-->
-<!--        <p class="card-text">{{blog.content}}</p>-->
-<!--        <br>-->
-<!--&lt;!&ndash;        <p class="card-text">&ndash;&gt;-->
-<!--&lt;!&ndash;          <img [src]="blog.image" style="width: 100px; height: 100px">&ndash;&gt;-->
-<!--&lt;!&ndash;        </p>&ndash;&gt;-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-<!--<div class="col-md-12 col-lg-20" >-->
-<!--  <div data-v-1fd0b80c="" class="card" >-->
-<!--    <header data-v-1fd0b80c="" class="card-header" class="btn btn-dark"><strong data-v-1fd0b80c="">Blog mới</strong></header>-->
-<!--    <div data-v-1fd0b80c="" class="card-body" style="padding: 5px;">-->
-<!--      <ul data-v-1fd0b80c="" role="list-items" class="list-group">&lt;!&ndash;&ndash;&gt;-->
-<!--        <li data-v-1fd0b80c=""-->
-<!--            class="list-group-item hr-last-child-display-none padding-top-list-item padding-bottom-list-item"-->
-<!--            style="border: none;">-->
-
-<!--          <div class="container">-->
-<!--            <div style="padding: 5px 0px;" *ngFor="let blog of blogs">-->
-<!--              <div class="card">-->
-<!--                <div class="card-header" >-->
-<!--                  <a   routerLink="blog-details/{{ blog.id }}">  {{blog.title}} </a>-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                  <p class="card-text">{{blog.content | slice:0:200}} [...]</p>-->
-<!--                  <p>{{ blog.created_at | slice:0:10 }}</p>-->
-<!--                  <br>-->
-
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 
 <div class="nam-matis">
   <div class="nam-matis-top">
@@ -51,7 +7,9 @@
                 <img [src]="blog.image" style="width: 360px; height: 220px">
               </p>
       <h3><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h3>
-      <p class="card-text">{{blog.content | slice:0:200}} [...]</p>
+      <p class="card-text" [innerHTML]="blog.content | slice:0:200">
+
+      </p>
     </div>
     <div class="clearfix"> </div>
   </div>

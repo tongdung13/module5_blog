@@ -18,9 +18,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ng2-ckeditor';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { DetailsBlogComponent } from './layout-details/details-blog/details-blog.component';
+
 
 
 
@@ -38,6 +39,7 @@ import { DetailsBlogComponent } from './layout-details/details-blog/details-blog
     DetailsBlogComponent,
     BlogdayComponent,
     BlogtopComponent,
+
 
   ],
   imports: [
