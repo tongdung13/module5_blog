@@ -7,6 +7,7 @@ import { HomeComponent } from './homes/home/home.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {RegisterComponent} from './components/register/register.component';
 import {BlogtopComponent} from './homes/blogtop/blogtop.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -32,8 +33,9 @@ const routes: Routes = [
     loadChildren: () => import('./layouts/layout.module').then(module => module.LayoutModule)
   },
   {
-    path: '',
-    loadChildren: () => import('./layout-details/details-blog/details-blog.module').then(module => module.DetailsBlogModule)
+    path: 'admin',
+    component: AdminComponent,
+    loadChildren: () => import('./admin/admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

@@ -47,7 +47,7 @@
         <!-- {{ blogs.content }} -->
       </div><br>
       <div>
-        <img [src]="blogs.image" >
+        <img *ngIf="blogs.image" [src]="blogs.image" >
       </div><br>
       <div >
       <a (click)="list()" ><i class="bi bi-arrow-left-circle btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">

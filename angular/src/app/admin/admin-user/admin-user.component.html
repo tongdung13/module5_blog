@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index"[attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <a (click)="delete(user.id)" class="btn btn-sm btn-outline-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

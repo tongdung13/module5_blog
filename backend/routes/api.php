@@ -39,11 +39,11 @@ Route::group([
 });
 
 Route::prefix('blog')->group(function () {
-    Route::get('', [\App\Http\Controllers\BlogController::class , 'index']);
+    Route::get('', [BlogController::class , 'index']);
+    Route::post('', [BlogController::class, 'store']);
     Route::get('/show/{id}', [BlogController::class, 'show']);
-    Route::put('/update/{id}', [\App\Http\Controllers\BlogController::class, 'update']);
+    Route::put('/update/{id}', [BlogController::class, 'update']);
     Route::delete('destroy/{id}', [BlogController::class, 'delete']);
-    Route::get('show/{id}', [BlogController::class, 'show']);
 
 });
 
@@ -64,7 +64,12 @@ Route::prefix('user')->group(function () {
     });
 });
 
-Route::get('showPublic/{id}', [UserProfileController::class, 'show']);
+Route::prefix('users')->group(function () {
+    Route::get('', [UserProfileController::class, 'index']);
+    Route::get('show/{id}', [UserProfileController::class, 'show']);
+    Route::put('edit/{id}', [UserProfileController::class, 'update']);
+    Route::post('', [UserProfileController::class, 'create']);
+    });
 
 
 
