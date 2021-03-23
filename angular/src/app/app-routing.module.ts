@@ -6,6 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import { HomeComponent } from './homes/home/home.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {RegisterComponent} from './components/register/register.component';
+import {BlogtopComponent} from './homes/blogtop/blogtop.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'blogtop',
+    component: BlogtopComponent,
   },
   {
     path: 'register',
