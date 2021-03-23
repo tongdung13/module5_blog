@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
-    if (this.email === 'haivl@gmail.com' && this.password === '123456') {
+    if (this.email && this.password) {
       this.jwtService.signIn(data).subscribe(res => {
 
         console.log(res);
