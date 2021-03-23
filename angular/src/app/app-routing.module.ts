@@ -31,10 +31,6 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     loadChildren: () => import('./layouts/layout.module').then(module => module.LayoutModule)
   },
-  {
-    path: '',
-    loadChildren: () => import('./layout-details/details-blog/details-blog.module').then(module => module.DetailsBlogModule)
-  }
 ];
 
 @NgModule({

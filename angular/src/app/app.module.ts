@@ -20,7 +20,7 @@ import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import { DetailsBlogComponent } from './layout-details/details-blog/details-blog.component';
+import {BlogDetailsComponent} from './blogs/blog-details/blog-details.component';
 
 
 
@@ -36,9 +36,9 @@ import { DetailsBlogComponent } from './layout-details/details-blog/details-blog
     DetailsComponent,
     AdminLayoutComponent,
     HomeComponent,
-    DetailsBlogComponent,
     BlogdayComponent,
     BlogtopComponent,
+    BlogDetailsComponent
 
 
   ],
