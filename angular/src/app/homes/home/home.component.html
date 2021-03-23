@@ -1,133 +1,269 @@
 
-
+<body>
+<!-- header -->
 <div class="header">
-  <div class="bg-color">
-    <header id="main-header" >
+  <div class="container">
+    <div class="logo">
+      <a href="index.html"><img src="assets/user2/images/logo.png" class="img-responsive" alt=""></a>
+    </div>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a  class="navbar-brand" href="#"><h1>Dream Blog</h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="head-nav">
+      <span class="menu"> </span>
+      <ul class="cl-effect-1">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="404.html">Shortcodes</a></li>
+        <li><a routerLink="login">Login</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <div class="clearfix"></div>
+      </ul>
+    </div>
+    <!-- script-for-nav -->
+    <script>
+      $( "span.menu" ).click(function() {
+        $( ".head-nav ul" ).slideToggle(300, function() {
+          // Animation complete.
+        });
+      });
+    </script>
+    <!-- script-for-nav -->
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"> <h3> Home </h3> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/createBlog"> <h3> NewBlog </h3> </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="login"> <h3> Login </h3> </a>
-            </li>
-          </ul>
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-    </header>
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 wow fadeIn delay-05s">
-            <div class="banner-text">
-              <h2>Hi, I am <span>Dream</span> Blog,</h2>
-              <p>I will listen to everything you share, <br> Hope all the best will happen to you</p>
-            </div>
-            <div class="overlay-detail text-center">
-              <a href="#about"><i class="fa fa-angle-down"></i></a>
-            </div>
+
+
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<!-- header -->
+<div class="container">
+  <div class="col-md-9 bann-right">
+    <!-- banner -->
+    <div class="banner">
+      <div class="header-slider">
+        <div class="slider">
+          <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+              <li>
+                <img src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg" class="img-responsive" alt="">
+                <div class="caption">
+                  <h3>Maecenas malesuada elit lectus felis</h3>
+                  <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus.</p>
+                </div>
+              </li>
+              <li>
+                <img src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg" class="img-responsive" alt="">
+                <div class="caption">
+                  <h3>Curabitur et ligula. Ut molestie </h3>
+                  <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulu. </p>
+                </div>
+              </li>
+              <li>
+                <img src="https://i.pinimg.com/564x/d4/e2/db/d4e2db4c34fb9afb17cc7838be5fad09.jpg" class="img-responsive" alt="">
+                <div class="caption">
+                  <h3>Etiam ullamcorper. Suspendisse</h3>
+                  <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. </p>
+                </div>
+              </li>
+              <li>
+                <img src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg" class="img-responsive" alt="">
+                <div class="caption">
+                  <h3>Suspendisse a pellentesque dui</h3>
+                  <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada .</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+
+
+          <app-blogday></app-blogday>
+
+
+  </div>
+  <div class="col-md-3 bann-left">
+    <div class="b-search">
+      <form>
+        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+        <input type="submit" value="">
+      </form>
+    </div>
+    <h3>Recent Posts</h3>
+    <div class="blo-top">
+      <div class="blog-grids">
+        <div class="blog-grid-left">
+          <a href="single.html"><img src="assets/user2/images/1b.jpg" class="img-responsive" alt=""></a>
+        </div>
+        <div class="blog-grid-right">
+          <h4><a href="single.html">Little Invaders </a></h4>
+          <p>pellentesque dui, non felis. Maecenas male </p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="blog-grids">
+        <div class="blog-grid-left">
+          <a href="single.html"><img src="assets/user2/images/2b.jpg" class="img-responsive" alt=""></a>
+        </div>
+        <div class="blog-grid-right">
+          <h4><a href="single.html">Little Invaders </a></h4>
+          <p>pellentesque dui, non felis. Maecenas male </p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="blog-grids">
+        <div class="blog-grid-left">
+          <a href=""><img src="assets/user2/images/3b.jpg" class="img-responsive" alt=""></a>
+        </div>
+        <div class="blog-grid-right">
+          <h4><a href="single.html">Little Invaders </a></h4>
+          <p>pellentesque dui, non felis. Maecenas male </p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <h3>Categories</h3>
+    <div class="blo-top">
+      <li><a href="#">||   Lorem Ipsum passage</a></li>
+      <li><a href="#">||   Finibus Bonorum et</a></li>
+      <li><a href="#">||   Treatise on the theory</a></li>
+      <li><a href="#">||   Characteristic words</a></li>
+      <li><a href="#">||   combined with a handful</a></li>
+      <li><a href="#">||   which looks reasonable</a></li>
+    </div>
+    <h3>Newsletter</h3>
+
+    <div class="blo-top">
+      <div class="name">
+        <form>
+          <input type="text" placeholder="email" required="">
+        </form>
+      </div>
+      <div class="button">
+        <form>
+          <input type="submit" value="Subscribe">
+        </form>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <div class="clearfix"> </div>
+  <div class="fle-xsel">
+    <ul id="flexiselDemo3">
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/6.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/5.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/1.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/4.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/6.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="banner-1">
+            <img src="assets/user2/images/1.jpg" class="img-responsive" alt="">
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <script type="text/javascript">
+      $(window).load(function() {
+
+        $("#flexiselDemo3").flexisel({
+          visibleItems: 5,
+          animationSpeed: 1000,
+          autoPlay: true,
+          autoPlaySpeed: 3000,
+          pauseOnHover: true,
+          enableResponsiveBreakpoints: true,
+          responsiveBreakpoints: {
+            portrait: {
+              changePoint:480,
+              visibleItems: 2
+            },
+            landscape: {
+              changePoint:640,
+              visibleItems: 3
+            },
+            tablet: {
+              changePoint:768,
+              visibleItems: 3
+            }
+          }
+        });
+
+      });
+    </script>
+    <script type="text/javascript" src="assets/user2/js/jquery.flexisel.js"></script>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="footer">
+    <div class="col-md-3 foot-1">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">||   Lorem Ipsum passage</a></li>
+        <li><a href="#">||   Finibus Bonorum et</a></li>
+        <li><a href="#">||   Treatise on the theory</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>Favorite Resources</h4>
+      <ul>
+        <li><a href="#">||   Characteristic words</a></li>
+        <li><a href="#">||   combined with a handful</a></li>
+        <li><a href="#">||   which looks reasonable</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="#">||  Even slightly believable</a></li>
+        <li><a href="#">||  Hidden in the middle</a></li>
+        <li><a href="#">||  Ipsum therefore always</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>Custom Menu</h4>
+      <ul>
+        <li><a href="#">||  Internet tend to repeat</a></li>
+        <li><a href="#">||  Alteration in some form</a></li>
+        <li><a href="#">||  This book is a treatise</a></li>
+      </ul>
+    </div>
+
+    <div class="clearfix"> </div>
+    <div class="copyright">
+      <p>Copyrights © 2015 Voguish All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
     </div>
   </div>
 </div>
-
-<section id="about" >
-
-  <div class="row" style="margin-top: 100px">
-    <div class="col-sm-6">
-      <app-blogday></app-blogday>
-    </div>
-    <div class="col-sm-6">
-      <app-blogtop></app-blogtop>
-    </div>
-  </div>
-
-</section>
-
-<section id="portfolio" class="section-padding wow fadeInUp delay-05s">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="title text-center">Let's <span class="deco">See</span> My Work</h2>
-      </div>
-      <div class="col-md-12">
-        <div id="myGrid" class="grid-padding">
-          <div class="col-md-4 col-sm-4 padding-right-zero">
-            <img src="assets/user/img/portfolio01.jpg" class="img-responsive">
-            <img src="assets/user/img/port01.jpg" class="img-responsive">
-            <img src="assets/user/img/port02.jpg" class="img-responsive">
-            <img src="assets/user/img/portfolio01.jpg" class="img-responsive">
-          </div>
-          <div class="col-md-4 col-sm-4 padding-right-zero">
-            <img src="assets/user/img/portfolio02.jpg" class="img-responsive">
-            <img src="assets/user/img/port01.jpg" class="img-responsive">
-            <img src="assets/user/img/port02.jpg" class="img-responsive">
-            <img src="assets/user/img/portfolio01.jpg" class="img-responsive">
-            <img src="assets/user/img/port03.jpg" class="img-responsive">
-          </div>
-          <div class="col-md-4 col-sm-4 padding-right-zero">
-            <img src="assets/user/img/port01.jpg" class="img-responsive">
-            <img src="assets/user/img/portfolio01.jpg" class="img-responsive">
-            <img src="assets/user/img/portfolio02.jpg" class="img-responsive">
-            <img src="assets/user/img/port03.jpg" class="img-responsive">
-            <img src="assets/user/img/portfolio02.jpg" class="img-responsive">
-            <img src="assets/user/img/port02.jpg" class="img-responsive">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer-2 text-center-xs bg--white">
-  <div class="container">
-    <!--end row-->
-    <div class="row">
-      <div class="col-md-6">
-        <div class="footer">
-          © Goodbye - See You Again
-          <div class="credits">
-
-
-            Designed by <a href="https://google.com/">Dream Blog</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 text-right">
-        <ul class="social-list">
-          <li>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/BackSunset/"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-    <!--end row-->
-  </div>
-</footer>
-
+</body>
