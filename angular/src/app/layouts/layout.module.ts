@@ -11,10 +11,11 @@ import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
-import { AuthGuardService as AuthGuard
+import { AuthGuardService as AuthGuard, AuthGuardService
 } from '../service/auth-guard.service';
-import { RoleGuardService as RoleGuard } from '../service/role-guard.service';
+import { RoleGuardService as RoleGuard, RoleGuardService } from '../service/role-guard.service';
 import { LoginComponent } from '../components/login/login.component';
+import { AuthService } from '../service/auth.service';
 
 
 
@@ -66,6 +67,8 @@ const routes: Routes = [
     CKEditorModule,
     Ng2SearchPipeModule
 
-  ]
+  ],
+    providers: [AuthGuardService, AuthService, RoleGuardService]
+
 })
 export class LayoutModule { }
