@@ -11,6 +11,8 @@ import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
+import {BlogDetailsComponent} from '../blogs/blog-details/blog-details.component';
+import {DetailsPrivateComponent} from '../blogs/details-private/details-private.component';
 
 
 
@@ -38,6 +40,14 @@ const routes: Routes = [
     path: 'user-details',
     component: DetailsUserComponent
   },
+  {
+    path: 'blog-details/:id',
+    component: BlogDetailsComponent
+  },
+  {
+    path: 'blog-details-private/:id',
+    component: DetailsPrivateComponent
+  }
 
 ];
 
@@ -48,6 +58,8 @@ const routes: Routes = [
     UpdateBlogComponent,
     UpdateuserComponent,
     DetailsUserComponent,
+    DetailsPrivateComponent,
+
 
   ],
   imports: [
