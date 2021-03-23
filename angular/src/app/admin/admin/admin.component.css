@@ -1,0 +1,18 @@
+
+
+ul.root li {
+  list-style: none;
+  float: left;
+  font-size: 20px;
+}
+
+ul.root li a {
+  margin-left: 20px;
+  color: aliceblue;
+}
+
+ul.root li a:hover {
+  color: red;
+}
+
+

@@ -26,15 +26,5 @@ export class DetailsComponent implements OnInit {
 
   }
 
-  delete(id: number)
-  {
-    if (confirm("You have want delete is not ?")) {
-      this.service.delete(id).subscribe(
-        data => {
-          console.log(data);
-          this.loadData();
-        }, error => console.log(error)
-      );
-    }
-  }
+  
 }

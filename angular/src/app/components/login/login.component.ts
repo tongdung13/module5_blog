@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/service/notification.service';
-import {JwtService} from '../jwt.service';
+import { JwtService } from '../jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
       this.toastrService.showError("You have failed login !");
     }
     );
-
   }
 
 }

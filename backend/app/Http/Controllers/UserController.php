@@ -108,9 +108,5 @@ class UserController extends Controller
         return response()->json(['result' => $user]);
     }
 
-    public function delete($id){
-        $users = User::findOrFail($id);
-        $users ->delete();
-        return response()->json($users);
-    }
+    
 }

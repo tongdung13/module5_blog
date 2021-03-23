@@ -117,7 +117,7 @@
         <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
         <img *ngIf="users" [src]="users.image" class="image">
       </div>
-
+      
       <div class="row">
         <div class="col-1">
           <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 910px;">Edit</a>
@@ -126,9 +126,6 @@
           <a class="btn btn-secondary" (click)="deleteBlog(blogs.id)" style="margin-left: 900px;">Delete</a>
         </div>
       </div>
-
-
-
       <div class="clearfix"> </div>
     </div>
 
