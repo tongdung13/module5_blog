@@ -27,12 +27,14 @@ export class AdminUserComponent implements OnInit {
 
   delete(id: number)
   {
-    return this.service.deleteUser(id).subscribe(
-      data => {
-        console.log(data);
-        this.loadData();
-      }, error => console.log(error)
-    )
+    if (confirm("You have want delete is not ?")) {
+      this.service.deleteUser(id).subscribe(
+        data => {
+          console.log(data);
+          this.loadData();
+        }, error => console.log(error)
+      );
+    }
   }
 
 }

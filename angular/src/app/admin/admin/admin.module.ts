@@ -6,11 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminLoginComponent } from '../admin-login/admin-login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminServiceService } from '../admin-service.service';
+import { AdminGuard } from '../admin.guard';
 
 const routes: Routes = [
   {
     path: 'userList',
-    component: AdminUserComponent
+    component: AdminUserComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'admin-login',
@@ -18,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'blogList',
-    component: AdminBlogComponent
+    component: AdminBlogComponent,
+    canActivate: [AdminGuard]
   }
 ]
 
@@ -34,6 +38,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     RouterModule.forChild(routes)
-  ]
+  ],
+  providers: [AdminServiceService, AdminGuard]
 })
 export class AdminModule { }

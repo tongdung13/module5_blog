@@ -7,37 +7,39 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminServiceService {
 
+  public _isLoggedIn!: boolean;
+
   constructor(private http: HttpClient) { }
 
-  getUser()
-  {
+  getUser() {
     return this.http.get(environment.apiUrl + `/users`);
   }
 
-  showUser (id: number)
-  {
+  showUser(id: number) {
     return this.http.get(environment.apiUrl + `/users/show/${id}`);
   }
 
-  deleteUser(id: number)
-  {
-    return this.http.delete(environment.apiUrl + `/auth/delete/${id}`);
+  deleteUser(id: number) {
+    return this.http.delete(environment.apiUrl + `/users/destroy/${id}`);
   }
 
-  getBlog()
-  {
+  getBlog() {
     return this.http.get(environment.apiUrl + '/blog');
   }
 
-  showBlog(id: number)
-  {
+  showBlog(id: number) {
     return this.http.get(environment.apiUrl + `/blog/show/${id}`);
   }
 
-  deleteBlog(id: number)
-  {
+  deleteBlog(id: number) {
     return this.http.delete(environment.apiUrl + `/blog/destroy/${id}`);
   }
 
-  
+  isLogged(): boolean {
+    return this._isLoggedIn;
+  }
+
+  setLogin(isLoggedIn: boolean) {
+    this._isLoggedIn = isLoggedIn;
+  }
 }

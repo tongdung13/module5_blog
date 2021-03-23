@@ -1,15 +1,18 @@
-.route {
+
+
+ul.root li {
+  list-style: none;
+  float: left;
   font-size: 20px;
 }
 
-.route1 {
-
-  font-size: 20px;
+ul.root li a {
+  margin-left: 20px;
+  color: aliceblue;
 }
 
-.route2 {
-  margin-right: 800px;
-  font-size: 20px;
+ul.root li a:hover {
+  color: red;
 }
 
 

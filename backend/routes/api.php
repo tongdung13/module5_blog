@@ -34,7 +34,6 @@ Route::group([
     Route::post('/store',[BlogController::class , 'store']);
     Route::get('show/{id}', [UserController::class, 'show']);
     Route::put('update/{id}', [UserController::class, 'update']);
-    Route::delete('destroy/{id}', [UserController::class, 'delete']);
 
 });
 
@@ -66,9 +65,10 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('users')->group(function () {
     Route::get('', [UserProfileController::class, 'index']);
+    Route::post('', [UserProfileController::class, 'create']);
     Route::get('show/{id}', [UserProfileController::class, 'show']);
     Route::put('edit/{id}', [UserProfileController::class, 'update']);
-    Route::post('', [UserProfileController::class, 'create']);
+    Route::delete('destroy/{id}', [UserProfileController::class, 'delete']);
     });
 
 
