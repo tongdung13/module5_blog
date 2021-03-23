@@ -8,7 +8,7 @@
     <div class="col-1">
       <a routerLink="/createBlog" style="margin-left: 140px;" >New</a>
     </div>
-  </div> 
+  </div>
   <div id="menu">
     <ul>
       <li><a *ngIf="users" routerLink="/update-profile">howdy,{{ users.fullName }}</a>
@@ -19,7 +19,7 @@
       </ul>
       </li>
     </ul>
-    
+
   </div>
 </nav>
 
@@ -36,10 +36,11 @@
       <div class="row">
           <p>{{ blogs.created_at | slice:0:10 }}</p>
           <p *ngIf="users" style="margin-left: 20px;">{{ users.fullName }}</p>
-         
+
             <img *ngIf="users" [src]="users.image" class="image">
           <a *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 15px;">Edit</a>
-          
+          <a (click)="deleteBlog(blogs.id)" style="margin-left: 15px;">Delete</a>
+
       </div>
       </div>
       <div style="font-size: 20px;" [innerHTML]="blogs.content">
