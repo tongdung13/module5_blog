@@ -31,7 +31,6 @@ export class DetailsPrivateComponent implements OnInit {
         this.blogs = data;
       }, error => console.log(error)
     );
-
     this.loadUser();
   }
 
@@ -57,5 +56,19 @@ export class DetailsPrivateComponent implements OnInit {
   // tslint:disable-next-line:typedef
   list(){
     this.router.navigate(['/blog']);
+  }
+
+
+  // tslint:disable-next-line:typedef
+  deleteBlog(id: number)
+  {
+    if (confirm('Bạn có muốn xóa không ?' + id)) {
+      this.service.delete(id).subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['/blog'])
+        }, error => console.log(error)
+      )
+    }
   }
 }
