@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/service/notification.service';
-import {JwtService} from '../jwt.service';
+import { JwtService } from '../jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -38,18 +38,17 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     let data = this.loginForm.value;
-
-      this.jwtService.signIn(data).subscribe(res => {
-
-        console.log(res);
-        localStorage.setItem('AccessToken', res.token);
-        localStorage.setItem('id', res.user.id);
-        this.toastrService.showSuccess("Successful login ^^");
-        this.router.navigate(['/blog']);
-      }, error => {
-        console.log(error);
-        this.toastrService.showError("You have failed login !");
-      });
+    this.jwtService.signIn(data).subscribe(res => {
+      console.log(res);
+      localStorage.setItem('AccessToken', res.token);
+      localStorage.setItem('id', res.user.id);
+      this.toastrService.showSuccess("Successful login ^^");
+      this.router.navigate(['/blog']);
+    }, error => {
+      console.log(error);
+      this.toastrService.showError("You have failed login !");
+    }
+    );
   }
 
 }

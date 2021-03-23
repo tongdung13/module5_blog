@@ -7,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DetailsComponent } from './components/details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -19,10 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogdayComponent } from './homes/blogday/blogday.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { CKEditorModule } from 'ng2-ckeditor';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminComponent } from './admin/admin/admin.component';
-
-
+import { BlogDetailsComponent } from './blogs/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,7 @@ import { AdminComponent } from './admin/admin/admin.component';
     BlogdayComponent,
     BlogtopComponent,
     AdminComponent,
-
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,

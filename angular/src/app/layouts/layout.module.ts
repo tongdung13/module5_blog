@@ -10,14 +10,17 @@ import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
+import { DetailsPrivateComponent } from '../blogs/details-private/details-private.component';
 
 
 
 const routes: Routes = [
-  { path: 'createBlog',
+  {
+    path: 'createBlog',
     component: CreateBlogComponent,
   },
-  { path: 'blog',
+  {
+    path: 'blog',
     component: BlogListComponent,
   },
   {
@@ -37,6 +40,10 @@ const routes: Routes = [
     path: 'user-details',
     component: DetailsUserComponent,
   },
+  {
+    path: 'blog-details-private/:id',
+    component: DetailsPrivateComponent
+  }
 
 ];
 
@@ -47,6 +54,8 @@ const routes: Routes = [
     UpdateBlogComponent,
     UpdateuserComponent,
     DetailsUserComponent,
+    DetailsPrivateComponent,
+
 
   ],
   imports: [
@@ -58,7 +67,7 @@ const routes: Routes = [
     Ng2SearchPipeModule
 
   ],
-    providers: []
+  providers: []
 
 })
 export class LayoutModule { }

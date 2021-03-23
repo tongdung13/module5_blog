@@ -1,68 +1,248 @@
 
-<nav class="navbar navbar-dark bg-dark">
-  <!-- Navbar content -->
-  <div class="row">
-    <div class="col-3">
-      <a routerLink="" style="margin-left: 190px;">Home</a>
-    </div>
-    <div class="col-1">
-      <a routerLink="/createBlog" style="margin-left: 140px;" >New</a>
-    </div>
+<!--<nav class="navbar navbar-dark bg-dark">-->
+<!--  &lt;!&ndash; Navbar content &ndash;&gt;-->
+<!--  <div class="row">-->
+<!--    <div class="col-3">-->
+<!--      <a routerLink="" style="margin-left: 190px;">Home</a>-->
+<!--    </div>-->
+<!--    <div class="col-1">-->
+<!--      <a routerLink="/createBlog" style="margin-left: 140px;" >New</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div id="menu">-->
+<!--    <ul>-->
+<!--      <li><a *ngIf="users" routerLink="/update-profile">howdy,{{ users.fullName }}</a>-->
+<!--      <ul class="sub-menu">-->
+<!--        <li><a *ngIf="users" routerLink="/update-profile"><p>{{ users.fullName }}</p></a></li>-->
+<!--        <li><p *ngIf="users">{{ users.name }}</p></li>-->
+<!--        <li><a (click)="logOut()">Logout</a></li>-->
+<!--      </ul>-->
+<!--      </li>-->
+<!--    </ul>-->
+
+<!--  </div>-->
+<!--</nav>-->
+
+<!--<div>-->
+
+<!--<div class="container">-->
+
+<!--  <div *ngIf="blogs">-->
+<!--    <div class="row">-->
+<!--      <div class="col-2"></div>-->
+<!--      <div class="col-9">-->
+<!--        <div>-->
+<!--      <h1 style="margin-top: 25px;">{{ blogs.title }}</h1>-->
+<!--      <div class="row">-->
+<!--          <p>{{ blogs.created_at | slice:0:10 }}</p>-->
+<!--          <p *ngIf="users" style="margin-left: 20px;">{{ users.fullName }}</p>-->
+
+<!--            <img *ngIf="users" [src]="users.image" class="image">-->
+<!--          <a *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 15px;">Edit</a>-->
+<!--          <a (click)="deleteBlog(blogs.id)" style="margin-left: 15px;">Delete</a>-->
+
+<!--      </div>-->
+<!--      </div>-->
+<!--      <div style="font-size: 20px;" [innerHTML]="blogs.content">-->
+<!--        &lt;!&ndash; {{ blogs.content }} &ndash;&gt;-->
+<!--      </div><br>-->
+<!--      <div>-->
+<!--        <img [src]="blogs.image" >-->
+<!--      </div><br>-->
+<!--      <div >-->
+<!--      <a (click)="list()" ><i class="bi bi-arrow-left-circle btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">-->
+<!--        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>-->
+<!--      </svg></i></a>-->
+<!--    </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--  <hr>-->
+<!-- <footer>-->
+<!--  <div>Thank you for creating with WordPress.Version 5.3.6-->
+<!--  </div>-->
+<!--</footer>-->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+
+
+<body>
+<!-- header -->
+<div class="header">
+  <div class="container">
+
+
+    <!-- script-for-nav -->
+    <script>
+      $( "span.menu" ).click(function() {
+        $( ".head-nav ul" ).slideToggle(300, function() {
+          // Animation complete.
+        });
+      });
+    </script>
+    <!-- script-for-nav -->
+
+
+
+    <div class="clearfix"> </div>
   </div>
-  <div id="menu">
-    <ul>
-      <li><a *ngIf="users" routerLink="/update-profile">howdy,{{ users.fullName }}</a>
-      <ul class="sub-menu">
-        <li><a *ngIf="users" routerLink="/update-profile"><p>{{ users.fullName }}</p></a></li>
-        <li><p *ngIf="users">{{ users.name }}</p></li>
-        <li><a (click)="logOut()">Logout</a></li>
-      </ul>
-      </li>
-    </ul>
-
-  </div>
-</nav>
-
-<div>
-
+</div>
+<!-- header -->
+<!-- header -->
 <div class="container">
+  <div class="about">
+    <!--      <h2>Chi tiết</h2>-->
 
-  <div *ngIf="blogs">
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-9">
-        <div>
-      <h1 style="margin-top: 25px;">{{ blogs.title }}</h1>
+
+
+
+    <div class="about-top">
+      <div class="col-md-6 ab-top">
+        <img [src]="blogs.image" style="width: 500px; height: 350px">
+      </div>
+      <div class="col-md-6 ab-top">
+        <h2>{{ blogs.title }}</h2>
+        <div style="font-size: 18px;" [innerHTML]="blogs.content">
+        </div>
+      </div>
+
+      <div class="col-md-6 ab-top">
+        <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
+        <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
+        <img *ngIf="users" [src]="users.image" class="image">
+      </div>
+      
       <div class="row">
-          <p>{{ blogs.created_at | slice:0:10 }}</p>
-          <p *ngIf="users" style="margin-left: 20px;">{{ users.fullName }}</p>
-
-            <img *ngIf="users" [src]="users.image" class="image">
-          <a *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 15px;">Edit</a>
-          <a (click)="deleteBlog(blogs.id)" style="margin-left: 15px;">Delete</a>
-
+        <div class="col-1">
+          <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 910px;">Edit</a>
+        </div>
+        <div class="col-2">
+          <a class="btn btn-secondary" (click)="deleteBlog(blogs.id)" style="margin-left: 900px;">Delete</a>
+        </div>
       </div>
-      </div>
-      <div style="font-size: 20px;" [innerHTML]="blogs.content">
-        <!-- {{ blogs.content }} -->
-      </div><br>
-      <div>
-        <img *ngIf="blogs.image" [src]="blogs.image" >
-      </div><br>
-      <div >
-      <a (click)="list()" ><i class="bi bi-arrow-left-circle btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-      </svg></i></a>
+      <div class="clearfix"> </div>
     </div>
+
+
+
+
+
+
+    <div class="team_grid">
+      <h3 class="m_1">Meet Our Team</h3>
+      <div class="span_3">
+        <div class="col-md-6 ab-top">
+          <ul class="span_2">
+            <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg" class="img-responsive" alt=""></li>
+            <li class="span_2-right">
+              <h3>Hà Nội </h3>
+
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+            </li>
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="col-md-6 ab-top">
+          <ul class="span_2">
+            <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg" class="img-responsive" alt=""></li>
+            <li class="span_2-right">
+              <h3>Thành Phố Hồ Chí Minh </h3>
+
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+            </li>
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="clearfix"> </div>
       </div>
+      <div class="span_4">
+        <div class="col-md-6 ab-top">
+          <ul class="span_2">
+            <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg" class="img-responsive" alt=""></li>
+            <li class="span_2-right">
+              <h3>Đà Nẵng </h3>
+
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+
+            </li>
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="col-md-6 ab-top">
+          <ul class="span_2">
+            <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg" class="img-responsive" alt=""></li>
+            <li class="span_2-right">
+              <h3>Huế  </h3>
+
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+
+            </li>
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="testimonial">
+
+      <h3>Our Testimonials</h3>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum</p>
+      <ul class="test_icon">
+        <li><a  href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg" class="img-responsive"></a></li>
+        <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg" class="img-responsive"></a></li>
+        <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg" class="img-responsive"></a></li>
+        <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg" class="img-responsive"></a></li>
+        <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg" class="img-responsive"></a></li>
+        <div class="clearfix"> </div>
+      </ul>
+
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-md-3 foot-1">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">||   Lorem Ipsum passage</a></li>
+        <li><a href="#">||   Finibus Bonorum et</a></li>
+        <li><a href="#">||   Treatise on the theory</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>Favorite Resources</h4>
+      <ul>
+        <li><a href="#">||   Characteristic words</a></li>
+        <li><a href="#">||   combined with a handful</a></li>
+        <li><a href="#">||   which looks reasonable</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="#">||  Even slightly believable</a></li>
+        <li><a href="#">||  Hidden in the middle</a></li>
+        <li><a href="#">||  Ipsum therefore always</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 foot-1">
+      <h4>Custom Menu</h4>
+      <ul>
+        <li><a href="#">||  Internet tend to repeat</a></li>
+        <li><a href="#">||  Alteration in some form</a></li>
+        <li><a href="#">||  This book is a treatise</a></li>
+      </ul>
+    </div>
+
+    <div class="clearfix"> </div>
+    <div class="copyright">
+      <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
     </div>
   </div>
 </div>
-  <hr>
- <footer>
-  <div>Thank you for creating with WordPress.Version 5.3.6
-  </div>
-</footer>
-
-
+</body>
 
