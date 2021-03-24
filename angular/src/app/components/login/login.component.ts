@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdminServiceService } from 'src/app/admin/admin-service.service';
+import { BlogService } from 'src/app/blogs/blog.service';
 import { NotificationService } from 'src/app/service/notification.service';
-import {JwtService} from '../jwt.service';
+import { JwtService } from '../jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder,
     public jwtService: JwtService,
-    private toastrService: NotificationService
+    private toastrService: NotificationService,
+    private loginService: AdminServiceService,
+    private blogService: BlogService
   ) {
     this.loginForm = this.fb.group({
       email: [''],
@@ -36,9 +40,10 @@ export class LoginComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  onSubmit() {
+  onSubmit(value: any) {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
+      this.blogService.setLogin(true);
       console.log(res);
       localStorage.setItem('AccessToken', res.token);
       localStorage.setItem('id', res.user.id);
@@ -49,7 +54,6 @@ export class LoginComponent implements OnInit {
       this.toastrService.showError("You have failed login !");
     }
     );
-
   }
 
 }

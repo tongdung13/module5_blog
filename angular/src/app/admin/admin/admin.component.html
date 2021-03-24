@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+<div class="container">
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="root">
+      <li>
+        <a routerLink="userList">User List</a>
+      </li>
+      <li>
+        <a routerLink="blogList">Blog List</a>
+      </li>
+      <li>
+        <a routerLink="admin-login">Log In</a>
+      </li>
+      <li>
+        <a (click)="logOut()">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+<router-outlet></router-outlet>
+

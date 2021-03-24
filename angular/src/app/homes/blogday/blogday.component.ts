@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./blogday.component.css']
 })
 export class BlogdayComponent implements OnInit {
+  p: number = 1;
   constructor(
     private service: BlogService,
     private router: Router

@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs; let i = index"[attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ blog.title }}</td>
+        <td [innerHTML]="blog.content | slice:0:200">...</td>
+        <td>
+          <img [src]="blog.image" style="width: 150px; height: 150px">
+        </td>
+        <td>
+          <a (click)="delete(blog.id)" class="btn btn-sm btn-outline-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
