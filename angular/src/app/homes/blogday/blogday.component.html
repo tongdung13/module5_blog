@@ -1,9 +1,9 @@
 
 <div class="nam-matis">
   <div class="nam-matis-top">
-    <div class="col-md-6 nam-matis-1" *ngFor="let blog of blogs">
+    <div class="col-md-6 nam-matis-1" *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
               <p class="card-text">
-                <img [src]="blog.image" style="width: 360px; height: 220px">
+               <a routerLink="blog-details/{{ blog.id }}"> <img [src]="blog.image" style="width: 360px; height: 220px"></a>
               </p>
       <h3><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h3>
       <p class="card-text" [innerHTML]="blog.content | slice:0:200">
@@ -12,4 +12,6 @@
     </div>
     <div class="clearfix"> </div>
   </div>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

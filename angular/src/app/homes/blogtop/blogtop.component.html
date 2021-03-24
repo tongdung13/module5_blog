@@ -43,10 +43,10 @@
       <div class="blog-content-left">
         <div class="blog-articals">
 
-
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
           <div class="blog-artical">
-            <div class="blog-artical-info"  *ngFor="let blog of blogs">
+            <div class="blog-artical-info"  *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
               <div class="blog-artical-info-img">
                 <img [src]="blog.image" style="width: 790px; height: 380px">
               </div>
@@ -78,28 +78,30 @@
           </div>
 
 
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
         </div>
         <!--start-blog-pagenate-->
-        <nav>
-          <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">«</span>
-              </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">»</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+<!--        <nav>-->
+<!--          <ul class="pagination">-->
+<!--            <li>-->
+<!--              <a href="#" aria-label="Previous">-->
+<!--                <span aria-hidden="true">«</span>-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li><a href="#">1</a></li>-->
+<!--            <li><a href="#">2</a></li>-->
+<!--            <li><a href="#">3</a></li>-->
+<!--            <li><a href="#">4</a></li>-->
+<!--            <li><a href="#">5</a></li>-->
+<!--            <li>-->
+<!--              <a href="#" aria-label="Next">-->
+<!--                <span aria-hidden="true">»</span>-->
+<!--              </a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </nav>-->
         <!--//End-blog-pagenate-->
       </div>
       <div class="blog-content-right">

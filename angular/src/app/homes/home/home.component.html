@@ -1,4 +1,3 @@
-
 <body>
 <!-- header -->
 <div class="header">
@@ -22,8 +21,8 @@
     </div>
     <!-- script-for-nav -->
     <script>
-      $( "span.menu" ).click(function() {
-        $( ".head-nav ul" ).slideToggle(300, function() {
+      $("span.menu").click(function () {
+        $(".head-nav ul").slideToggle(300, function () {
           // Animation complete.
         });
       });
@@ -31,8 +30,7 @@
     <!-- script-for-nav -->
 
 
-
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
   </div>
 </div>
 <!-- header -->
@@ -45,31 +43,43 @@
           <div class="callbacks_container">
             <ul class="rslides" id="slider">
               <li>
-                <img src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg" class="img-responsive" alt="">
+                <img style="width: 1200px ; height: 500px"
+                     src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg"
+                     class="img-responsive" alt="">
                 <div class="caption">
-                  <h3>Maecenas malesuada elit lectus felis</h3>
-                  <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus.</p>
+                  <h3>Nụ Cười Việt Nam </h3>
+                  <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis
+                    ac, laoreet enim. Phasellus.</p>
                 </div>
               </li>
               <li>
-                <img src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg" class="img-responsive" alt="">
+                <img style="width: 1200px ; height: 500px"
+                     src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg"
+                     class="img-responsive" alt="">
                 <div class="caption">
-                  <h3>Curabitur et ligula. Ut molestie </h3>
-                  <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulu. </p>
+                  <h3>Tuổi Thơ Làm Sao Có Thể Trở Lại </h3>
+                  <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a,
+                    ultricies porta urna. Vestibulu. </p>
                 </div>
               </li>
               <li>
-                <img src="https://i.pinimg.com/564x/d4/e2/db/d4e2db4c34fb9afb17cc7838be5fad09.jpg" class="img-responsive" alt="">
+                <img style="width: 1200px ; height: 500px"
+                     src="https://i.pinimg.com/564x/b4/8a/e2/b48ae2c8ae6dafa5a2ea7a10e8e0994d.jpg"
+                     class="img-responsive" alt="">
                 <div class="caption">
-                  <h3>Etiam ullamcorper. Suspendisse</h3>
-                  <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. </p>
+                  <h3>Người Mẹ Việt Nam </h3>
+                  <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada
+                    ultricies. Curabitur et ligula. </p>
                 </div>
               </li>
               <li>
-                <img src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg" class="img-responsive" alt="">
+                <img style="width: 1200px ; height: 500px"
+                     src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg"
+                     class="img-responsive" alt="">
                 <div class="caption">
-                  <h3>Suspendisse a pellentesque dui</h3>
-                  <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada .</p>
+                  <h3>Hạnh Phúc </h3>
+                  <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
+                    malesuada .</p>
                 </div>
               </li>
             </ul>
@@ -79,17 +89,40 @@
     </div>
 
 
-          <app-blogday></app-blogday>
+<!--    <app-blogday></app-blogday>-->
+
+    <div class="nam-matis">
+      <div class="nam-matis-top">
+        <div class="col-md-6 nam-matis-1" *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p } | filter:filter; let i = index">
+          <p class="card-text">
+            <a routerLink="blog-details/{{ blog.id }}"> <img [src]="blog.image" style="width: 360px; height: 220px"></a>
+          </p>
+          <h3><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h3>
+          <p class="card-text" [innerHTML]="blog.content | slice:0:200">
+
+          </p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
 
 
   </div>
   <div class="col-md-3 bann-left">
+
+
     <div class="b-search">
       <form>
-        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+        <input type="text" value="Search" onfocus="this.value = '';"
+               onblur="if (this.value == '') {this.value = 'Search';}"  placeholder="Search" name="search" [(ngModel)]="filter">
         <input type="submit" value="">
       </form>
     </div>
+
+
     <h3>Recent Posts</h3>
     <div class="blo-top">
       <div class="blog-grids">
@@ -100,7 +133,7 @@
           <h4><a href="single.html">Little Invaders </a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
       <div class="blog-grids">
         <div class="blog-grid-left">
@@ -110,7 +143,7 @@
           <h4><a href="single.html">Little Invaders </a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
       <div class="blog-grids">
         <div class="blog-grid-left">
@@ -120,17 +153,17 @@
           <h4><a href="single.html">Little Invaders </a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
     </div>
     <h3>Categories</h3>
     <div class="blo-top">
-      <li><a href="#">||   Lorem Ipsum passage</a></li>
-      <li><a href="#">||   Finibus Bonorum et</a></li>
-      <li><a href="#">||   Treatise on the theory</a></li>
-      <li><a href="#">||   Characteristic words</a></li>
-      <li><a href="#">||   combined with a handful</a></li>
-      <li><a href="#">||   which looks reasonable</a></li>
+      <li><a href="#">|| Lorem Ipsum passage</a></li>
+      <li><a href="#">|| Finibus Bonorum et</a></li>
+      <li><a href="#">|| Treatise on the theory</a></li>
+      <li><a href="#">|| Characteristic words</a></li>
+      <li><a href="#">|| combined with a handful</a></li>
+      <li><a href="#">|| which looks reasonable</a></li>
     </div>
     <h3>Newsletter</h3>
 
@@ -145,122 +178,158 @@
           <input type="submit" value="Subscribe">
         </form>
       </div>
-      <div class="clearfix"> </div>
+      <div class="clearfix"></div>
     </div>
   </div>
-  <div class="clearfix"> </div>
+  <div class="clearfix"></div>
+
+
   <div class="fle-xsel">
-    <ul id="flexiselDemo3">
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/6.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/5.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/1.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/4.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/6.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="banner-1">
-            <img src="assets/user2/images/1.jpg" class="img-responsive" alt="">
-          </div>
-        </a>
-      </li>
-    </ul>
+    <div class="nbs-flexisel-container">
+      <div class="nbs-flexisel-inner">
+        <ul id="flexiselDemo3" class="nbs-flexisel-ul" style="left: -394.189px; display: block;">
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/46/a0/1f/46a01f30fb19c7e4bd40ab4be53e88e6.jpg"
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/c6/60/6e/c6606eb3dadd2dc91da79bda9eaf5d42.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;"
+                     src="https://i.pinimg.com/564x/b1/fe/3a/b1fe3a4908da6f9f060a6bd64fff0758.jpg "
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;"
+                     src="https://i.pinimg.com/564x/fb/7d/63/fb7d63b4cfd70a1b09de0390f6c0bd33.jpg"
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;"
+                     src="https://i.pinimg.com/564x/37/a2/d8/37a2d84ef280705467c13a39c968ac81.jpg"
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;"
+                     src="https://i.pinimg.com/564x/7c/9e/37/7c9e378ba027d641d93ba54d1ddf3f0e.jpg"
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;"
+                     src="https://i.pinimg.com/564x/48/54/7e/48547e8dac8286bea2e01b800b8d29b8.jpg"
+                     class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/64/b1/b0/64b1b0be595928a0f72c2412f29a3bd0.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/1d/35/8b/1d358b0bf48e757171c9f550d89b94a7.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/cc/9a/1b/cc9a1b634de5a5014aa52df56c846137.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/75/c2/d2/75c2d2ae4b90b690ee36a91305c8a0a2.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+          <li class="nbs-flexisel-item" style="width: 205.2px;">
+            <a href="#">
+              <div class="banner-1">
+                <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/6c/e4/92/6ce4924b5921ad1353364852f3a96bbc.jpg" class="img-responsive" alt="">
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="nbs-flexisel-nav-left" style="top: 45.5px;"></div>
+        <div class="nbs-flexisel-nav-right" style="top: 45.5px;"></div>
+      </div>
+    </div>
 
-    <script type="text/javascript">
-      $(window).load(function() {
 
-        $("#flexiselDemo3").flexisel({
-          visibleItems: 5,
-          animationSpeed: 1000,
-          autoPlay: true,
-          autoPlaySpeed: 3000,
-          pauseOnHover: true,
-          enableResponsiveBreakpoints: true,
-          responsiveBreakpoints: {
-            portrait: {
-              changePoint:480,
-              visibleItems: 2
-            },
-            landscape: {
-              changePoint:640,
-              visibleItems: 3
-            },
-            tablet: {
-              changePoint:768,
-              visibleItems: 3
-            }
-          }
-        });
-
-      });
-    </script>
-    <script type="text/javascript" src="assets/user2/js/jquery.flexisel.js"></script>
-    <div class="clearfix"> </div>
+    <!--    <script type="text/javascript" src="assets/user2/js/jquery.flexisel.js"></script>-->
+    <div class="clearfix"></div>
   </div>
+
+
   <div class="footer">
     <div class="col-md-3 foot-1">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="#">||   Lorem Ipsum passage</a></li>
-        <li><a href="#">||   Finibus Bonorum et</a></li>
-        <li><a href="#">||   Treatise on the theory</a></li>
+        <li><a href="#">|| Lorem Ipsum passage</a></li>
+        <li><a href="#">|| Finibus Bonorum et</a></li>
+        <li><a href="#">|| Treatise on the theory</a></li>
       </ul>
     </div>
     <div class="col-md-3 foot-1">
       <h4>Favorite Resources</h4>
       <ul>
-        <li><a href="#">||   Characteristic words</a></li>
-        <li><a href="#">||   combined with a handful</a></li>
-        <li><a href="#">||   which looks reasonable</a></li>
+        <li><a href="#">|| Characteristic words</a></li>
+        <li><a href="#">|| combined with a handful</a></li>
+        <li><a href="#">|| which looks reasonable</a></li>
       </ul>
     </div>
     <div class="col-md-3 foot-1">
       <h4>About Us</h4>
       <ul>
-        <li><a href="#">||  Even slightly believable</a></li>
-        <li><a href="#">||  Hidden in the middle</a></li>
-        <li><a href="#">||  Ipsum therefore always</a></li>
+        <li><a href="#">|| Even slightly believable</a></li>
+        <li><a href="#">|| Hidden in the middle</a></li>
+        <li><a href="#">|| Ipsum therefore always</a></li>
       </ul>
     </div>
     <div class="col-md-3 foot-1">
       <h4>Custom Menu</h4>
       <ul>
-        <li><a href="#">||  Internet tend to repeat</a></li>
-        <li><a href="#">||  Alteration in some form</a></li>
-        <li><a href="#">||  This book is a treatise</a></li>
+        <li><a href="#">|| Internet tend to repeat</a></li>
+        <li><a href="#">|| Alteration in some form</a></li>
+        <li><a href="#">|| This book is a treatise</a></li>
       </ul>
     </div>
 
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
     <div class="copyright">
       <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
     </div>

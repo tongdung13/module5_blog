@@ -22,6 +22,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminComponent } from './admin/admin/admin.component';
 import { BlogDetailsComponent } from './blogs/blog-details/blog-details.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BlogDetailsComponent } from './blogs/blog-details/blog-details.componen
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     CKEditorModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

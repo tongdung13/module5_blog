@@ -4,6 +4,11 @@
   height: 30px;
   clip-path: circle(15px at 50% 50%);
 }
+p{
+
+  margin-left: 10px;
+  font-size: 16px;
+}
 
  p {
   float: left;
