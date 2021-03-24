@@ -8,11 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class BlogService {
 
+  public _isLoggedIn!: boolean;
 
   constructor(private http: HttpClient) { }
 
-  publicAll()
-  {
+  publicAll() {
     return this.http.get(environment.apiUrl + '/blog');
   }
 
@@ -76,8 +76,15 @@ export class BlogService {
     return this.http.delete(environment.apiUrl + `/blogs/destroy/${id}`, { headers: reqHeader })
   }
 
-  showPublic(id: number)
-  {
+  showPublic(id: number) {
     return this.http.get(environment.apiUrl + `/blog/show/${id}`);
+  }
+
+  isLogged(): boolean {
+    return this._isLoggedIn;
+  }
+
+  setLogin(isLoggedIn: boolean) {
+    this._isLoggedIn = isLoggedIn;
   }
 }

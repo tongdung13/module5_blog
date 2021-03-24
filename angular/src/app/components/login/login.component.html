@@ -53,7 +53,7 @@
 
 
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
 
 
 

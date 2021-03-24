@@ -109,6 +109,6 @@ export class UpdateuserComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['user']);
+    this.router.navigate(['user-details']);
   }
 }
