@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit {
       this.blogService.setLogin(true);
       console.log(res);
       localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('id', res.user.id);
+      localStorage.setItem('userLogin', res.user);
       this.toastrService.showSuccess("Successful login ^^");
-      this.router.navigate(['/blog']);
+      this.router.navigate(['']);
     }, error => {
       console.log(error);
       this.toastrService.showError("You have failed login !");

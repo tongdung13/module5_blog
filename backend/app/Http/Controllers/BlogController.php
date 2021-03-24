@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +11,6 @@ class BlogController extends Controller
 {
     public function index() {
         $blogs = Blog::all();
-
         return response()->json($blogs);
     }
 
@@ -40,9 +40,9 @@ class BlogController extends Controller
         return response()->json($blog);
     }
 
-    public function blog (Request $request){
-
-        $blog = DB::table('users')->join('blogs', 'users.id', '=', 'blogs.user_id')->select()->get();
+    public function blog ($id){
+        $blog = User::find($id);
+        $blog = DB::table('users')->where('blogs', 'users.id', '=', 'blogs.user_id')->get();
         return response()->json($blog);
     }
 }

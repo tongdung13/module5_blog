@@ -22,7 +22,7 @@
       <tr *ngFor="let blog of blogs | filter:filter; let i = index"[attr.data-index]="i">
         <td>{{ i }}</td>
         <td>
-          <a routerLink="/blog-details-private/{{ blog.id }}">{{ blog.title | slice:0:60 }}</a>
+          <a routerLink="/blog-details-private/{{ blog.id }}" *ngIf="users.id">{{ blog.title | slice:0:60 }}</a>
         </td>
         <td *ngIf="users">{{ users.fullName }}</td>
         <td><p>Published</p> {{ blog.created_at | slice:0:10 }}</td>

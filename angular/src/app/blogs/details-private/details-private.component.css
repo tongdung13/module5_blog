@@ -5,6 +5,12 @@
   clip-path: circle(15px at 50% 50%);
 }
 
+ p {
+  float: left;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
 /*#menu ul {*/
 /*  background: black;*/
 /*  width: 250px;*/

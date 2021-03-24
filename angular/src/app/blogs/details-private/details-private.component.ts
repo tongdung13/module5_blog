@@ -24,7 +24,7 @@ export class DetailsPrivateComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogs = new Blog();
-    this.id = this.route.snapshot.params.id;
+    this.id = this.route.snapshot.params['id'];
     this.service.show(this.id).subscribe(
       data => {
         console.log(data);

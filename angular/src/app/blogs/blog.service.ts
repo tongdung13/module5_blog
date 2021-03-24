@@ -88,7 +88,7 @@ export class BlogService {
     this._isLoggedIn = isLoggedIn;
   }
 
-  blogUser()
+  blogUser(id: number)
   {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
@@ -98,6 +98,6 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(environment.apiUrl + `/blogs/blog`, { headers: reqHeader });
+    return this.http.get(environment.apiUrl + `/blogs/blog/${id}`, { headers: reqHeader });
   }
 }

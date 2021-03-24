@@ -20,13 +20,13 @@ export class BlogListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadData();
     this.loadUser();
+    this.loadData();
   }
 
-  loadData()
-  {
-    this.service.blogUser().subscribe(
+  loadData() {
+    this.id = localStorage.getItem('id');
+    this.service.blogUser(this.id).subscribe(
       data => {
         this.blogs = data;
         console.log(data);
@@ -34,10 +34,9 @@ export class BlogListComponent implements OnInit {
     )
   }
 
-  deleteBlog(id: number)
-  {
+  deleteBlog(id: number) {
     if (confirm("Bạn có muốn xóa không ?" + id)) {
-        this.service.delete(id).subscribe(
+      this.service.delete(id).subscribe(
         data => {
           this.loadData();
           console.log(data);
@@ -46,8 +45,7 @@ export class BlogListComponent implements OnInit {
     }
   }
 
-  loadUser()
-  {
+  loadUser() {
     this.id = localStorage.getItem('id');
     this.userService.show(this.id).subscribe(
       data => {
