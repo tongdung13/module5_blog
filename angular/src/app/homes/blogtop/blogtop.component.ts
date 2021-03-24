@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 })
 export class BlogtopComponent implements OnInit {
   users: any;
+  p: number = 1;
+
   constructor(
     private service: BlogService,
     private router: Router
@@ -30,4 +32,6 @@ export class BlogtopComponent implements OnInit {
       }, error => console.log(error)
     );
   }
+
+
 }

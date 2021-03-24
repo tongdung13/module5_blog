@@ -1,4 +1,11 @@
-.container {
-  margin-left: 110px;
-}
 
+.container{
+  width: 100%;
+  margin: auto;
+}
+td {
+  font-size: 15px;
+}
+th{
+  font-size: 15px;
+}
