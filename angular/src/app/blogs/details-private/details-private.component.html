@@ -48,8 +48,9 @@
 
       <div class="col-md-6 ab-top">
         <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
-        <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
         <img *ngIf="users" [src]="users.image" class="image">
+        <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
+
       </div>
 
 

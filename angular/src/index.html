@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>
   <script src="assets/user2/js/jquery.min.js"></script>
   <script src="assets/user2/js/responsiveslides.min.js"></script>
+  <script src="assets/user2/js/jquery.flexisel.js"></script>
   <script>
     $(function () {
       $("#slider").responsiveSlides({
@@ -33,6 +34,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     });
 
+
+
   </script>
 
 </head>
@@ -41,6 +44,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- header -->
 <app-root></app-root>
 <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+
+
+<script type="text/javascript">
+  $(window).load(function () {
+    $("#flexiselDemo3").flexisel({
+      visibleItems: 5,
+      animationSpeed: 1000,
+      autoPlay: true,
+      autoPlaySpeed: 3000,
+      pauseOnHover: true,
+      enableResponsiveBreakpoints: true,
+      responsiveBreakpoints: {
+        portrait: {
+          changePoint: 480,
+          visibleItems: 2
+        },
+        landscape: {
+          changePoint: 640,
+          visibleItems: 3
+        },
+        tablet: {
+          changePoint: 768,
+          visibleItems: 3
+        }
+      }
+    });
+
+  });
+</script>
 </body>
 
 
