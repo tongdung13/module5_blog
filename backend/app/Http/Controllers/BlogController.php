@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -36,6 +37,12 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
+        return response()->json($blog);
+    }
+
+    public function blog (Request $request){
+
+        $blog = DB::table('users')->join('blogs', 'users.id', '=', 'blogs.user_id')->select()->get();
         return response()->json($blog);
     }
 }

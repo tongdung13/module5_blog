@@ -43,7 +43,7 @@ Route::prefix('blog')->group(function () {
     Route::get('/show/{id}', [BlogController::class, 'show']);
     Route::put('/update/{id}', [BlogController::class, 'update']);
     Route::delete('destroy/{id}', [BlogController::class, 'delete']);
-
+    
 });
 
 Route::group(['middleware' => ['jwt']], function () {
@@ -54,6 +54,7 @@ Route::group(['middleware' => ['jwt']], function () {
         Route::put('update/{id}', [BlogController::class, 'update']);
         Route::get('show/{id}', [BlogController::class, 'show']);
         Route::delete('destroy/{id}', [BlogController::class, 'delete']);
+        Route::get('blog', [BlogController::class, 'blog']);
     });
 Route::prefix('user')->group(function () {
     Route::get('', [UserProfileController::class, 'index']);
