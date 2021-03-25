@@ -1,7 +1,9 @@
 .container {
   font-size: 13px;
 }
-
+#menu {
+  width: auto;
+}
 
 #menu .submenu1 {
   position: absolute;
@@ -14,6 +16,6 @@
 
 #menu ul.submenu1  {
   background-color: red;
-  width: 124px;
+  width: auto;
   height: 36px;
 }
