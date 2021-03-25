@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     public jwtService: JwtService,
     private toastrService: NotificationService,
-    private loginService: AdminServiceService,
-    private blogService: BlogService
   ) {
 
   }
