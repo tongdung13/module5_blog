@@ -54,18 +54,83 @@
           </div>
         </div>
 
+
+
+
         <div class="col-md-6 ab-top">
           <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
           <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
           <img *ngIf="users" [src]="users.image" class="image">
         </div>
 
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
 
+      <!--tính năng like-->
 
+      <div class="container" style="height: 20px; overflow: hidden;">
+        <div class="addthis_toolbox addthis_default_style">
+          <a class="addthis_button_facebook_like">
+            <i (click)="likedislike('like')" class="fa fa-thumbs-up"></i> {{ getLikeDislike?.like }}
+            <i (click)="likedislike('dislike')" class="fa fa-thumbs-down"></i> {{ getLikeDislike?.dislike }}
+          </a>
+        </div>
+      </div>
 
+      <style type="text/css">
+        #chiase {position:fixed; bottom:25%; margin-left:-730px; float:left; background-color:#FFFFFF;padding:2px;z-index:10;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border: 1px solid #CCCCCC;}
+        #chiase .nut {float:left;clear:both;}
+      </style>
 
+      <div id='chiase'>
+
+        <div style="margin:4px;">
+
+          <div class='nut' id='facebook'>
+            <script src='http://connect.facebook.net/en_US/all.js#xfbml=1'></script>
+
+          </div>
+
+          <br />
+
+          <div class='nut' id='google'>
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+            </script>
+
+          </div>
+
+        </div>
+      </div>
+
+<!--tính năng comment-->
+      <div class="card">
+        <div class="post-meta">
+          <ul class="comment-share-meta">
+            <li> <span> {{count}} comment</span>
+              <button class="post-comment" (click)="displayAllComment(id)"> Tổng Like
+                <i class="bi bi-chat-bubble"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- form bình luận 1 status -->
+        <form class="share-text-box" [formGroup]="formComment" (ngSubmit)="createComment()">
+                <textarea class="share-text-field" placeholder="leave a comment"
+                          id="cmt" formControlName="content"></textarea>
+
+          <button class="btn-share" type="submit">Comment</button>
+        </form>
+
+        <p *ngIf="!check">{{status}}</p>
+        <!--    list comment all -->
+        <div id="list-comment">
+          <div id="display-comment-all" *ngFor="let cm of comments">
+            <div class="content" id="content-all">
+              <p>{{cm.content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <div class="team_grid">

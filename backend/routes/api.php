@@ -71,6 +71,19 @@ Route::prefix('users')->group(function () {
     Route::delete('destroy/{id}', [UserProfileController::class, 'delete']);
     });
 
+Route::prefix('likedislike')->group(function () {
+    Route::get('/blog/{id}', [\App\Http\Controllers\LikeController::class, 'getLikeDisLike']);
+    Route::get('/blog/top/10', [\App\Http\Controllers\LikeController::class,'getTopLikes']);
+});
+
+Route::prefix('likedislike')->group(function () {
+    Route::post('/blog', [\App\Http\Controllers\LikeController::class,'storeLikeDislike']);
+});
+
+Route::prefix('comment')->group(function () {
+    Route::post('/blog/{id}', [\App\Http\Controllers\CommentController::class,'store']);
+    Route::get('/blog/{id}', [\App\Http\Controllers\CommentController::class,'show']);
+});
 
 
 
