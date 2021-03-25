@@ -12,21 +12,27 @@ export class AdminLayoutComponent implements OnInit {
 
   id: any;
   user: any;
+  userLogin = false;
   constructor(
     private router: Router,
-    private afAuth: JwtService,
+    private jwtService: JwtService,
     private toastrService: NotificationService
   ) { }
 
 
   ngOnInit(): void {
+    this.userLogin = this.jwtService._isLoggedIn;
+    console.log(this.userLogin)
   }
 
   logOut() {
-    this.id = localStorage.getItem('id');
-    localStorage.removeItem('AccessToken');
-    this.afAuth.destroyToken(this.user);
-    this.router.navigate(['']);
-    this.toastrService.showSuccess("You have successfully logged out !");
+    this.jwtService.logout().subscribe(res => {
+      localStorage.removeItem('AccessToken');
+      localStorage.removeItem('user');
+      this.userLogin = false;
+      this.jwtService._isLoggedIn = false;
+      this.router.navigate(['']);
+      this.toastrService.showSuccess("You have successfully logged out !");
+    });
   }
 }
