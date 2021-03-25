@@ -14,7 +14,9 @@ import { DetailsPrivateComponent } from '../blogs/details-private/details-privat
 import { AdminGuard } from '../admin/admin.guard';
 import { AdminServiceService } from '../admin/admin-service.service';
 import { BlogGuard } from '../blogs/blog.guard';
-import {NgxPaginationModule} from "ngx-pagination";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { JwtService } from '../components/jwt.service';
+
 
 
 
@@ -22,6 +24,7 @@ const routes: Routes = [
   {
     path: 'createBlog',
     component: CreateBlogComponent,
+    canActivate: [BlogGuard]
   },
   {
     path: 'blog',
@@ -67,7 +70,7 @@ const routes: Routes = [
     NgxPaginationModule
 
   ],
-  providers: [AdminGuard, AdminServiceService, BlogGuard]
+  providers: [AdminGuard, AdminServiceService, BlogGuard, JwtService]
 
 })
 export class LayoutModule { }

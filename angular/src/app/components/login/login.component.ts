@@ -14,8 +14,6 @@ import { JwtService } from '../jwt.service';
 export class LoginComponent implements OnInit {
   loginForm: any = FormGroup;
   errors: string = '';
-  email = 'haivl@gmail.com';
-  password = '123456';
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -24,36 +22,37 @@ export class LoginComponent implements OnInit {
     private loginService: AdminServiceService,
     private blogService: BlogService
   ) {
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
-    });
+
   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.min(5)]],
+      password: [''],
     });
-    console.log(this.loginForm);
-
   }
 
   // tslint:disable-next-line:typedef
-  onSubmit(value: any) {
+  onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
-      this.blogService.setLogin(true);
-      console.log(res);
+      this.jwtService._isLoggedIn = true;
       localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('id', res.user.id);
+      localStorage.setItem('user', res.user);
       this.toastrService.showSuccess("Successful login ^^");
-      this.router.navigate(['/blog']);
+      this.router.navigate(['']);
     }, error => {
-      console.log(error);
       this.toastrService.showError("You have failed login !");
     }
     );
+  }
+
+  get email() {
+    return this.loginForm.get('email')
+  }
+
+  get password() {
+    return this.loginForm.get('password')
   }
 
 }

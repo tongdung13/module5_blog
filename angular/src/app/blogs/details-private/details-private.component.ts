@@ -24,7 +24,7 @@ export class DetailsPrivateComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogs = new Blog();
-    this.id = this.route.snapshot.params.id;
+    this.id = this.route.snapshot.params['id'];
     this.service.show(this.id).subscribe(
       data => {
         console.log(data);
@@ -60,9 +60,9 @@ export class DetailsPrivateComponent implements OnInit {
 
 
   // tslint:disable-next-line:typedef
-  deleteBlog(id: number)
+  deleteBlog(id: number , title: any)
   {
-    if (confirm('Bạn có muốn xóa không ?' + id)) {
+    if (confirm('Bạn có muốn xóa không ?' + title)) {
       this.service.delete(id).subscribe(
         data => {
           console.log(data);

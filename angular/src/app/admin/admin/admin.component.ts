@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
   }
 
   logOut() {
-    this.loginService.setLogin(false);
+    this.loginService.isLogged();
     this.router.navigate(['admin/admin-login']);
     this.toastrService.showSuccess("Logged Out successfully")
   }
