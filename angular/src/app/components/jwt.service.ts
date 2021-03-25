@@ -21,12 +21,7 @@ export class JwtService {
     return this.http.post(environment.apiUrl + '/auth/register', data);
   }
 
-  profile(): Observable<any> {
-    return this.http.get(environment.apiUrl + '/auth/user-profile');
-  }
-
-  show(id: any)
-  {
+  show(id: any) {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -38,8 +33,7 @@ export class JwtService {
     return this.http.get(environment.apiUrl + `/user/show/${id}`, { headers: reqHeader });
   }
 
-  updateUser(id: any, data: any)
-  {
+  updateUser(id: any, data: any) {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -55,8 +49,7 @@ export class JwtService {
     return this.http.post(environment.apiUrl + '/auth/signin', user);
   }
 
-  getAll()
-  {
+  getAll() {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -68,7 +61,7 @@ export class JwtService {
     return this.http.get(environment.apiUrl + '/user', { headers: reqHeader });
   }
 
-  destroyToken(data: any){
+  destroyToken(data: any) {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -80,8 +73,7 @@ export class JwtService {
     return this.http.post(environment.apiUrl + '/auth/logout', data, { headers: reqHeader });
   }
 
-  showPublic(id: number)
-  {
+  showPublic(id: number) {
     return this.http.get(environment.apiUrl + `/users/show/${id}`);
   }
 }

@@ -9,22 +9,15 @@
       <div class="head-nav" id="menu">
         <span class="menu"> </span>
         <ul class="cl-effect-1">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a routerLink="/createBlog">Post</a>
-            <ul class="submenu">
-              <li><a href="">Post All</a></li>
-              <li><a href="">New Post</a></li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li>
+          <li class="active"><a routerLink="">Home</a></li>
+          <li><a routerLink="/createBlog">New Post</a>
+          <li><a routerLink="/blog">Post</a></li>
           <li><a routerLink="/blogtop">Blog</a></li>
-          <li><a href="404.html">Shortcodes</a></li>
           <li><a *ngIf="!userLogin" routerLink="login">Login</a></li>
           <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
-          <li><a *ngIf="users">{{ users.fullName }}</a>
+          <li><a *ngIf="userLogin">{{ users.fullName }}</a>
             <ul class="submenu1">
-              <li><a routerLink="user-details" *ngIf="isLoggedIn">My Profile</a></li>
-              <li><a routerLink="update-profile" *ngIf="isLoggedIn">Update Profile</a></li>
+              <li><a routerLink="user-details" *ngIf="userLogin">My Profile</a></li>
             </ul>
           </li>
           <div class="clearfix"></div>

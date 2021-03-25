@@ -1,36 +1,19 @@
-.container{
+.container {
   font-size: 13px;
 }
 
-
-ul.submenu {
-  position: absolute;
-}
-
-#menu .submenu {
-  position: absolute;
-  display: none;
-}
-
-
-#menu ul li:hover .submenu {
-  display: block;
-}
 
 #menu .submenu1 {
   position: absolute;
   display: none;
 }
 
-
 #menu ul li:hover .submenu1 {
   display: block;
 }
 
-#menu ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  display: block;
-  float: none;
+#menu ul.submenu1  {
+  background-color: red;
+  width: 124px;
+  height: 36px;
 }

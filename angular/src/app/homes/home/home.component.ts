@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private service: BlogService,
     private router: Router,
-    private userService: JwtService,
+    private jwtService: JwtService,
     private toastrService: NotificationService
   ) { }
   blogs: any;
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.loadUser();
-    this.userLogin = this.userService._isLoggedIn;
+    this.userLogin = this.jwtService._isLoggedIn;
     console.log(this.userLogin)
   }
 
@@ -43,12 +43,11 @@ export class HomeComponent implements OnInit {
         console.log(data);
       }, error => console.log(error)
     );
-
   }
 
   loadUser() {
     this.id = localStorage.getItem('id');
-    this.userService.show(this.id).subscribe(
+    this.jwtService.show(this.id).subscribe(
       data => {
         console.log(data);
         this.users = data;
@@ -59,9 +58,9 @@ export class HomeComponent implements OnInit {
   logOut() {
     this.id = localStorage.getItem('id');
     localStorage.removeItem('AccessToken');
-    this.userService.destroyToken(this.user).subscribe(res => {
+    this.jwtService.destroyToken(this.user).subscribe(res => {
       this.userLogin = false;
-      this.userService._isLoggedIn = false;
+      this.jwtService._isLoggedIn = false;
     });
     this.router.navigate(['']);
     this.toastrService.showSuccess("You have successfully logged out !");
