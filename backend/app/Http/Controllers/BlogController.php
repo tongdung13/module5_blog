@@ -41,8 +41,8 @@ class BlogController extends Controller
     }
 
     public function blog ($id){
-        $blog = User::find($id);
-        $blog = DB::table('users')->where('blogs', 'users.id', '=', 'blogs.user_id')->get();
+
+        $blog = DB::select('select * from users inner join blogs where users.id = blogs.user_id', [1]);
         return response()->json($blog);
     }
 }

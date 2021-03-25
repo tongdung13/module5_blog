@@ -10,7 +10,12 @@ import { User } from './user';
 })
 export class JwtService {
 
+  _isLoggedIn: boolean = false;
   constructor(private http: HttpClient) { }
+
+  isLogged(): boolean {
+    return this._isLoggedIn;
+  }
 
   signUp(data: any): Observable<any> {
     return this.http.post(environment.apiUrl + '/auth/register', data);
@@ -46,7 +51,7 @@ export class JwtService {
     return this.http.put(environment.apiUrl + `/user/edit/${id}`, data, { headers: reqHeader });
   }
 
-  signIn(user: User): Observable<any> {
+  signIn(user: boolean): Observable<any> {
     return this.http.post(environment.apiUrl + '/auth/signin', user);
   }
 

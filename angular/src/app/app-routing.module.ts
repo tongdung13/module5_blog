@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { BlogDetailsComponent } from './blogs/blog-details/blog-details.component';
+import { BlogGuard } from './blogs/blog.guard';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
+    canActivate: [BlogGuard],
     loadChildren: () => import('./layouts/layout.module').then(module => module.LayoutModule)
   },
   {
