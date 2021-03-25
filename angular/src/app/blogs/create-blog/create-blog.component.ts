@@ -7,6 +7,7 @@ import { Blog } from '../blog';
 import { BlogService } from '../blog.service';
 import { finalize } from 'rxjs/operators';
 import { NotificationService } from 'src/app/service/notification.service';
+import { JwtService } from 'src/app/components/jwt.service';
 
 
 
@@ -24,12 +25,15 @@ export class CreateBlogComponent implements OnInit {
   downloadURL!: Observable<string>;
   uploadPercent!: any;
   pb: any;
+  id: any;
+  user: any;
   constructor(
     private router: Router,
     private service: BlogService,
     private fb: FormBuilder,
     private storage: AngularFireStorage,
-    private toastrService: NotificationService
+    private toastrService: NotificationService,
+    private serviceUser: JwtService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +43,18 @@ export class CreateBlogComponent implements OnInit {
       content: ['', [Validators.required]],
     });
     console.log(this.blogForm);
+    this.loadData();
+  }
+
+  loadData()
+  {
+    this.id = localStorage.getItem('id');
+    this.serviceUser.show(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.user = data;
+      }, error => console.log(error)
+    );
   }
 
   // tslint:disable-next-line:typedef

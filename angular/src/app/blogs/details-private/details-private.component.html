@@ -35,6 +35,7 @@
       </div>
       <div class="col-md-6 ab-top">
         <h2>{{ blogs.title }}</h2>
+
         <div class="row">
           <div class="col-1">
             <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 400px;">Edit</a>
@@ -50,7 +51,6 @@
         <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
         <img *ngIf="users" [src]="users.image" class="image">
         <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
-
       </div>
 
 
