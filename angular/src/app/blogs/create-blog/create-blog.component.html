@@ -2,7 +2,7 @@
   <form >
       <div class="form-group" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <label for="title">Title</label>
-        <input type="text" name="title" class="form-control" [(ngModel)]="blog.title" formControlName="title">
+        <input style="width: 1083px ; height: 45px " type="text" name="title" class="form-control" [(ngModel)]="blog.title" formControlName="title">
       </div>
       <div class="alert alert-danger" role="alert" *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched">
         Invalid Title !</div>

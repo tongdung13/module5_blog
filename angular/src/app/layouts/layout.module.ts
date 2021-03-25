@@ -14,6 +14,7 @@ import { DetailsPrivateComponent } from '../blogs/details-private/details-privat
 import { AdminGuard } from '../admin/admin.guard';
 import { AdminServiceService } from '../admin/admin-service.service';
 import { BlogGuard } from '../blogs/blog.guard';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -62,7 +63,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     CKEditorModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
 
   ],
   providers: [AdminGuard, AdminServiceService, BlogGuard]

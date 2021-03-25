@@ -1,105 +1,5 @@
 
 
-<!--<body class="bg-gradient-dark" style="height: 1000px !important;">-->
-
-<!--<div class="container" style="padding-top: 50px">-->
-
-<!--  <div class="card o-hidden border-0 shadow-lg my-0">-->
-<!--    <div class="col-xl-10 col-lg-12 col-md-9">-->
-<!--      &lt;!&ndash; Nested Row within Card Body &ndash;&gt;-->
-<!--      <div class="row">-->
-<!--        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>-->
-<!--        <div class="col-lg-7">-->
-<!--          <div class="p-5">-->
-<!--            <div class="text-center">-->
-<!--              <h1 class="h4 text-gray-900 mb-4">Register</h1>-->
-<!--            </div>-->
-<!--            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">-->
-
-<!--              <div class="form-group row">-->
-<!--                <div class="col-sm-6 mb-3 mb-sm-0">-->
-<!--                  <input type="text" class="form-control form-control-user" id="exampleFirstName"-->
-<!--                         placeholder="Name" formControlName="name" style="width: 452px">-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">Invalid Registered Name !</div>-->
-<!--              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').errors.min">-->
-<!--                Name not less than 5 characters-->
-<!--              </div>-->
-
-<!--              <div class="form-group">-->
-<!--                <input type="email" class="form-control form-control-user" id="exampleInputEmail"-->
-<!--                       placeholder="Email Address" formControlName="email" >-->
-<!--              </div>-->
-<!--              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">Invalid email !</div>-->
-<!--              <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').errors.email">-->
-<!--                Invalid emal format-->
-<!--              </div>-->
-<!--              <div class="form-group row">-->
-<!--                <div class="col-sm-6 mb-3 mb-sm-0">-->
-<!--                  <input type="password" class="form-control form-control-user"-->
-<!--                         id="exampleInputPassword" placeholder="Password"  formControlName="password">-->
-<!--                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">Invalid password !</div>-->
-<!--                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').errors.min">-->
-<!--                    Password not less than 5 characters-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-6">-->
-<!--                  <input type="password" class="form-control form-control-user"-->
-<!--                         id="exampleRepeatPassword" placeholder="Repeat Password" formControlName="password_confirmation">-->
-<!--                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password_confirmation').invalid && signupForm.get('password_confirmation').touched">Re-Enter Invalid Password!</div>-->
-<!--                  <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password_confirmation').errors.min">-->
-<!--                    Password Confirmation not less than 5 characters-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                </div>-->
-
-<!--              <hr>-->
-
-<!--              <button type="submit" class="btn btn-primary btn-user btn-block" >Register Account</button>-->
-
-
-<!--              <hr>-->
-<!--              <a href="index.html" class="btn btn-google btn-user btn-block">-->
-<!--                <i class="fab fa-google fa-fw"></i> Register with Google-->
-<!--              </a>-->
-<!--              <a href="index.html" class="btn btn-facebook btn-user btn-block">-->
-<!--                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook-->
-<!--              </a>-->
-<!--            </form>-->
-<!--            <hr>-->
-<!--            <div class="text-center">-->
-<!--              <a class="small" href="forgot-password.html">Forgot Password?</a>-->
-<!--            </div>-->
-<!--            <div class="text-center">-->
-<!--              <a class="small" routerLink="/login">Already have an account? Login!</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--</div>-->
-
-<!--&lt;!&ndash; Bootstrap core JavaScript&ndash;&gt;-->
-<!--<script src="../../../assets/admin/vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="../../../assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-
-<!--&lt;!&ndash; Core plugin JavaScript&ndash;&gt;-->
-<!--<script src="../../../assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>-->
-
-<!--&lt;!&ndash; Custom scripts for all pages&ndash;&gt;-->
-<!--<script src="../../../assets/admin/js/sb-admin-2.min.js"></script>-->
-
-<!--</body>-->
-
-
-
-
-
-
 <body>
 <!-- header -->
 <div class="container">
@@ -114,7 +14,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a routerLink="/blogtop">Blog</a></li>
         <li><a href="404.html">Shortcodes</a></li>
         <li><a routerLink="/login">Login</a></li>
         <li><a href="contact.html">Contact</a></li>

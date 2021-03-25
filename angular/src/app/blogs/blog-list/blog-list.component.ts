@@ -8,7 +8,7 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-
+  p: number = 1;
   filter: any;
   blogs: any;
   users: any;

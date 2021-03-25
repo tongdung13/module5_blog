@@ -1,7 +1,7 @@
 <div>
   <form>
     <div class="input-group">
-      <input placeholder="Search" style="margin-left: 868px; width: 400px ; height: 35px "  type="text" name="search" [(ngModel)]="filter">
+      <input placeholder="Search" style="margin-left: 862px; width: 400px ; height: 35px "  type="text" name="search" [(ngModel)]="filter">
     </div>
   </form>
 
@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let blog of blogs | filter:filter; let i = index"[attr.data-index]="i">
+      <tr *ngFor="let blog of blogs | filter:filter | paginate: { itemsPerPage: 9, currentPage: p }; let i = index"[attr.data-index]="i">
         <td>{{ i }}</td>
         <td>
           <a routerLink="/blog-details-private/{{ blog.id }}">{{ blog.title | slice:0:60 }}</a>
@@ -29,4 +29,5 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
