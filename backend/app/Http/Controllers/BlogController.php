@@ -40,9 +40,9 @@ class BlogController extends Controller
         return response()->json($blog);
     }
 
-    public function blog ($id){
+    public function blog (){
 
-        $blog = DB::select('select * from users inner join blogs where users.id = blogs.user_id', [1]);
+        $blog = DB::select('select * from users inner join blogs where blogs.user_id = users.id', [1]);
         return response()->json($blog);
     }
 }

@@ -15,10 +15,7 @@
           <li><a routerLink="/blogtop">Blog</a></li>
           <li><a *ngIf="!userLogin" routerLink="login">Login</a></li>
           <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
-          <li><a *ngIf="userLogin">{{ users.fullName }}</a>
-            <ul class="submenu1">
-              <li><a routerLink="user-details" *ngIf="userLogin">My Profile</a></li>
-            </ul>
+          <li><a *ngIf="userLogin" routerLink="/user-details">{{ users.fullName }}</a>
           </li>
           <div class="clearfix"></div>
         </ul>
