@@ -16,7 +16,7 @@ export class BlogListComponent implements OnInit {
 
   constructor(
     private service: BlogService,
-    private userService: JwtService
+    private jwtService: JwtService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +25,6 @@ export class BlogListComponent implements OnInit {
   }
 
   loadData() {
-    this.id = localStorage.getItem('id');
     this.service.blogUser(this.id).subscribe(
       data => {
         this.blogs = data;
@@ -47,7 +46,7 @@ export class BlogListComponent implements OnInit {
 
   loadUser() {
     this.id = localStorage.getItem('id');
-    this.userService.show(this.id).subscribe(
+    this.jwtService.show(this.id).subscribe(
       data => {
         console.log(data);
         this.users = data;

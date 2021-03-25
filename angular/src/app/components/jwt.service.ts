@@ -61,16 +61,16 @@ export class JwtService {
     return this.http.get(environment.apiUrl + '/user', { headers: reqHeader });
   }
 
-  destroyToken(data: any) {
-    var auth_token = localStorage.getItem('AccessToken');
-    var reqHeader = new HttpHeaders({
+  logout() {
+    const token = localStorage.getItem('AccessToken');
+    const headersRes = new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
       // cu phap co dau cach dang sau Bearer
-      'Authorization': 'Bearer ' + auth_token
+      'Authorization': 'Bearer ' + token
     });
-    return this.http.post(environment.apiUrl + '/auth/logout', data, { headers: reqHeader });
+    return this.http.post(environment.apiUrl + '/auth/logout', null, { headers: headersRes });
   }
 
   showPublic(id: number) {

@@ -4,7 +4,7 @@ import { BlogListComponent } from '../blogs/blog-list/blog-list.component';
 import { CreateBlogComponent } from '../blogs/create-blog/create-blog.component';
 import { UpdateBlogComponent } from '../blogs/update-blog/update-blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -16,8 +16,6 @@ import { AdminServiceService } from '../admin/admin-service.service';
 import { BlogGuard } from '../blogs/blog.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { JwtService } from '../components/jwt.service';
-
-
 
 
 const routes: Routes = [
@@ -70,7 +68,8 @@ const routes: Routes = [
     NgxPaginationModule
 
   ],
-  providers: [AdminGuard, AdminServiceService, BlogGuard, JwtService]
 
+  providers: [
+    ]
 })
 export class LayoutModule { }

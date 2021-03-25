@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/admin/admin-service.service';
-import { BlogService } from 'src/app/blogs/blog.service';
 import { NotificationService } from 'src/app/service/notification.service';
 import { JwtService } from '../jwt.service';
 
@@ -19,8 +17,6 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     public jwtService: JwtService,
     private toastrService: NotificationService,
-    private loginService: AdminServiceService,
-    private blogService: BlogService
   ) {
 
   }
@@ -36,14 +32,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.loginForm.value;
     this.jwtService.signIn(data).subscribe(res => {
-      this.jwtService._isLoggedIn = true;
-      localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('user', res.user);
-      this.toastrService.showSuccess("Successful login ^^");
-      this.router.navigate(['']);
-    }, error => {
-      this.toastrService.showError("You have failed login !");
-    }
+        this.jwtService._isLoggedIn = true;
+        localStorage.setItem('AccessToken', res.token);
+        localStorage.setItem('id', res.user.id);
+        this.toastrService.showSuccess("Successful login ^^");
+        this.router.navigate(['']);
+      }, error => {
+        this.toastrService.showError("You have failed login !");
+      }
     );
   }
 

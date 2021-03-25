@@ -1,8 +1,9 @@
 .container {
   font-size: 13px;
 }
-
-
+#menu {
+  width: auto;
+}
 #menu .submenu1 {
   position: absolute;
   display: none;

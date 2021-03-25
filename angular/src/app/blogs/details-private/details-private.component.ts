@@ -45,13 +45,13 @@ export class DetailsPrivateComponent implements OnInit {
     )
   }
 
-  logOut() {
-    this.id = localStorage.getItem('id');
-    localStorage.removeItem('AccessToken');
-    this.userService.destroyToken(this.users);
-    this.router.navigate(['']);
-    this.toastrService.showSuccess("You have successfully logged out !");
-  }
+  // logOut() {
+  //   this.id = localStorage.getItem('id');
+  //   localStorage.removeItem('AccessToken');
+  //   this.userService.destroyToken(this.users);
+  //   this.router.navigate(['']);
+  //   this.toastrService.showSuccess("You have successfully logged out !");
+  // }
 
   // tslint:disable-next-line:typedef
   list(){
