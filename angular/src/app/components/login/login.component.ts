@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/admin/admin-service.service';
-import { BlogService } from 'src/app/blogs/blog.service';
 import { NotificationService } from 'src/app/service/notification.service';
 import { JwtService } from '../jwt.service';
 
@@ -36,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.jwtService.signIn(data).subscribe(res => {
       this.jwtService._isLoggedIn = true;
       localStorage.setItem('AccessToken', res.token);
-      localStorage.setItem('user', res.user);
+      localStorage.setItem('id', res.user.id);
       this.toastrService.showSuccess("Successful login ^^");
       this.router.navigate(['']);
     }, error => {

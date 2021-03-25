@@ -56,13 +56,13 @@ export class HomeComponent implements OnInit {
   }
 
   logOut() {
-    this.id = localStorage.getItem('id');
-    localStorage.removeItem('AccessToken');
-    this.jwtService.destroyToken(this.user).subscribe(res => {
+    this.jwtService.logout().subscribe(res => {
+      localStorage.removeItem('AccessToken');
+      localStorage.removeItem('user');
       this.userLogin = false;
       this.jwtService._isLoggedIn = false;
+      this.router.navigate(['']);
+      this.toastrService.showSuccess("You have successfully logged out !");
     });
-    this.router.navigate(['']);
-    this.toastrService.showSuccess("You have successfully logged out !");
   }
 }
