@@ -1,5 +1,4 @@
-
-  <body>
+<body>
   <!-- header -->
   <div class="header">
     <div class="container">
@@ -7,23 +6,24 @@
         <a href="index.html"><img src="assets/user2/images/logo.png" class="img-responsive" alt=""></a>
       </div>
 
-      <div class="head-nav">
+      <div class="head-nav" id="menu">
         <span class="menu"> </span>
         <ul class="cl-effect-1">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a routerLink="/blogtop">Blog</a></li>
-          <li><a href="404.html">Shortcodes</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li class="active"><a routerLink="">Home</a></li>
+          <li><a routerLink="/createBlog">New Post</a>
+          <li><a routerLink="/blog">Post</a></li>
+          <!-- <li><a routerLink="/blogtop">Blog</a></li> -->
+          <li><a *ngIf="!userLogin" routerLink="/login">Login</a></li>
+          <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
+          <li><a *ngIf="userLogin" routerLink="/user-details">{{ users.fullName }}</a>
+          </li>
           <div class="clearfix"></div>
         </ul>
       </div>
 
       <script>
-        $( "span.menu" ).click(function() {
-          $( ".head-nav ul" ).slideToggle(300, function() {
+        $("span.menu").click(function () {
+          $(".head-nav ul").slideToggle(300, function () {
             // Animation complete.
           });
         });
@@ -39,27 +39,26 @@
   <!-- header -->
   <div class="container">
     <div class="about">
-<!--      <h2>Chi tiết</h2>-->
+      <!--      <h2>Chi tiết</h2>-->
 
 
 
 
       <div class="about-top">
-        <div class="col-md-6 ab-top">
-          <img [src]="blogs.image" style="width: 500px; height: 350px">
-        </div>
-        <div class="col-md-6 ab-top">
+        <div >
           <h2>{{ blogs.title }}</h2>
-          <div style="font-size: 18px;" [innerHTML]="blogs.content">
+          <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
+          
+          
+          <div >
+            <a *ngIf="blogs.image">
+              <img [src]="blogs.image" style="width: 495px; height: 350px" align="left">
+            </a>
+            <p [innerHTML]="blogs.content"></p>
           </div>
         </div>
 
-        <div class="col-md-6 ab-top">
-          <p >{{ blogs.created_at | slice:0:10 }}</p>
-          <img *ngIf="users" [src]="users.image" class="image">
-          <p *ngIf="users" >{{ users.fullName }}</p>
-
-        </div>
+      
 
         <div class="clearfix"> </div>
       </div>
@@ -74,9 +73,10 @@
         <div class="span_3">
           <div class="col-md-6 ab-top">
             <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg" class="img-responsive" alt=""></li>
+              <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg"
+                  class="img-responsive" alt=""></li>
               <li class="span_2-right">
-                <h3>Hà Nội </h3>
+                <h3>Ha Noi </h3>
 
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
               </li>
@@ -85,9 +85,10 @@
           </div>
           <div class="col-md-6 ab-top">
             <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg" class="img-responsive" alt=""></li>
+              <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg"
+                  class="img-responsive" alt=""></li>
               <li class="span_2-right">
-                <h3>Thành Phố Hồ Chí Minh </h3>
+                <h3> Ho Chi Minh </h3>
 
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
               </li>
@@ -99,9 +100,10 @@
         <div class="span_4">
           <div class="col-md-6 ab-top">
             <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg" class="img-responsive" alt=""></li>
+              <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg"
+                  class="img-responsive" alt=""></li>
               <li class="span_2-right">
-                <h3>Đà Nẵng </h3>
+                <h3>Đa Nang </h3>
 
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
 
@@ -111,9 +113,10 @@
           </div>
           <div class="col-md-6 ab-top">
             <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg" class="img-responsive" alt=""></li>
+              <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg"
+                  class="img-responsive" alt=""></li>
               <li class="span_2-right">
-                <h3>Huế  </h3>
+                <h3>Hue </h3>
 
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
 
@@ -127,13 +130,25 @@
       <div class="testimonial">
 
         <h3>Our Testimonials</h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum</p>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+          some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+          to use a passage of Lorem Ipsum</p>
         <ul class="test_icon">
-          <li><a  href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg" class="img-responsive"></a></li>
+          <li><a href="#"><img style="width: 200px ; height: 120px"
+                src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg"
+                class="img-responsive"></a></li>
+          <li><a href="#"><img style="width: 200px ; height: 120px"
+                src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg"
+                class="img-responsive"></a></li>
+          <li><a href="#"><img style="width: 200px ; height: 120px"
+                src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg"
+                class="img-responsive"></a></li>
+          <li><a href="#"><img style="width: 200px ; height: 120px"
+                src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg"
+                class="img-responsive"></a></li>
+          <li><a href="#"><img style="width: 200px ; height: 120px"
+                src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg"
+                class="img-responsive"></a></li>
           <div class="clearfix"> </div>
         </ul>
 
@@ -143,33 +158,33 @@
       <div class="col-md-3 foot-1">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">||   Lorem Ipsum passage</a></li>
-          <li><a href="#">||   Finibus Bonorum et</a></li>
-          <li><a href="#">||   Treatise on the theory</a></li>
+          <li><a href="#">|| Lorem Ipsum passage</a></li>
+          <li><a href="#">|| Finibus Bonorum et</a></li>
+          <li><a href="#">|| Treatise on the theory</a></li>
         </ul>
       </div>
       <div class="col-md-3 foot-1">
         <h4>Favorite Resources</h4>
         <ul>
-          <li><a href="#">||   Characteristic words</a></li>
-          <li><a href="#">||   combined with a handful</a></li>
-          <li><a href="#">||   which looks reasonable</a></li>
+          <li><a href="#">|| Characteristic words</a></li>
+          <li><a href="#">|| combined with a handful</a></li>
+          <li><a href="#">|| which looks reasonable</a></li>
         </ul>
       </div>
       <div class="col-md-3 foot-1">
         <h4>About Us</h4>
         <ul>
-          <li><a href="#">||  Even slightly believable</a></li>
-          <li><a href="#">||  Hidden in the middle</a></li>
-          <li><a href="#">||  Ipsum therefore always</a></li>
+          <li><a href="#">|| Even slightly believable</a></li>
+          <li><a href="#">|| Hidden in the middle</a></li>
+          <li><a href="#">|| Ipsum therefore always</a></li>
         </ul>
       </div>
       <div class="col-md-3 foot-1">
         <h4>Custom Menu</h4>
         <ul>
-          <li><a href="#">||  Internet tend to repeat</a></li>
-          <li><a href="#">||  Alteration in some form</a></li>
-          <li><a href="#">||  This book is a treatise</a></li>
+          <li><a href="#">|| Internet tend to repeat</a></li>
+          <li><a href="#">|| Alteration in some form</a></li>
+          <li><a href="#">|| This book is a treatise</a></li>
         </ul>
       </div>
 
@@ -179,6 +194,4 @@
       </div>
     </div>
   </div>
-  </body>
-
-
+</body>

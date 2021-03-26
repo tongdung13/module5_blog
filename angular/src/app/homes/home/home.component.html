@@ -12,7 +12,7 @@
           <li class="active"><a routerLink="">Home</a></li>
           <li><a routerLink="/createBlog">New Post</a>
           <li><a routerLink="/blog">Post</a></li>
-          <li><a routerLink="/blogtop">Blog</a></li>
+          <!-- <li><a routerLink="/blogtop">Blog</a></li> -->
           <li><a *ngIf="!userLogin" routerLink="login">Login</a></li>
           <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
           <li><a *ngIf="userLogin" routerLink="/user-details">{{ users.fullName }}</a>
@@ -35,8 +35,10 @@
     </div>
   </div>
   <!-- header -->
+  
   <div class="container">
-    <div class="col-md-9 bann-right">
+    
+    <div class="col-md-12 bann-right">
       <!-- banner -->
       <div class="banner">
         <div class="header-slider">
@@ -48,7 +50,7 @@
                     src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg" class="img-responsive"
                     alt="">
                   <div class="caption">
-                    <h3>Nụ Cười Việt Nam </h3>
+                    <h3>Smile Vietnam </h3>
                     <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a,
                       convallis
                       ac, laoreet enim. Phasellus.</p>
@@ -59,7 +61,7 @@
                     src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg" class="img-responsive"
                     alt="">
                   <div class="caption">
-                    <h3>Tuổi Thơ Làm Sao Có Thể Trở Lại </h3>
+                    <h3>Childhood How Can You Come Back </h3>
                     <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a,
                       ultricies porta urna. Vestibulu. </p>
                   </div>
@@ -69,7 +71,7 @@
                     src="https://i.pinimg.com/564x/b4/8a/e2/b48ae2c8ae6dafa5a2ea7a10e8e0994d.jpg" class="img-responsive"
                     alt="">
                   <div class="caption">
-                    <h3>Người Mẹ Việt Nam </h3>
+                    <h3>Vietnamese mother</h3>
                     <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada
                       ultricies. Curabitur et ligula. </p>
                   </div>
@@ -79,7 +81,7 @@
                     src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg" class="img-responsive"
                     alt="">
                   <div class="caption">
-                    <h3>Hạnh Phúc </h3>
+                    <h3>Happy </h3>
                     <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
                       felis,
                       malesuada .</p>
@@ -90,16 +92,24 @@
           </div>
         </div>
       </div>
-
+      
 
       <!--    <app-blogday></app-blogday>-->
 
       <div class="nam-matis">
+        <div class="col-3" style="margin-left: 800px;">
+          <div class="b-search">
+            <form>
+              <input type="text" placeholder="Search" name="search" [(ngModel)]="filter">
+              <input type="submit" value="">
+            </form>
+          </div>
+        </div>
         <div class="nam-matis-top">
           <div class="col-md-6 nam-matis-1"
             *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p } | filter:filter; let i = index">
             <p class="card-text">
-              <a routerLink="blog-details/{{ blog.id }}"> <img [src]="blog.image"
+              <a routerLink="blog-details/{{ blog.id }}" *ngIf="blog.image"> <img [src]="blog.image"
                   style="width: 360px; height: 220px"></a>
             </p>
             <h3><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h3>
@@ -115,77 +125,6 @@
 
 
 
-    </div>
-    <div class="col-md-3 bann-left">
-
-
-      <div class="b-search">
-        <form>
-          <input type="text" value="Search" onfocus="this.value = '';"
-            onblur="if (this.value == '') {this.value = 'Search';}" placeholder="Search" name="search"
-            [(ngModel)]="filter">
-          <input type="submit" value="">
-        </form>
-      </div>
-
-
-      <h3>Recent Posts</h3>
-      <div class="blo-top">
-        <div class="blog-grids">
-          <div class="blog-grid-left">
-            <a href="single.html"><img src="assets/user2/images/1b.jpg" class="img-responsive" alt=""></a>
-          </div>
-          <div class="blog-grid-right">
-            <h4><a href="single.html">Little Invaders </a></h4>
-            <p>pellentesque dui, non felis. Maecenas male </p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="blog-grids">
-          <div class="blog-grid-left">
-            <a href="single.html"><img src="assets/user2/images/2b.jpg" class="img-responsive" alt=""></a>
-          </div>
-          <div class="blog-grid-right">
-            <h4><a href="single.html">Little Invaders </a></h4>
-            <p>pellentesque dui, non felis. Maecenas male </p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="blog-grids">
-          <div class="blog-grid-left">
-            <a href=""><img src="assets/user2/images/3b.jpg" class="img-responsive" alt=""></a>
-          </div>
-          <div class="blog-grid-right">
-            <h4><a href="single.html">Little Invaders </a></h4>
-            <p>pellentesque dui, non felis. Maecenas male </p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <h3>Categories</h3>
-      <div class="blo-top">
-        <li><a href="#">|| Lorem Ipsum passage</a></li>
-        <li><a href="#">|| Finibus Bonorum et</a></li>
-        <li><a href="#">|| Treatise on the theory</a></li>
-        <li><a href="#">|| Characteristic words</a></li>
-        <li><a href="#">|| combined with a handful</a></li>
-        <li><a href="#">|| which looks reasonable</a></li>
-      </div>
-      <h3>Newsletter</h3>
-
-      <div class="blo-top">
-        <div class="name">
-          <form>
-            <input type="text" placeholder="email" required="">
-          </form>
-        </div>
-        <div class="button">
-          <form>
-            <input type="submit" value="Subscribe">
-          </form>
-        </div>
-        <div class="clearfix"></div>
-      </div>
     </div>
     <div class="clearfix"></div>
 
@@ -311,46 +250,10 @@
 
       <!--    <script type="text/javascript" src="assets/user2/js/jquery.flexisel.js"></script>-->
       <div class="clearfix"></div>
-    </div>
+ 
 
-
-    <div class="footer">
-      <div class="col-md-3 foot-1">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">|| Lorem Ipsum passage</a></li>
-          <li><a href="#">|| Finibus Bonorum et</a></li>
-          <li><a href="#">|| Treatise on the theory</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>Favorite Resources</h4>
-        <ul>
-          <li><a href="#">|| Characteristic words</a></li>
-          <li><a href="#">|| combined with a handful</a></li>
-          <li><a href="#">|| which looks reasonable</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="#">|| Even slightly believable</a></li>
-          <li><a href="#">|| Hidden in the middle</a></li>
-          <li><a href="#">|| Ipsum therefore always</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>Custom Menu</h4>
-        <ul>
-          <li><a href="#">|| Internet tend to repeat</a></li>
-          <li><a href="#">|| Alteration in some form</a></li>
-          <li><a href="#">|| This book is a treatise</a></li>
-        </ul>
-      </div>
-
-      <div class="clearfix"></div>
       <div class="copyright">
-        <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
+        <p>Copyrights © 2021 Voguish All rights reserved | Template by <a routerLink="">Dream Blog</a></p>
       </div>
     </div>
   </div>

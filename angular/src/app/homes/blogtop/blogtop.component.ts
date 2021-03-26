@@ -43,7 +43,7 @@ export class BlogtopComponent implements OnInit {
 
   loadUser() {
     this.id = localStorage.getItem('id');
-    this.jwtService.show(this.id).subscribe(
+    this.jwtService.showPublic(this.id).subscribe(
       data => {
         console.log(data);
         this.users = data;

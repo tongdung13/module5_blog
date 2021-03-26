@@ -16,6 +16,10 @@ export class RegisterComponent implements OnInit {
   err: any = null;
   isSuccessfull = false;
   isSignuUpFailed = false;
+  users: any;
+  user: any;
+  userLogin = false;
+  id: any;
   constructor(
     public fb: FormBuilder,
     public router: Router,
@@ -31,6 +35,9 @@ export class RegisterComponent implements OnInit {
       password_confirmation: ['', [Validators.required, Validators.min(5)]]
     });
     console.log(this.signupForm);
+    this.loadUser();
+    this.userLogin = this.jwtService._isLoggedIn;
+    console.log(this.userLogin)
   }
 
   // tslint:disable-next-line:typedef
@@ -52,6 +59,16 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['login']);
       }
     );
+  }
+
+  loadUser() {
+    this.id = localStorage.getItem('id');
+    this.jwtService.show(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.users = data;
+      }, error => console.log(error)
+    )
   }
 
   // tslint:disable-next-line:typedef

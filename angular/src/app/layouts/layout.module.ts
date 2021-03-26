@@ -8,7 +8,7 @@ import { RouterModule, Routes, CanActivate, ActivatedRouteSnapshot, RouterStateS
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
 import { DetailsPrivateComponent } from '../blogs/details-private/details-private.component';
 import { AdminGuard } from '../admin/admin.guard';
@@ -44,10 +44,7 @@ const routes: Routes = [
     path: 'blog-details-private/:id',
     component: DetailsPrivateComponent
   },
-  {
-    path: 'changePass',
-    component: DetailsComponent
-  }
+
 ];
 
 @NgModule({

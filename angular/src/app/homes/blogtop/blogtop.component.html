@@ -57,19 +57,14 @@
               <div class="blog-artical-info-head">
 <!--                <h2><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h2>-->
                 <h2><a routerLink="blog-details/{{ blog.id }}"> {{blog.title}}</a></h2>
-                <h6>Posted on March 25, 2021 at 20:30 am by <a href="#"> admin</a></h6>
-<!--                <li><small> </small><span><p>{{ blogs.created_at | slice:0:10 }}</p></span></li>-->
-<!--                <li><p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p></li>-->
+                <h6>Posted on {{ blog.created_at | slice:0:10 }} am by <a routerLink="">{{ users.name }}</a></h6>
 
               </div>
               <div class="blog-artical-info-text">
-                <p class="card-text" [innerHTML]="blog.content">
+                <p class="card-text" [innerHTML]="blog.content | slice:0:200">
               </div>
               <div class="artical-links">
                 <ul>
-<!--                  <li><small> </small><span><p>{{ blogs.created_at | slice:0:10 }}</p></span></li>-->
-<!--                  <li><p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p></li>-->
-
                   <li><small> </small><span>june 25, 2021</span></li>
                   <li><a href="#"><small class="admin"> </small><span>admin</span></a></li>
                   <li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
@@ -86,71 +81,8 @@
 
 
         </div>
-        <!--start-blog-pagenate-->
-<!--        <nav>-->
-<!--          <ul class="pagination">-->
-<!--            <li>-->
-<!--              <a href="#" aria-label="Previous">-->
-<!--                <span aria-hidden="true">«</span>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--            <li><a href="#">1</a></li>-->
-<!--            <li><a href="#">2</a></li>-->
-<!--            <li><a href="#">3</a></li>-->
-<!--            <li><a href="#">4</a></li>-->
-<!--            <li><a href="#">5</a></li>-->
-<!--            <li>-->
-<!--              <a href="#" aria-label="Next">-->
-<!--                <span aria-hidden="true">»</span>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </nav>-->
-        <!--//End-blog-pagenate-->
       </div>
-      <div class="blog-content-right">
-        <div class="b-search">
-          <form>
-            <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-            <input type="submit" value="">
-          </form>
-        </div>
-        <!--start-twitter-weight-->
-        <div class="twitter-weights">
-          <h3>Tweet Widget</h3>
-          <div class="twitter-weight-grid">
-            <h4><span> </span>John Doe</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a></p>
-            <i><a href="#">2 days ago</a></i>
-          </div>
-          <div class="twitter-weight-grid">
-            <h4><span> </span>John Doe</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a></p>
-            <i><a href="#">2 days ago</a></i>
-          </div>
-          <a class="twittbtn" href="#">See all Tweets</a>
-        </div>
-        <!--//End-twitter-weight-->
-        <!-- start-tag-weight-->
-        <div class="b-tag-weight">
-          <h3>Tags Weight</h3>
-          <ul>
-            <li><a href="#">Lorem</a></li>
-            <li><a href="#">consectetur</a></li>
-            <li><a href="#">dolore</a></li>
-            <li><a href="#">aliqua</a></li>
-            <li><a href="#">sit amet</a></li>
-            <li><a href="#">ipsum</a></li>
-            <li><a href="#">Lorem</a></li>
-            <li><a href="#">consectetur</a></li>
-            <li><a href="#">dolore</a></li>
-            <li><a href="#">aliqua</a></li>
-            <li><a href="#">sit amet</a></li>
-            <li><a href="#">ipsum</a></li>
-          </ul>
-        </div>
-        <!---- //End-tag-weight---->
-      </div>
+      
       <div class="clearfix"> </div>
 
     </div>
