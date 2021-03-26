@@ -69,6 +69,7 @@ const routes: Routes = [
 
   ],
   providers: [
+    BlogGuard
     ]
 })
 export class LayoutModule { }

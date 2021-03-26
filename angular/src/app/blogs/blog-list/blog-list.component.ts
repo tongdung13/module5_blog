@@ -25,8 +25,8 @@ export class BlogListComponent implements OnInit {
   }
 
   loadData() {
-
-    this.service.blogUser(this.id).subscribe(
+    this.id = localStorage.getItem('id');
+    this.service.blogUser().subscribe(
       data => {
         this.blogs = data;
         console.log(data);

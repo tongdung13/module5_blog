@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginControler;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
@@ -54,7 +55,7 @@ Route::group(['middleware' => ['jwt']], function () {
         Route::put('update/{id}', [BlogController::class, 'update']);
         Route::get('show/{id}', [BlogController::class, 'show']);
         Route::delete('destroy/{id}', [BlogController::class, 'delete']);
-        Route::get('blog/{id}', [BlogController::class, 'blog']);
+        Route::get('blog', [BlogController::class, 'blog']);
     });
 Route::prefix('user')->group(function () {
     Route::get('', [UserProfileController::class, 'index']);
@@ -72,6 +73,11 @@ Route::prefix('users')->group(function () {
     Route::delete('destroy/{id}', [UserProfileController::class, 'delete']);
     });
 
+    Route::prefix('comments')->group(function () {
+        Route::get('', [CommentController::class, 'index']);
+        Route::post('', [CommentController::class, 'store']);
+        route::get('show/{id}', [CommentController::class, 'show']);
+    });
 
 
 
