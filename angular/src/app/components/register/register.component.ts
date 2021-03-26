@@ -59,4 +59,20 @@ export class RegisterComponent implements OnInit {
   {
     this.router.navigate(['login']);
   }
+
+  get name() {
+    return this.signupForm.get('name')
+  }
+
+  get email() {
+    return this.signupForm.get('email')
+  }
+
+  get password() {
+    return this.signupForm.get('password')
+  }
+
+  get password_confirmation() {
+    return this.signupForm.get('password_confirmation')
+  }
 }
