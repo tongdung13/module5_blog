@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminServiceService {
 
-  public _isLoggedIn!: boolean;
+  _isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient) { }
 

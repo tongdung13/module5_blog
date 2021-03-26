@@ -8,7 +8,7 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-  p: number = 1;
+ p : number =1 ;
   filter: any;
   blogs: any;
   users: any;
@@ -21,27 +21,17 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUser();
-    this.loadData();
+    this.getPostUserLogin();
   }
 
-  loadData() {
-    this.service.getAll().subscribe(
+  getPostUserLogin() {
+    this.id = localStorage.getItem('id');
+    this.service.getBlogUserLogin().subscribe(
       data => {
         this.blogs = data;
         console.log(data);
       }, error => console.log(error)
     )
-  }
-
-  deleteBlog(id: number) {
-    if (confirm("Bạn có muốn xóa không ?" + id)) {
-      this.service.delete(id).subscribe(
-        data => {
-          this.loadData();
-          console.log(data);
-        }, error => console.log(error)
-      )
-    }
   }
 
   loadUser() {

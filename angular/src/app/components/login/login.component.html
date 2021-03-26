@@ -13,7 +13,6 @@
         <li><a routerLink="/createBlog">New Post</a>
         <li><a routerLink="/blog">Post</a></li>
         <li><a routerLink="/blogtop">Blog</a></li>
-        <li><a routerLink="/login">Login</a></li>
         <li><a routerLink="/register">Register </a></li>
       </ul>
     </div>
@@ -27,7 +26,7 @@
     </script>
     <!-- script-for-nav -->
 
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
 
 
   </div>
@@ -50,7 +49,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="p-0">
             <span>Email Address<label>*</label></span>
-            <input style="width: 515px ; height: 35px" type="text" class="form-control form-control-user"
+            <input style="width: 515px ; height: 35px" type="text" name="email" class="form-control form-control-user"
                    formControlName="email">
             <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger p-0">
               <div *ngIf="email.errors.required" class="p-0">
@@ -63,7 +62,8 @@
           </div>
           <div class="pt-3">
             <span>Password<label>*</label></span>
-            <input style="width: 515px ; height: 35px" type="password" class="form-control form-control-user"
+            <input style="width: 515px ; height: 35px" name="password" type="password"
+                   class="form-control form-control-user"
                    formControlName="password">
           </div>
           <input type="submit" value="Login"><br>
@@ -71,7 +71,7 @@
 
         </form>
       </div>
-      <div class="clearfix"> </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 
@@ -112,7 +112,7 @@
       </ul>
     </div>
 
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
     <div class="copyright">
       <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
     </div>

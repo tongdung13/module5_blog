@@ -13,6 +13,7 @@ export class AdminLayoutComponent implements OnInit {
   id: any;
   user: any;
   userLogin = false;
+  users: any;
   constructor(
     private router: Router,
     private jwtService: JwtService,
@@ -22,7 +23,8 @@ export class AdminLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.userLogin = this.jwtService._isLoggedIn;
-    console.log(this.userLogin)
+    console.log(this.userLogin);
+    this.loadUser();
   }
 
   logOut() {
@@ -34,5 +36,15 @@ export class AdminLayoutComponent implements OnInit {
       this.router.navigate(['']);
       this.toastrService.showSuccess("You have successfully logged out !");
     });
+  }
+
+  loadUser() {
+    this.id = localStorage.getItem('id');
+    this.jwtService.show(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.users = data;
+      }, error => console.log(error)
+    );
   }
 }

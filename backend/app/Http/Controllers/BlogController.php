@@ -6,7 +6,7 @@ use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Tymon\JWTAuth\Facades\JWTAuth;
 class BlogController extends Controller
 {
     public function index() {
@@ -40,9 +40,14 @@ class BlogController extends Controller
         return response()->json($blog);
     }
 
-    public function blog ($id){
+    public function blog (){
 
-        $blog = DB::select('select * from users inner join blogs where users.id = blogs.user_id', [1]);
+        $blog = DB::select('select * from users inner join blogs where blogs.user_id = users.id', [1]);
         return response()->json($blog);
+    }
+
+    public function getBlogsOfMe() {
+        $blogs = JWTAuth::toUser()->blogs()->with('user')->get();
+        return response()->json($blogs);
     }
 }

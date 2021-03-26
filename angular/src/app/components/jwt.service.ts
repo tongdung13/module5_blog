@@ -45,7 +45,7 @@ export class JwtService {
     return this.http.put(environment.apiUrl + `/user/edit/${id}`, data, { headers: reqHeader });
   }
 
-  signIn(user: boolean): Observable<any> {
+  signIn(user: User): Observable<any> {
     return this.http.post(environment.apiUrl + '/auth/signin', user);
   }
 

@@ -17,9 +17,9 @@
         <li><a routerLink="/register">Register </a></li>
         <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
         <li><a *ngIf="userLogin">{{ users.name }}</a>
-<!--          <ul class="submenu1">-->
-<!--            <li><a routerLink="user-details" *ngIf="userLogin">My Profile</a></li>-->
-<!--          </ul>-->
+          <!--          <ul class="submenu1">-->
+          <!--            <li><a routerLink="user-details" *ngIf="userLogin">My Profile</a></li>-->
+          <!--          </ul>-->
         </li>
         <div class="clearfix"></div>
       </ul>
@@ -49,7 +49,8 @@
             <ul class="rslides" id="slider">
               <li>
                 <img style="width: 1200px ; height: 500px"
-                     src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/4d/4f/1b/4d4f1b0afa891566487a22f8a9dcc47c.jpg"
+                     class="img-responsive"
                      alt="">
                 <div class="caption">
                   <h3>Nụ Cười Việt Nam </h3>
@@ -60,7 +61,8 @@
               </li>
               <li>
                 <img style="width: 1200px ; height: 500px"
-                     src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/66/5a/1b/665a1bf2c21edbf5332e6f7c586bec3f.jpg"
+                     class="img-responsive"
                      alt="">
                 <div class="caption">
                   <h3>Tuổi Thơ Làm Sao Có Thể Trở Lại </h3>
@@ -70,7 +72,8 @@
               </li>
               <li>
                 <img style="width: 1200px ; height: 500px"
-                     src="https://i.pinimg.com/564x/b4/8a/e2/b48ae2c8ae6dafa5a2ea7a10e8e0994d.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/b4/8a/e2/b48ae2c8ae6dafa5a2ea7a10e8e0994d.jpg"
+                     class="img-responsive"
                      alt="">
                 <div class="caption">
                   <h3>Người Mẹ Việt Nam </h3>
@@ -80,7 +83,8 @@
               </li>
               <li>
                 <img style="width: 1200px ; height: 500px"
-                     src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/a6/85/a3/a685a3a02ff74512cbab350c6e6f2398.jpg"
+                     class="img-responsive"
                      alt="">
                 <div class="caption">
                   <h3>Hạnh Phúc </h3>
@@ -111,12 +115,11 @@
 
           </p>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
 
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
-
 
 
   </div>
@@ -133,34 +136,34 @@
     </div>
 
 
-    <h3>Recent Posts</h3>
+    <h3>City Of Vietnam</h3>
     <div class="blo-top">
       <div class="blog-grids">
         <div class="blog-grid-left">
-          <a href="single.html"><img src="assets/user2/images/1b.jpg" class="img-responsive" alt=""></a>
+          <a href="single.html"><img style="width: 80px ; height: 50px" src="https://i.pinimg.com/564x/e5/87/09/e587097e622c19cab2c96e2e32052620.jpg" class="img-responsive" alt=""></a>
         </div>
         <div class="blog-grid-right">
-          <h4><a href="single.html">Little Invaders </a></h4>
+          <h4><a href="single.html">Hà Nội</a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
         <div class="clearfix"></div>
       </div>
       <div class="blog-grids">
         <div class="blog-grid-left">
-          <a href="single.html"><img src="assets/user2/images/2b.jpg" class="img-responsive" alt=""></a>
+          <a href="single.html"><img style="width: 80px ; height: 50px" src="https://i.pinimg.com/564x/33/23/2f/33232fa0b82c67c54cc7b013e9e72f75.jpg" class="img-responsive" alt=""></a>
         </div>
         <div class="blog-grid-right">
-          <h4><a href="single.html">Little Invaders </a></h4>
+          <h4><a href="single.html">Đà Nẵng  </a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
         <div class="clearfix"></div>
       </div>
       <div class="blog-grids">
         <div class="blog-grid-left">
-          <a href=""><img src="assets/user2/images/3b.jpg" class="img-responsive" alt=""></a>
+          <a href=""><img style="width: 80px ; height: 50px" src="https://i.pinimg.com/564x/35/c7/77/35c77790f3e2d0e389580d786b68773b.jpg" class="img-responsive" alt=""></a>
         </div>
         <div class="blog-grid-right">
-          <h4><a href="single.html">Little Invaders </a></h4>
+          <h4><a href="single.html">Thành Phố Hồ Chí Mình  </a></h4>
           <p>pellentesque dui, non felis. Maecenas male </p>
         </div>
         <div class="clearfix"></div>
@@ -168,12 +171,12 @@
     </div>
     <h3>Categories</h3>
     <div class="blo-top">
-      <li><a href="#">|| Lorem Ipsum passage</a></li>
-      <li><a href="#">|| Finibus Bonorum et</a></li>
-      <li><a href="#">|| Treatise on the theory</a></li>
-      <li><a href="#">|| Characteristic words</a></li>
-      <li><a href="#">|| combined with a handful</a></li>
-      <li><a href="#">|| which looks reasonable</a></li>
+      <li><p href="#">=> Lorem Ipsum passage </p></li>
+      <li><p href="#">=> Finibus Bonorum et </p></li>
+      <li><p href="#">=> Treatise on the theory </p></li>
+      <li><p href="#">=> Characteristic words </p></li>
+      <li><p href="#">=> combined with a handful</p></li>
+      <li><p href="#">=> which looks reasonable</p></li>
     </div>
     <h3>Newsletter</h3>
 
@@ -202,7 +205,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/46/a0/1f/46a01f30fb19c7e4bd40ab4be53e88e6.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/46/a0/1f/46a01f30fb19c7e4bd40ab4be53e88e6.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -211,7 +215,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/c6/60/6e/c6606eb3dadd2dc91da79bda9eaf5d42.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/c6/60/6e/c6606eb3dadd2dc91da79bda9eaf5d42.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -229,7 +234,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/fb/7d/63/fb7d63b4cfd70a1b09de0390f6c0bd33.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/fb/7d/63/fb7d63b4cfd70a1b09de0390f6c0bd33.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -238,7 +244,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/37/a2/d8/37a2d84ef280705467c13a39c968ac81.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/37/a2/d8/37a2d84ef280705467c13a39c968ac81.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -247,7 +254,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/7c/9e/37/7c9e378ba027d641d93ba54d1ddf3f0e.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/7c/9e/37/7c9e378ba027d641d93ba54d1ddf3f0e.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -256,7 +264,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/48/54/7e/48547e8dac8286bea2e01b800b8d29b8.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/48/54/7e/48547e8dac8286bea2e01b800b8d29b8.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -265,7 +274,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/64/b1/b0/64b1b0be595928a0f72c2412f29a3bd0.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/64/b1/b0/64b1b0be595928a0f72c2412f29a3bd0.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -274,7 +284,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/1d/35/8b/1d358b0bf48e757171c9f550d89b94a7.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/1d/35/8b/1d358b0bf48e757171c9f550d89b94a7.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -283,7 +294,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/cc/9a/1b/cc9a1b634de5a5014aa52df56c846137.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/cc/9a/1b/cc9a1b634de5a5014aa52df56c846137.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -292,7 +304,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/75/c2/d2/75c2d2ae4b90b690ee36a91305c8a0a2.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/75/c2/d2/75c2d2ae4b90b690ee36a91305c8a0a2.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>
@@ -301,7 +314,8 @@
             <a href="#">
               <div class="banner-1">
                 <img style="width: 320px ; height: 115px;"
-                     src="https://i.pinimg.com/564x/6c/e4/92/6ce4924b5921ad1353364852f3a96bbc.jpg" class="img-responsive"
+                     src="https://i.pinimg.com/564x/6c/e4/92/6ce4924b5921ad1353364852f3a96bbc.jpg"
+                     class="img-responsive"
                      alt="">
               </div>
             </a>

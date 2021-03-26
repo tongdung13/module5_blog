@@ -88,7 +88,7 @@ export class BlogService {
     this._isLoggedIn = isLoggedIn;
   }
 
-  blogUser(id: number)
+  blogUser()
   {
     var auth_token = localStorage.getItem('AccessToken');
     var reqHeader = new HttpHeaders({
@@ -98,6 +98,33 @@ export class BlogService {
       // cu phap co dau cach dang sau Bearer
       'Authorization': 'Bearer ' + auth_token
     });
-    return this.http.get(environment.apiUrl + `/blogs/blog/${id}`, { headers: reqHeader });
+    return this.http.get(environment.apiUrl + `/blogs/blog`, { headers: reqHeader });
+  }
+
+  comment (data: any)
+  {
+    return this.http.post(environment.apiUrl + `/comments`, data);
+  }
+
+  showComment(id: number)
+  {
+    return this.http.get(environment.apiUrl + `/comments/show/${id}`);
+  }
+
+  getComment()
+  {
+    return this.http.get(environment.apiUrl + `/comments`);
+  }
+
+  getBlogUserLogin() {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(environment.apiUrl + `/me/blogs`, { headers: reqHeader });
   }
 }

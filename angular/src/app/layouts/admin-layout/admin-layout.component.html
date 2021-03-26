@@ -17,8 +17,10 @@
         <li><a routerLink="/user-details">Personal information </a></li>
         <li><a routerLink="/update-profile"> Update information </a></li>
         <li><a (click)="logOut()">LogOut</a></li>
+        <li><a *ngIf="userLogin">{{ users.name }}</a>
 
-        <div class="clearfix"></div>
+
+          <div class="clearfix"></div>
       </ul>
     </div>
     <!-- script-for-nav -->
