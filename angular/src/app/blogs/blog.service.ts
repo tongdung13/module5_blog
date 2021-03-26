@@ -115,4 +115,16 @@ export class BlogService {
   {
     return this.http.get(environment.apiUrl + `/comments`);
   }
+
+  getBlogUserLogin() {
+    var auth_token = localStorage.getItem('AccessToken');
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      // cu phap co dau cach dang sau Bearer
+      'Authorization': 'Bearer ' + auth_token
+    });
+    return this.http.get(environment.apiUrl + `/me/blogs`, { headers: reqHeader });
+  }
 }
