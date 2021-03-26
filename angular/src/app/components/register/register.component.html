@@ -148,8 +148,8 @@
 
 
           <div class="wow fadeInLeft" data-wow-delay="0.4s">
-            <span>First Name<label>*</label></span>
-            <input style="height: 35px" type="text" class="form-control form-control-user" formControlName="name">
+            <span>User Name<label>*</label></span>
+            <input style="height: 35px" type="text" name="name" class="form-control form-control-user" formControlName="name">
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">Invalid Registered Name !</div>
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('name').errors.min">
               Name not less than 5 characters
@@ -160,7 +160,7 @@
 
           <div class="wow fadeInRight" data-wow-delay="0.4s">
             <span>Email Address<label>*</label></span>
-            <input style="height: 35px" type="text" class="form-control form-control-user" formControlName="email">
+            <input style="height: 35px" type="text" name="email" class="form-control form-control-user" formControlName="email">
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">Invalid email !</div>
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('email').errors.email">
               Invalid emal format
@@ -186,7 +186,7 @@
 
           <div class="wow fadeInLeft" data-wow-delay="0.4s">
             <span>Password<label>*</label></span>
-            <input style="height: 35px" type="password" class="form-control form-control-user" formControlName="password">
+            <input style="height: 35px" type="password" name="password" class="form-control form-control-user" formControlName="password">
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">Invalid password !</div>
             <div class="alert alert-danger" role="alert" *ngIf="signupForm.get('password').errors.min">
               Password not less than 5 characters
