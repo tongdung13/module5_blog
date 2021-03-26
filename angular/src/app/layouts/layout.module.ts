@@ -43,8 +43,11 @@ const routes: Routes = [
   {
     path: 'blog-details-private/:id',
     component: DetailsPrivateComponent
+  },
+  {
+    path: 'changePass',
+    component: DetailsComponent
   }
-
 ];
 
 @NgModule({

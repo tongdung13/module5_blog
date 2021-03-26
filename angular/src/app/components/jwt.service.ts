@@ -76,4 +76,14 @@ export class JwtService {
   showPublic(id: number) {
     return this.http.get(environment.apiUrl + `/users/show/${id}`);
   }
+
+  changePassword(id: any, password: string, newPassword: string, newPasswordConfirm: string): Observable<any> {
+    var data = {
+      "password": password,
+      "newPassword": newPassword,
+      "newPasswordConfirm": newPasswordConfirm
+    }
+    console.log(data)
+    return this.http.put(environment.apiUrl + `/auth/change-password/${id}`, data)
+  }
 }

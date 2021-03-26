@@ -10,6 +10,7 @@ import { BlogtopComponent } from './homes/blogtop/blogtop.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { BlogDetailsComponent } from './blogs/blog-details/blog-details.component';
 import { BlogGuard } from './blogs/blog.guard';
+import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     path: 'blog-details/:id',
     component: BlogDetailsComponent
   },
+  
 ];
 
 @NgModule({

@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
         Route::post('/store',[BlogController::class , 'store']);
         Route::get('show/{id}', [UserController::class, 'show']);
         Route::put('update/{id}', [UserController::class, 'update']);
-
+        Route::put('change-password/{id}',[UserController::class,'changePass']);
     });
 
     Route::prefix('blog')->group(function () {
