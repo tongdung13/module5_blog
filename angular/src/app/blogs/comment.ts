@@ -1,8 +1,6 @@
 export class Comment {
-  id?: number;
-  // @ts-ignore
-  user_id: number;
-  // @ts-ignore
-  blog_id: number;
-  comment: any;
+  user_id!: number;
+  blog_id!: number;
+  comment!: string;
+  name!: string;
 }

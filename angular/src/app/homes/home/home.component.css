@@ -1,3 +1,21 @@
-.container{
+.container {
   font-size: 13px;
+}
+#menu {
+  width: auto;
+}
+
+#menu .submenu1 {
+  position: absolute;
+  display: none;
+}
+
+#menu ul li:hover .submenu1 {
+  display: block;
+}
+
+#menu ul.submenu1  {
+  background-color: red;
+  width: auto;
+  height: 36px;
 }

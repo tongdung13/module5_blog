@@ -72,7 +72,7 @@ export class UpdateuserComponent implements OnInit {
         console.log(data);
         this.loadData();
         this.toastrService.showSuccess("Update the successful information ^^");
-        this.router.navigate(['user'])
+        this.router.navigate(['user-details'])
       }, error => {
         console.log(error);
         this.toastrService.showError('failed to update information !');

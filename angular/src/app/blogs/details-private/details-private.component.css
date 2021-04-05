@@ -3,6 +3,13 @@
   width: 30px;
   height: 30px;
   clip-path: circle(15px at 50% 50%);
+  margin-top: 15px;
+}
+
+ p {
+  float: left;
+  margin-left: 10px;
+  font-size: 15px;
 }
 
 /*#menu ul {*/

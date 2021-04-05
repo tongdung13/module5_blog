@@ -1,248 +1,192 @@
-
-  <body>
-  <!-- header -->
-  <div class="header">
-    <div class="container">
-      <div class="logo">
-        <a href="index.html"><img src="assets/user2/images/logo.png" class="img-responsive" alt=""></a>
-      </div>
-
-      <div class="head-nav">
-        <span class="menu"> </span>
-        <ul class="cl-effect-1">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a routerLink="/blogtop">Blog</a></li>
-          <li><a href="404.html">Shortcodes</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <div class="clearfix"></div>
-        </ul>
-      </div>
-
-      <script>
-        $( "span.menu" ).click(function() {
-          $( ".head-nav ul" ).slideToggle(300, function() {
-            // Animation complete.
-          });
-        });
-      </script>
-      <!-- script-for-nav -->
-
-
-
-      <div class="clearfix"> </div>
-    </div>
-  </div>
-  <!-- header -->
-  <!-- header -->
-  <div class="container">
-    <div class="about">
-<!--      <h2>Chi tiết</h2>-->
-
-
-
-
-      <div class="about-top">
-        <div class="col-md-6 ab-top">
-          <img [src]="blogs.image" style="width: 500px; height: 350px">
-        </div>
-        <div class="col-md-6 ab-top">
-          <h2>{{ blogs.title }}</h2>
-          <div style="font-size: 18px;" [innerHTML]="blogs.content">
-          </div>
-        </div>
-
-
-
-
-        <div class="col-md-6 ab-top">
-          <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
-          <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
-          <img *ngIf="users" [src]="users.image" class="image">
-        </div>
-
-        <div class="clearfix"></div>
-      </div>
-
-      <!--tính năng like-->
-
-      <div class="container" style="height: 20px; overflow: hidden;">
-        <div class="addthis_toolbox addthis_default_style">
-          <a class="addthis_button_facebook_like">
-            <i (click)="likedislike('like')" class="fa fa-thumbs-up"></i> {{ getLikeDislike?.like }}
-            <i (click)="likedislike('dislike')" class="fa fa-thumbs-down"></i> {{ getLikeDislike?.dislike }}
-          </a>
-        </div>
-      </div>
-
-      <style type="text/css">
-        #chiase {position:fixed; bottom:25%; margin-left:-730px; float:left; background-color:#FFFFFF;padding:2px;z-index:10;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border: 1px solid #CCCCCC;}
-        #chiase .nut {float:left;clear:both;}
-      </style>
-
-      <div id='chiase'>
-
-        <div style="margin:4px;">
-
-          <div class='nut' id='facebook'>
-            <script src='http://connect.facebook.net/en_US/all.js#xfbml=1'></script>
-
-          </div>
-
-          <br />
-
-          <div class='nut' id='google'>
-            <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-            </script>
-
-          </div>
-
-        </div>
-      </div>
-
-<!--tính năng comment-->
-      <div class="card">
-        <div class="post-meta">
-          <ul class="comment-share-meta">
-            <li> <span> {{count}} comment</span>
-              <button class="post-comment" (click)="displayAllComment(id)"> Tổng Like
-                <i class="bi bi-chat-bubble"></i>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <!-- form bình luận 1 status -->
-        <form class="share-text-box" [formGroup]="formComment" (ngSubmit)="createComment()">
-                <textarea class="share-text-field" placeholder="leave a comment"
-                          id="cmt" formControlName="content"></textarea>
-
-          <button class="btn-share" type="submit">Comment</button>
-        </form>
-
-        <p *ngIf="!check">{{status}}</p>
-        <!--    list comment all -->
-        <div id="list-comment">
-          <div id="display-comment-all" *ngFor="let cm of comments">
-            <div class="content" id="content-all">
-              <p>{{cm.content}}</p>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/user2/images/logo.png" class="img-responsive" alt=""></a>
             </div>
-          </div>
+
+            <div class="head-nav" id="menu">
+                <span class="menu"> </span>
+                <ul class="cl-effect-1">
+                    <li class="active"><a routerLink="">Home</a></li>
+                    <li><a routerLink="/createBlog">New Post</a>
+                        <li><a routerLink="/blog">Post</a></li>
+                        <!-- <li><a routerLink="/blogtop">Blog</a></li> -->
+                        <li><a *ngIf="!userLogin" routerLink="/login">Login</a></li>
+                        <li><a *ngIf="userLogin" (click)="logOut()">Log Out</a></li>
+                        <li><a *ngIf="userLogin" routerLink="/user-details">{{ users.fullName }}</a>
+                        </li>
+                        <div class="clearfix"></div>
+                </ul>
+            </div>
+
+            <script>
+                $("span.menu").click(function() {
+                    $(".head-nav ul").slideToggle(300, function() {
+                        // Animation complete.
+                    });
+                });
+            </script>
+            <!-- script-for-nav -->
+
+
+
+            <div class="clearfix"> </div>
         </div>
-      </div>
-
-
-      <div class="team_grid">
-        <h3 class="m_1">Meet Our Team</h3>
-        <div class="span_3">
-          <div class="col-md-6 ab-top">
-            <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg" class="img-responsive" alt=""></li>
-              <li class="span_2-right">
-                <h3>Hà Nội </h3>
-
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-              </li>
-              <div class="clearfix"> </div>
-            </ul>
-          </div>
-          <div class="col-md-6 ab-top">
-            <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg" class="img-responsive" alt=""></li>
-              <li class="span_2-right">
-                <h3>Thành Phố Hồ Chí Minh </h3>
-
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-              </li>
-              <div class="clearfix"> </div>
-            </ul>
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="span_4">
-          <div class="col-md-6 ab-top">
-            <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg" class="img-responsive" alt=""></li>
-              <li class="span_2-right">
-                <h3>Đà Nẵng </h3>
-
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-
-              </li>
-              <div class="clearfix"> </div>
-            </ul>
-          </div>
-          <div class="col-md-6 ab-top">
-            <ul class="span_2">
-              <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg" class="img-responsive" alt=""></li>
-              <li class="span_2-right">
-                <h3>Huế  </h3>
-
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-
-              </li>
-              <div class="clearfix"> </div>
-            </ul>
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
-      <div class="testimonial">
-
-        <h3>Our Testimonials</h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum</p>
-        <ul class="test_icon">
-          <li><a  href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg" class="img-responsive"></a></li>
-          <li><a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg" class="img-responsive"></a></li>
-          <div class="clearfix"> </div>
-        </ul>
-
-      </div>
     </div>
-    <div class="footer">
-      <div class="col-md-3 foot-1">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">||   Lorem Ipsum passage</a></li>
-          <li><a href="#">||   Finibus Bonorum et</a></li>
-          <li><a href="#">||   Treatise on the theory</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>Favorite Resources</h4>
-        <ul>
-          <li><a href="#">||   Characteristic words</a></li>
-          <li><a href="#">||   combined with a handful</a></li>
-          <li><a href="#">||   which looks reasonable</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="#">||  Even slightly believable</a></li>
-          <li><a href="#">||  Hidden in the middle</a></li>
-          <li><a href="#">||  Ipsum therefore always</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 foot-1">
-        <h4>Custom Menu</h4>
-        <ul>
-          <li><a href="#">||  Internet tend to repeat</a></li>
-          <li><a href="#">||  Alteration in some form</a></li>
-          <li><a href="#">||  This book is a treatise</a></li>
-        </ul>
-      </div>
+    <!-- header -->
+    <!-- header -->
+    <div class="container">
+        <div class="about">
+            <!--      <h2>Chi tiết</h2>-->
 
-      <div class="clearfix"> </div>
-      <div class="copyright">
-        <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
-      </div>
+
+
+
+            <div class="about-top">
+                <div>
+                    <h2>{{ blogs.title }}</h2>
+                    <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
+
+
+                    <div>
+                        <a *ngIf="blogs.image">
+                            <img [src]="blogs.image" style="width: 495px; height: 350px" align="left">
+                        </a>
+                        <p [innerHTML]="blogs.content"></p>
+                    </div>
+                </div>
+
+
+
+                <div class="clearfix"> </div>
+            </div>
+
+
+
+
+
+
+            <div class="team_grid">
+                <h3 class="m_1">Meet Our Team</h3>
+                <div class="span_3">
+                    <div class="col-md-6 ab-top">
+                        <ul class="span_2">
+                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg" class="img-responsive" alt=""></li>
+                            <li class="span_2-right">
+                                <h3>Ha Noi </h3>
+
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 ab-top">
+                        <ul class="span_2">
+                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg" class="img-responsive" alt=""></li>
+                            <li class="span_2-right">
+                                <h3> Ho Chi Minh </h3>
+
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="span_4">
+                    <div class="col-md-6 ab-top">
+                        <ul class="span_2">
+                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg" class="img-responsive" alt=""></li>
+                            <li class="span_2-right">
+                                <h3>Đa Nang </h3>
+
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 ab-top">
+                        <ul class="span_2">
+                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg" class="img-responsive" alt=""></li>
+                            <li class="span_2-right">
+                                <h3>Hue </h3>
+
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="testimonial">
+
+                <h3>Our Testimonials</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage
+                    of Lorem Ipsum</p>
+                <ul class="test_icon">
+                    <li>
+                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg" class="img-responsive"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg" class="img-responsive"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg" class="img-responsive"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg" class="img-responsive"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg" class="img-responsive"></a>
+                    </li>
+                    <div class="clearfix"> </div>
+                </ul>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="col-md-3 foot-1">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">|| Lorem Ipsum passage</a></li>
+                    <li><a href="#">|| Finibus Bonorum et</a></li>
+                    <li><a href="#">|| Treatise on the theory</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 foot-1">
+                <h4>Favorite Resources</h4>
+                <ul>
+                    <li><a href="#">|| Characteristic words</a></li>
+                    <li><a href="#">|| combined with a handful</a></li>
+                    <li><a href="#">|| which looks reasonable</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 foot-1">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">|| Even slightly believable</a></li>
+                    <li><a href="#">|| Hidden in the middle</a></li>
+                    <li><a href="#">|| Ipsum therefore always</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 foot-1">
+                <h4>Custom Menu</h4>
+                <ul>
+                    <li><a href="#">|| Internet tend to repeat</a></li>
+                    <li><a href="#">|| Alteration in some form</a></li>
+                    <li><a href="#">|| This book is a treatise</a></li>
+                </ul>
+            </div>
+
+            <div class="clearfix"> </div>
+            <div class="copyright">
+                <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-  </body>
-
-
+</body>
