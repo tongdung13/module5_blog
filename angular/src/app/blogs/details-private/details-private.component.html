@@ -30,29 +30,50 @@
 
 
     <div class="about-top">
-      <div class="col-md-6 ab-top">
-        <img [src]="blogs.image" style="width: 500px; height: 350px">
+      <div class="col-md-6 ab-top" >
+        <div>
+           <img *ngIf="blogs.image" [src]="blogs.image" style="width: 500px; height: 350px">
+        </div>
+        <div *ngFor="let comment of comments">
+          <p style="font-size: 20px;">{{ comment.name }}</p><br>
+          <p>{{ comment.comment }}</p>
+        </div>
+        
       </div>
       <div class="col-md-6 ab-top">
         <h2>{{ blogs.title }}</h2>
+
         <div class="row">
           <div class="col-1">
             <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 400px;">Edit</a>
           </div>
           <div class="col-2">
-            <a class="btn btn-secondary" (click)="deleteBlog(blogs.id)" style="margin-left: 410px;">Delete</a>
+            <a class="btn btn-secondary" (click)="deleteBlog(blogs.id, blogs.title)" style="margin-left: 410px;">Delete</a>
           </div>
         <div style="font-size: 18px;" [innerHTML]="blogs.content">
         </div>
       </div>
 
       <div class="col-md-6 ab-top">
-        <p style=" font-size: 13px">{{ blogs.created_at | slice:0:10 }}</p>
-        <p *ngIf="users" style=" font-size: 15px">{{ users.fullName }}</p>
+        <p>{{ blogs.created_at | slice:0:10 }}</p>
         <img *ngIf="users" [src]="users.image" class="image">
+        <p *ngIf="users">{{ users.fullName }}</p>
       </div>
-
-
+      <form>
+        <div class="form-group">
+          <input type="text" name="name" [(ngModel)]="comments.name" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <textarea name="comment" [(ngModel)]="comments.comment" class="form-control" cols="30" rows="10" placeholder="comment"></textarea>
+        </div>
+        <div class="form-group">
+          <select name="blog_id" [(ngModel)]="comments.blog_id" >
+            <option [ngValue]="blogs.id">ok</option>
+          </select>
+        </div>
+        <button (click)="comMent()" id="btn">Comment</button>
+      </form>
+<!--
       <div class="row">
         <div class="col-1">
           <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 910px;">Edit</a>
@@ -60,7 +81,7 @@
         <div class="col-2">
           <a class="btn btn-secondary" (click)="deleteBlog(blogs.id)" style="margin-left: 900px;">Delete</a>
         </div>
-      </div>
+      </div> -->
 <!--      <a class="btn btn-secondary" *ngIf="blogs" routerLink="/edit/{{ blogs.id }}" style="margin-left: 600px;">Edit</a>-->
 
 <!--      <a class="btn btn-secondary" (click)="deleteBlog(blogs.id)" style="margin-left: 550px;">Delete</a>-->

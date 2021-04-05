@@ -16,17 +16,17 @@ export class BlogListComponent implements OnInit {
 
   constructor(
     private service: BlogService,
-    private userService: JwtService
+    private jwtService: JwtService
   ) { }
 
   ngOnInit(): void {
-    this.loadData();
     this.loadUser();
+    this.getPostUserLogin();
   }
 
-  loadData()
-  {
-    this.service.getAll().subscribe(
+  getPostUserLogin() {
+    this.id = localStorage.getItem('id');
+    this.service.getBlogUserLogin().subscribe(
       data => {
         this.blogs = data;
         console.log(data);
@@ -34,22 +34,9 @@ export class BlogListComponent implements OnInit {
     )
   }
 
-  deleteBlog(id: number)
-  {
-    if (confirm("Bạn có muốn xóa không ?" + id)) {
-        this.service.delete(id).subscribe(
-        data => {
-          this.loadData();
-          console.log(data);
-        }, error => console.log(error)
-      )
-    }
-  }
-
-  loadUser()
-  {
+  loadUser() {
     this.id = localStorage.getItem('id');
-    this.userService.show(this.id).subscribe(
+    this.jwtService.show(this.id).subscribe(
       data => {
         console.log(data);
         this.users = data;

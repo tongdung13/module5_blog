@@ -23,6 +23,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminComponent } from './admin/admin/admin.component';
 import { BlogDetailsComponent } from './blogs/blog-details/blog-details.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     ToastrModule.forRoot(),
     CKEditorModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    JwtModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
+<<<<<<< HEAD
     protected $table = 'comments';
 
     protected $fillable = [
@@ -25,4 +26,22 @@ class Comment extends Model
         $this->belongsTo('App\Models\Comment');
     }
 
+=======
+    protected $fillable = [
+        'user_id',
+        'blog_id',
+        'comment',
+        'name'
+    ];
+
+    public function blog ()
+    {
+        return $this->belongsTo('App\Models\Blog');
+    }
+
+    public function user ()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+>>>>>>> 412c62cb9a7884bf39aab20da6213e8f20f71f4f
 }

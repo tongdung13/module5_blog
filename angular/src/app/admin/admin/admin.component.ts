@@ -10,6 +10,7 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class AdminComponent implements OnInit {
 
+  loggedOut = false;
   constructor(
     private loginService: AdminServiceService,
     private router: Router,
@@ -20,8 +21,10 @@ export class AdminComponent implements OnInit {
   }
 
   logOut() {
-    this.loginService.setLogin(false);
-    this.router.navigate(['admin/admin-login']);
-    this.toastrService.showSuccess("Logged Out successfully")
+      this.loginService._isLoggedIn;
+      this.router.navigate(['admin/admin-login']);
+      this.toastrService.showSuccess("Logged Out successfully");
+ 
+    
   }
 }

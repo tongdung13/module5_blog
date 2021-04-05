@@ -1,33 +1,138 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>User Name</th>
-        <th>Email</th>
-        <th>Full Name</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Image</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users; let i = index"[attr.data-index]="i">
-        <td>{{ i }}</td>
-        <td>{{ user.name }}</td>
-        <td>
-          {{ user.email }}
-        </td>
-        <td>{{ user.fullName }}</td>
-        <td>{{ user.address }}</td>
-        <td>{{ user.phone }}</td>
-        <td>
-          <img [src]="user.image" style="width: 100px; height: 100px">
-        </td>
-        <td>
+<body>
+  <!-- header -->
+  <!-- login -->
+  <div class="container">
+    <div class="login-page">
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <div class="account_grid">
+        <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+          <h3>NEW CUSTOMERS</h3>
+          <p>By creating an account with our store, you will be able to move through the checkout process faster, store
+            multiple shipping addresses, view and track your orders in your account and more.</p>
+          <a class="acount-btn" routerLink="/register">Create an Account</a>
+        </div>
+        <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
+          <h3>REGISTERED CUSTOMERS</h3>
+          <p>If you have an account with us, please log in.</p>
+          <form [formGroup]="changePasswordForm" (ngSubmit)="submit()">
+
+            <div class="profiel-header">
+              <h3>
+                change Password
+              </h3>
+              <hr>
+            </div>
+  
+            <div class="clear">
+  
+              <div class="col-sm-10 col-sm-offset-1">
+  
+                <div class="form-group">
+                  <label for="password">Current Password
+                  </label>
+                  <input formControlName="password" name="password" id="password" type="password" class="form-control">
+             
+                
+                </div>
+  
+  
+  
+                <div class="form-group">
+                  <label for="password">A New Password
+                  </label>
+                  <input formControlName="newPassword" id="password" type="password" class="form-control">
+                 
+                   
+                  
+                </div>
+  
+                <div class="form-group">
+                  <label for="confirm_password">Enter The Password</label>
+                  <input formControlName="newPasswordConfirm" id="confirm_password" type="password" class="form-control">
+                
+
+                </div>
+  
+  
+  
+  
+  
+              </div>
+             
+              <div style="margin-left: 140px;" class="col-sm-4 col-sm-offset-1">
+                <input type="submit" value="Confirm">
+  
+              </div>
+  
+  
+  
+            </div>
+  
+  
+  
+  
+          </form>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+
+    <!-- login -->
+
+
+    <div class="footer">
+      <div class="col-md-3 foot-1">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">|| PSD Style is Awesome</a></li>
+          <li><a href="#">|| Categories and More</a></li>
+          <li><a href="#">|| Quisit Altici Magunic</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 foot-1">
+        <h4>Favorite Resources</h4>
+        <ul>
+          <li><a href="#">|| PSD Style is Awesome</a></li>
+          <li><a href="#">|| www.psdstyle.net</a></li>
+          <li><a href="#">|| Quisit Altici Magunic</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 foot-1">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">|| PSD Style is Awesome</a></li>
+          <li><a href="#">|| Categories and More</a></li>
+          <li><a href="#">|| Quisit Altici Magunic</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 foot-1">
+        <h4>Custom Menu</h4>
+        <ul>
+          <li><a href="#">|| PSD Style is Awesome</a></li>
+          <li><a href="#">|| Categories and More</a></li>
+          <li><a href="#">|| Quisit Altici Magunic</a></li>
+        </ul>
+      </div>
+
+      <div class="clearfix"> </div>
+      <div class="copyright">
+        <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+<div class="content-area user-profiel" style="background-color: #FCFCFC;">&nbsp;
+  <div style="margin: auto 400px;" class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-1 profiel-container">
+
+
+        
+
+      </div>
+    </div><!-- end row -->
+
+  </div>

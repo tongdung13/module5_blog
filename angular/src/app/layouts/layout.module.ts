@@ -4,16 +4,18 @@ import { BlogListComponent } from '../blogs/blog-list/blog-list.component';
 import { CreateBlogComponent } from '../blogs/create-blog/create-blog.component';
 import { UpdateBlogComponent } from '../blogs/update-blog/update-blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { UpdateuserComponent } from '../components/updateuser/updateuser.component';
 import { DetailsComponent } from '../components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { DetailsUserComponent } from '../components/details-user/details-user.component';
 import { DetailsPrivateComponent } from '../blogs/details-private/details-private.component';
 import { AdminGuard } from '../admin/admin.guard';
 import { AdminServiceService } from '../admin/admin-service.service';
 import { BlogGuard } from '../blogs/blog.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { JwtService } from '../components/jwt.service';
 
 
 
@@ -41,7 +43,7 @@ const routes: Routes = [
   {
     path: 'blog-details-private/:id',
     component: DetailsPrivateComponent
-  }
+  },
 
 ];
 
@@ -62,10 +64,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     CKEditorModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
 
   ],
-  providers: [AdminGuard, AdminServiceService, BlogGuard]
-
+  providers: [
+    BlogGuard
+    ]
 })
 export class LayoutModule { }
