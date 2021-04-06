@@ -45,147 +45,126 @@
 
 
             <div class="about-top">
-                <div>
-                    <h2>{{ blogs.title }}</h2>
-                    <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
+                <h2>{{ blogs.title }}</h2>
+                <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
 
-
-                    <div>
-                        <a *ngIf="blogs.image">
-                            <img [src]="blogs.image" style="width: 495px; height: 350px" align="left">
-                        </a>
-                        <p [innerHTML]="blogs.content"></p>
-                    </div>
+                <div class="clearfix" *ngIf="blogs.image">
+                    <img [src]="blogs.image" class="image" alt="Pineapple">
+                    <p [innerHTML]="blogs.content" class="p"></p>
                 </div>
-
 
 
                 <div class="clearfix"> </div>
             </div>
 
 
-
-
-
-
-            <div class="team_grid">
-                <h3 class="m_1">Meet Our Team</h3>
-                <div class="span_3">
-                    <div class="col-md-6 ab-top">
-                        <ul class="span_2">
-                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/cf/6f/c9/cf6fc9b9c5c0a94a8e50faa0f484068c.jpg" class="img-responsive" alt=""></li>
-                            <li class="span_2-right">
-                                <h3>Ha Noi </h3>
-
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                            </li>
-                            <div class="clearfix"> </div>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 ab-top">
-                        <ul class="span_2">
-                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/14/76/ee/1476eee8d831594bd8e754cc7958ed1f.jpg" class="img-responsive" alt=""></li>
-                            <li class="span_2-right">
-                                <h3> Ho Chi Minh </h3>
-
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                            </li>
-                            <div class="clearfix"> </div>
-                        </ul>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="span_4">
-                    <div class="col-md-6 ab-top">
-                        <ul class="span_2">
-                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/b6/9c/58/b69c587852bd70c85aa788fdebc919a5.jpg" class="img-responsive" alt=""></li>
-                            <li class="span_2-right">
-                                <h3>Đa Nang </h3>
-
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-
-                            </li>
-                            <div class="clearfix"> </div>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 ab-top">
-                        <ul class="span_2">
-                            <li class="span_2-left"><img src="https://i.pinimg.com/564x/4a/a8/6e/4aa86e37ffe5a5313d4968e5f7c86522.jpg" class="img-responsive" alt=""></li>
-                            <li class="span_2-right">
-                                <h3>Hue </h3>
-
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-
-                            </li>
-                            <div class="clearfix"> </div>
-                        </ul>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
             <div class="testimonial">
 
-                <h3>Our Testimonials</h3>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage
-                    of Lorem Ipsum</p>
-                <ul class="test_icon">
-                    <li>
-                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/fc/cc/a9/fccca976736c9429dd8d9a5b4af746bd.jpg" class="img-responsive"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/55/3b/df/553bdf8e0cdeed1042fb4d5c695910f9.jpg" class="img-responsive"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/05/1a/25/051a2544a64b045b9909a7ec5c822831.jpg" class="img-responsive"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/a3/49/63/a34963753743649fc3c167ee6f40b60b.jpg" class="img-responsive"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img style="width: 200px ; height: 120px" src="https://i.pinimg.com/564x/b6/08/16/b608162ca4ba3a7f80caf17b63aea8db.jpg" class="img-responsive"></a>
-                    </li>
-                    <div class="clearfix"> </div>
-                </ul>
 
-            </div>
-        </div>
-        <div class="footer">
-            <div class="col-md-3 foot-1">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">|| Lorem Ipsum passage</a></li>
-                    <li><a href="#">|| Finibus Bonorum et</a></li>
-                    <li><a href="#">|| Treatise on the theory</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 foot-1">
-                <h4>Favorite Resources</h4>
-                <ul>
-                    <li><a href="#">|| Characteristic words</a></li>
-                    <li><a href="#">|| combined with a handful</a></li>
-                    <li><a href="#">|| which looks reasonable</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 foot-1">
-                <h4>About Us</h4>
-                <ul>
-                    <li><a href="#">|| Even slightly believable</a></li>
-                    <li><a href="#">|| Hidden in the middle</a></li>
-                    <li><a href="#">|| Ipsum therefore always</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 foot-1">
-                <h4>Custom Menu</h4>
-                <ul>
-                    <li><a href="#">|| Internet tend to repeat</a></li>
-                    <li><a href="#">|| Alteration in some form</a></li>
-                    <li><a href="#">|| This book is a treatise</a></li>
-                </ul>
-            </div>
+                <div class="fle-xsel">
+                    <div class="nbs-flexisel-container">
+                        <div class="nbs-flexisel-inner">
+                            <ul id="flexiselDemo3" class="nbs-flexisel-ul" style="left: -394.189px; display: block;">
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/46/a0/1f/46a01f30fb19c7e4bd40ab4be53e88e6.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/c6/60/6e/c6606eb3dadd2dc91da79bda9eaf5d42.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/b1/fe/3a/b1fe3a4908da6f9f060a6bd64fff0758.jpg " class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/fb/7d/63/fb7d63b4cfd70a1b09de0390f6c0bd33.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/37/a2/d8/37a2d84ef280705467c13a39c968ac81.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/7c/9e/37/7c9e378ba027d641d93ba54d1ddf3f0e.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/48/54/7e/48547e8dac8286bea2e01b800b8d29b8.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/64/b1/b0/64b1b0be595928a0f72c2412f29a3bd0.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/1d/35/8b/1d358b0bf48e757171c9f550d89b94a7.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/cc/9a/1b/cc9a1b634de5a5014aa52df56c846137.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/75/c2/d2/75c2d2ae4b90b690ee36a91305c8a0a2.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nbs-flexisel-item" style="width: 205.2px;">
+                                    <a href="#">
+                                        <div class="banner-1">
+                                            <img style="width: 320px ; height: 115px;" src="https://i.pinimg.com/564x/6c/e4/92/6ce4924b5921ad1353364852f3a96bbc.jpg" class="img-responsive" alt="">
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="nbs-flexisel-nav-left" style="top: 45.5px;"></div>
+                            <div class="nbs-flexisel-nav-right" style="top: 45.5px;"></div>
+                        </div>
+                    </div>
 
-            <div class="clearfix"> </div>
-            <div class="copyright">
-                <p>Copyrights © 2021 Voguish All rights reserved | Template by <a href="https://www.google.com/">Google</a></p>
+
+                    <!--    <script type="text/javascript" src="assets/user2/js/jquery.flexisel.js"></script>-->
+                    <div class="clearfix"></div>
+
+
+                    <div class="copyright">
+                        <p>Copyrights © 2021 Voguish All rights reserved | Template by <a routerLink="">Dream Blog</a></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

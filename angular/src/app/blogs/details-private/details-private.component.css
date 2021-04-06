@@ -1,79 +1,24 @@
+.container {
+    font-size: 13px;
+}
+
+p {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
 .image {
-  margin-left: 10px;
-  width: 30px;
-  height: 30px;
-  clip-path: circle(15px at 50% 50%);
-  margin-top: 15px;
+    width: 420px;
+    height: 385px;
+    float: right;
 }
 
- p {
-  float: left;
-  margin-left: 10px;
-  font-size: 15px;
+.p {
+    margin-left: 10px;
 }
 
-/*#menu ul {*/
-/*  background: black;*/
-/*  width: 250px;*/
-/*  padding: 0;*/
-/*  list-style-type: none;*/
-/*  text-align: left;*/
-/*}*/
-
-/*#menu li {*/
-/*  width: auto;*/
-/*  height: 40px;*/
-/*  line-height: 40px;*/
-/*  !* border-bottom: 1px solid #e8e8e8; *!*/
-/*  padding: 0 1em;*/
-/*}*/
-
-/*#menu li a {*/
-/*  text-decoration: none;*/
-/*  color: lightcyan;*/
-/*  font-weight: bold;*/
-/*  display: block;*/
-/*}*/
-
-/*#menu li p {*/
-/*  text-decoration: none;*/
-/*  color: lightcyan;*/
-/*  font-weight: bold;*/
-/*  display: block;*/
-/*}*/
-
-/*#menu li:hover {*/
-/*  background: black;*/
-/*}*/
-
-/*#menu ul li {*/
-/*  position: relative;*/
-/* }*/
-
-/* #menu .sub-menu {*/
-/*  position: absolute;*/
-/*  top: 40px;*/
-/*  width: 250px;*/
-/*  display: none;*/
-/*  text-align: left;*/
-/*  border-left: 1px solid #fff;*/
-/*  font-size: 90%;*/
-/*  border-radius: 0px 10px 10px 0px;*/
-/* }*/
-
-/* #menu li:hover .sub-menu {*/
-/*  display: block;*/
-/* }*/
-
-/* *{*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  transition: all 0.3s;*/
-/*}*/
-
-/*img {*/
-/*  width: 300px;*/
-/*  height: 200px;*/
-/*  */
-/*}*/
-
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
