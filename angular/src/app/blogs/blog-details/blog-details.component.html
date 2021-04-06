@@ -45,28 +45,17 @@
 
 
             <div class="about-top">
-                <div>
-                    <h2>{{ blogs.title }}</h2>
-                    <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
+                <h2>{{ blogs.title }}</h2>
+                <p>Đăng vào {{ blogs.created_at | slice:0:10 }}</p>
 
-
-                    <div>
-                        <a *ngIf="blogs.image">
-                            <img [src]="blogs.image" style="width: 495px; height: 350px" align="left">
-                        </a>
-                        <p [innerHTML]="blogs.content"></p>
-                    </div>
+                <div class="clearfix" *ngIf="blogs.image">
+                    <img [src]="blogs.image" class="image" alt="Pineapple">
+                    <p [innerHTML]="blogs.content" class="p"></p>
                 </div>
-
 
 
                 <div class="clearfix"> </div>
             </div>
-
-
-
-
-
 
             <div class="team_grid">
                 <h3 class="m_1">Meet Our Team</h3>

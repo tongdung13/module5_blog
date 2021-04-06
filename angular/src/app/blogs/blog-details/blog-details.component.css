@@ -1,9 +1,24 @@
-
-.container{
-  font-size: 13px;
+.container {
+    font-size: 13px;
 }
 
-p{
-  margin-left: 10px;
-  font-size: 16px;
+p {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.image {
+    width: 420px;
+    height: 385px;
+    float: right;
+}
+
+.p {
+    margin-left: 10px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
